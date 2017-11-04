@@ -1,0 +1,91 @@
+.container-fluid {
+    padding-right:0;
+    padding-left:0;
+    margin-right:auto;
+    margin-left:auto;
+ }
+
+html{
+
+}
+
+body{
+
+}
+
+#top-section{
+    min-height:100%;
+    background: url('../images/csulb-pano.png') ;
+    background-position: left;
+    background-size:cover;
+}
+
+header{
+
+}
+
+#body-panel{
+    margin-left:0;
+    margin-right:0;
+}
+
+#left-section{
+    background: #3F3736;
+    width: 25%;
+    height: 42.7em;
+    padding: 0px;
+    margin: 0px;
+}
+
+.icon-bar {
+    width: 100%; /* Set a specific width */
+    background-color: #555; /* Dark-grey background */
+    overflow: auto;
+}
+
+.icon-bar a {
+    float: left;
+    margin: 0;
+    text-align: center; /* Center-align text */
+    width: 33.33%;
+    padding: 20px;
+    transition: all 0.3s ease; /* Add transition for hover effects */
+    color: white;
+    font-size: 36px;
+
+
+}
+
+
+
+.icon-bar a:hover {
+    background-color: #000; /* Add a hover color */
+}
+
+.active {
+    background-color: #629182; /* Add an active/current color */
+}
+
+
+#right-section{
+    float: left;
+    background: black;
+    width: 75%;
+    height: 42.7em;
+}
+
+
+#map {
+    /*zoom: 400%;*/
+    /*-moz-transform: scale(3);*/
+    margin-left:-15px;
+    padding-right: 72.3em;
+    width:100%;
+    height: inherit;
+    background: lightgrey;
+
+}
+
+#start, #end{
+    color:black;
+}

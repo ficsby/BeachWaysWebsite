@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/map.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAemlR3DsIOjcrtwncedOU6gbR7Gc_3Eis&callback=initMap" type="text/javascript"></script>
+    <script src="script.js" type="text/javascript"></script>
+    <link href="https://file.myfontastic.com/uMXUMpnawi8eu6V7LRA243/icons.css" rel="stylesheet">
+    <title>BeachWays Map</title>
+  </head>
+
+  <body>
+        <div id="color-overlay"></div>
+        <div id="top-section" class="container-fluid">
+            <div class="col-xs-3 col-md-3"> <!--Top-left section-->
+                <header>
+                    <a target="_top" href="http://www.flamingtext.com/" ><img src="https://blog.flamingtext.com/blog/2017/11/01/flamingtext_com_1509570576_346846638.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>
+                </header>
+            </div>
+            <div class="col-xs-9 col-md-9"> <!--Top-right section-->
+                <div id="search-bar"></div>
+            </div>
+        </div>
+        <div id="body-panel" class="container-fluid">
+            <div id="left-section" class="col-xs-3 col-md-3"> <!--Left section-->
+                <div class="icon-bar">
+                  <a class="active" href="#"><i class="icon-aim"></i></a>
+                  <a href="#"><i class="icon-key-1"></i></a>
+                  <a href="#"><i class="icon-info-circled"></i></a>
+                </div>
+            </div>
+              <div id="right-section" class="col-xs-9 col-md-9">
+                  <div id="map">
+              </div>
+           </div>
+        </div>
+  </body>
+
+</html>
