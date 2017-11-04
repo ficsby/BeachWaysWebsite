@@ -1,9 +1,14 @@
+/* BOOTSTRAP
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 .container-fluid {
     padding-right:0;
     padding-left:0;
     margin-right:auto;
     margin-left:auto;
  }
+
+/* GENERAL
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 html{
 
@@ -29,6 +34,8 @@ header{
     margin-right:0;
 }
 
+/* LEFT SIDE BAR SECTION
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #left-section{
     background: #3F3736;
     width: 25%;
@@ -52,29 +59,29 @@ header{
     transition: all 0.3s ease; /* Add transition for hover effects */
     color: white;
     font-size: 36px;
-
-
 }
-
-
 
 .icon-bar a:hover {
     background-color: #000; /* Add a hover color */
 }
 
-.active {
+,icon-bar a:active {
     background-color: #629182; /* Add an active/current color */
+    color:red;
 }
 
-
+/* RIGHT MAP SECTION
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #right-section{
     float: left;
     background: black;
     width: 75%;
     height: 42.7em;
+    min-height:100%;
 }
 
-
+/* GOOGLE MAPS SECTION
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #map {
     /*zoom: 400%;*/
     /*-moz-transform: scale(3);*/
@@ -88,4 +95,50 @@ header{
 
 #start, #end{
     color:black;
+}
+
+/* MEDIA SECTION (Different screen sizes)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* EXTRA SMALL SCREEN SECTION
+-------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (max-width:576px){
+
+}
+/* SMALL SCREEN SECTION
+-------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (min-width:576px){
+  #left-section{
+      background: #3F3736;
+      width: 25%;
+      height: 61.5em;
+      padding: 0px;
+      margin: 0px;
+  }
+
+  #right-section{
+      float: left;
+      background: black;
+      width: 75%;
+      height: 61.6em;
+  }
+}
+
+/* LARGE SCREEN SECTION
+-------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (min-width:992px){
+  #left-section{
+      background: #3F3736;
+      width: 25%;
+      height: 61.5em;
+      padding: 0px;
+      margin: 0px;
+  }
+
+  #right-section{
+      float: left;
+      background: black;
+      width: 75%;
+      height: 61.6em;
+  }
 }

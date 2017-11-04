@@ -6,8 +6,8 @@ function initMap() {
       center: {lat: 33.7838, lng: -118.1141}
     });
     directionsDisplay.setMap(map); directionsDisplay.setPanel(document.getElementById('right-panel'));
-    
-    
+
+
 
     var onChangeHandler = function() {
       calculateAndDisplayRoute(directionsService, directionsDisplay);
@@ -33,6 +33,18 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     }, function(response, status) {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
-          } 
+          }
         });
-}   
+}
+
+/*Icon Bar Functionality
+---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+function openIconTab(iconName){
+  var i;
+  var x = document.getElementsByClassName("icon");
+  for(i = 0; i < x.length; i++){
+    x[i].style.display = "none"
+  }
+
+  document.getElementById(iconName).style.display = "block";
+}
