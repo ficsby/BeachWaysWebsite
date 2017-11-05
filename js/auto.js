@@ -86,7 +86,7 @@ $(function() {
     {value:"University Student Union", data: }, {value:"USU", data: },
     {value:"University Telecommunications", data: }, {value:"UTC", data: },
     {value:"Visitor Information Center", data: }, {value:"VIC", data: },
-    {value:"Vivian Engineering Center", data: }, {value:"VEC", data: },
+    {value:"Vivian Engineering Center", data: {lat:33.782830248878916, lng:-118.11044096946716} }, {value:"VEC", data: {lat:33.782830248878916, lng:-118.11044096946716} },
   ];
 
   $("#start").autocomplete({
