@@ -21,7 +21,7 @@
         <div id="top-section" class="container-fluid">
             <div class="col-xs-3 col-md-3"> <!--Top-left section-->
                 <header>
-                    <a target="_top" href="http://www.flamingtext.com/" ><img src="https://blog.flamingtext.com/blog/2017/11/01/flamingtext_com_1509570576_346846638.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>
+                    <a target="_top" href="home.html" ><img src="https://blog.flamingtext.com/blog/2017/11/01/flamingtext_com_1509570576_346846638.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>
                 </header>
             </div>
             <div class="col-xs-9 col-md-9"> <!--Top-right section-->
@@ -31,20 +31,60 @@
         <div id="body-panel" class="container-fluid">
             <div id="left-section" class="col-xs-3 col-md-3"> <!--Left section-->
                 <div class="icon-bar">
-                  <a href="#" onclick="openIconTab('active')"><i class="icon-aim"></i></a>
+                  <a href="#" onclick="openIconTab('navigation')"><i class="icon-aim"></i></a>
                   <a href="#" onclick="openIconTab('key')"><i class="icon-key-1"></i></a>
                   <a href="#" onclick="openIconTab('info-circle')"><i class="icon-info-circled"></i></a>
                 </div>
 
-                <div id="active" class="icon">
+                <div id="navigation" class="icon tab active">
                   <input id="start" class="controls" type="text" placeholder="Enter an origin location">
                   <input id="end" class="controls" type="text" placeholder="Enter a destination location">
                 </div>
 
-                <div id="key" class="icon">
+                <div id="key" class="icon tab">
+                    <div class="keytabs">
+                       <button class="tablinks" onclick="openKey(event, 'legend')">Legend</button>
+                       <button class="tablinks" onclick="openKey(event, 'parking')">Parking</button>
+                       <button class="tablinks" onclick="openKey(event, 'food')">Food &amp; Drink</button>
+                      </div>
+
+                      <div id="legend" class="tabcontent tab active">
+                         <h3>Legend</h3>
+                         <ul class="legend">
+                           <li><a href=#>Building</a></li>
+                           <li><a href=#>CSULB "Campus Connection" Stop</a></li>
+                           <li><a href=#>Long Beach Transit Bus Stop</a></li>
+                           <li><a href=#>University Police</a></li>
+                           <li><a href=#>Parking Pay Station</a></li>
+                           <li><a href=#>Amazon @ TheBeach</a></li>
+                         </ul>
+                      </div>
+                      <div id="parking" class="tabcontent tab">
+                         <h3>Parking</h3>
+                         <ul class="parking">
+                           <li><a href=#>Building</a></li>
+                           <li><a href=#>CSULB "Campus Connection" Stop</a></li>
+                           <li><a href=#>Long Beach Transit Bus Stop</a></li>
+                           <li><a href=#>University Police</a></li>
+                           <li><a href=#>Parking Pay Station</a></li>
+                           <li><a href=#>Amazon @ TheBeach</a></li>
+                         </ul>
+                      </div>
+                      <div id="food" class="tabcontent tab">
+                       <h3>Food &amp; Drink</h3>
+                       <ul class="food">
+                         <li><a href=#>University Dining Plaza</a></li>
+                         <li><a href=#>The Chartroom</a></li>
+                         <li><a href=#>Outpost Grill</a></li>
+                         <li><a href=#>Nugget Grill &amp; Pub</a></li>
+                         <li><a href=#>Starbucks</a></li>
+                         <li><a href=#>Coffee Bean</a></li>
+                         <li><a href=#>Robeks</a></li>
+                       </ul>
+                   </div>
                 </div>
 
-                <div id="info-circle" class="icon">
+                <div id="info-circle" class="icon tab">
                 </div>
             </div>
               <div id="right-section" class="col-xs-9 col-md-9">
