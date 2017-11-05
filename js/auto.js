@@ -2,7 +2,7 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 $(function() {
   var locations = [
-    {value:"49er Pool", data: }, {value:"POOL", data: },
+    {value:"49er Pool", data: 'data'}, {value:"POOL", data: 'tool'},
     {value:"49er Softball Complex", data: }, {value:"SC", data: },
     {value:"Academic Services", data: }, {value:"AS", data: },
     {value:"Barrett Athletic Administration Center", data: }, {value:"BAC", data: },
@@ -86,7 +86,9 @@ $(function() {
     {value:"University Student Union", data: }, {value:"USU", data: },
     {value:"University Telecommunications", data: }, {value:"UTC", data: },
     {value:"Visitor Information Center", data: }, {value:"VIC", data: },
-    {value:"Vivian Engineering Center", data: }, {value:"VEC", data: },
+    {value:"Vivian Engineering Center", data: }, {value:"VEC", data: }
+  ];
+
   ];
 
   $("#start").autocomplete({
