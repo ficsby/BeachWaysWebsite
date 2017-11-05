@@ -2,7 +2,7 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 $(function() {
   var locations = [
-    {value:"49er Pool", data: 'data'}, {value:"POOL", data: 'tool'},
+    {value:"49er Pool", data: 'd'}, {value:"POOL", data: 'tool'},
     {value:"49er Softball Complex", data: }, {value:"SC", data: },
     {value:"Academic Services", data: }, {value:"AS", data: },
     {value:"Barrett Athletic Administration Center", data: }, {value:"BAC", data: },
