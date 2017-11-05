@@ -74,7 +74,7 @@ $(function() {
     {value:"Social Sciences/Public Administration", data: }, {value:"SS/PA", data: },
     {value:"Soroptomist House", data: }, {value:"SOR", data: },
     {value:"Student Health Services", data: }, {value:"SHS", data: },
-    {value:"Student Recreation | Wellness Center", data: }, {value:"SRWC", data: },
+    {value:"Student Recreation | Wellness Center", data: {lat:33.785211130686655, lng:-118.10900330543518} }}, {value:"SRWC", data: {lat:33.785211130686655, lng:-118.10900330543518} }},
     {value:"Tennis Courts", data: },
     {value:"Theater Arts", data: }, {value:"TA", data: },
     {value:"University Art Museum", data: }, {value:"UAM", data: },
