@@ -5,6 +5,8 @@
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/map.css">
+    <link rel="stylesheet" href="https://file.myfontastic.com/uMXUMpnawi8eu6V7LRA243/icons.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAemlR3DsIOjcrtwncedOU6gbR7Gc_3Eis&callback=initMap" type="text/javascript"></script>
@@ -12,7 +14,7 @@
     <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
     <script type="text/javascript" src="js/auto.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
-    <link href="https://file.myfontastic.com/uMXUMpnawi8eu6V7LRA243/icons.css" rel="stylesheet">
+
     <title>BeachWays Map</title>
   </head>
 
@@ -21,7 +23,7 @@
         <div id="top-section" class="container-fluid">
             <div class="col-xs-3 col-md-3"> <!--Top-left section-->
                 <header>
-                    <a target="_top" href="home.html" ><img src="https://blog.flamingtext.com/blog/2017/11/01/flamingtext_com_1509570576_346846638.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>
+                    <a target="_top" href="index.html" ><img src="https://blog.flamingtext.com/blog/2017/11/01/flamingtext_com_1509570576_346846638.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>
                 </header>
             </div>
             <div class="col-xs-9 col-md-9"> <!--Top-right section-->
@@ -31,17 +33,17 @@
         <div id="body-panel" class="container-fluid">
             <div id="left-section" class="col-xs-3 col-md-3"> <!--Left section-->
                 <div class="icon-bar">
-                  <a href="#" onclick="openIconTab('navigation')"><i class="icon-aim"></i></a>
-                  <a href="#" onclick="openIconTab('key')"><i class="icon-key-1"></i></a>
-                  <a href="#" onclick="openIconTab('info-circle')"><i class="icon-info-circled"></i></a>
+                  <a class="iconlinks active" onclick="openIconTab(event, 'navigation')"><i class="icon-aim"></i></a>
+                  <a class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-key-1"></i></a>
+                  <a class="iconlinks" onclick="openIconTab(event, 'info-circle')"><i class="icon-info-circled"></i></a>
                 </div>
 
-                <div id="navigation" class="icon tab active">
+                <div id="navigation" class="icon-content tab active">
                   <input id="start" class="controls" type="text" placeholder="Enter an origin location">
                   <input id="end" class="controls" type="text" placeholder="Enter a destination location">
                 </div>
 
-                <div id="key" class="icon tab">
+                <div id="key" class="icon-content tab">
                     <div class="keytabs">
                        <button class="tablinks" onclick="openKey(event, 'legend')">Legend</button>
                        <button class="tablinks" onclick="openKey(event, 'parking')">Parking</button>
@@ -50,14 +52,24 @@
 
                       <div id="legend" class="tabcontent tab active">
                          <h3>Legend</h3>
-                         <ul class="legend">
-                           <li><a href=#>Building</a></li>
-                           <li><a href=#>CSULB "Campus Connection" Stop</a></li>
-                           <li><a href=#>Long Beach Transit Bus Stop</a></li>
-                           <li><a href=#>University Police</a></li>
-                           <li><a href=#>Parking Pay Station</a></li>
-                           <li><a href=#>Amazon @ TheBeach</a></li>
-                         </ul>
+                          <div class="container-fluid">
+                             <div class="col-xs-1 col-md-1">
+                                 <div class="row building-symbol"></div>
+                                 <div class="row cc-symbol"></div>
+                                 <div class="row transit-symbol"></div>
+                                 <div class="row lbpolice-symbol"></div>
+                                 <div class="row pps-symbol"></div>
+                                 <div class="row amazon-symbol"></div>
+                             </div>
+                             <div class="col-xs-10 col-md-10">
+                                 <a class="row" href=#>Building</a>
+                                 <a class="row" href=#>CSULB "Campus Connection" Stop</a>
+                                 <a class="row" href=#>Long Beach Transit Bus Stop</a>
+                                 <a class="row" href=#>University Police</a>
+                                 <a class="row" href=#>Parking Pay Station</a>
+                                 <a class="row" href=#>Amazon @ TheBeach</a>
+                            </div>
+                          </div>
                       </div>
                       <div id="parking" class="tabcontent tab">
                          <h3>Parking</h3>
@@ -84,7 +96,7 @@
                    </div>
                 </div>
 
-                <div id="info-circle" class="icon tab">
+                <div id="info-circle" class="icon-content tab">
                 </div>
             </div>
               <div id="right-section" class="col-xs-9 col-md-9">

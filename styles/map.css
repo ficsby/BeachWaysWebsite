@@ -14,8 +14,17 @@ html{
 
 }
 
+header{
+
+}
+
+
 body{
 
+}
+
+ul{
+  list-style: none;
 }
 
 #top-section{
@@ -23,10 +32,6 @@ body{
     background: url('../images/csulb-pano.png') ;
     background-position: left;
     background-size:cover;
-}
-
-header{
-
 }
 
 #body-panel{
@@ -41,6 +46,8 @@ header{
 .tab.active{
   display: block;
 }
+
+
 
 /* LEFT SIDE BAR SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -73,8 +80,8 @@ header{
     background-color: #000; /* Add a hover color */
 }
 
-,icon-bar a:active {
-    background-color: #629182; /* Add an active/current color */
+div.icon-bar a.active {
+   background-color: #52a88b;
 }
 
 /* Map key subsection
@@ -84,6 +91,7 @@ header{
 }
 #key a{
   color: #ffffff;
+  text-decoration: none;
 }
 
 /* Style the tab */
@@ -127,6 +135,46 @@ div.keytabs button.active {
    width: 70%;
    border-left: none;
    height: 300px;
+}
+
+.building-symbol{
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url('../icons/building-symbol.png');
+  background-repeat: no-repeat;
+}
+
+.cc-symbol{
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url('../icons/cc-symbol.png');
+  background-repeat: no-repeat;
+}
+
+.lbpolice-symbol{
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url('../icons/lbpolice-symbol.png');
+  background-repeat: no-repeat;
+}
+
+.pps-symbol{
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url('../icons/pps-symbol.png');
+  background-repeat: no-repeat;
+}
+
+.transit-symbol{
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url('../icons/transit-symbol.png');
+  background-repeat: no-repeat;
 }
 
 /* RIGHT MAP SECTION

@@ -40,14 +40,23 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
 /*Icon Bar Functionality
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-function openIconTab(iconName){
+function openIconTab(evt, iconName){
   var i;
-  var x = document.getElementsByClassName("icon");
-  for(i = 0; i < x.length; i++){
-    x[i].style.display = "none"
+
+  // Get all elements with class="icon-content" and hide them
+  var tabcontent = document.getElementsByClassName("icon-content");
+  for(i = 0; i < tabcontent.length; i++){
+    tabcontent[i].style.display = "none"
+  }
+
+  // Get all elements with class="iconlinks" and remove the class "active"
+  var tablinks = document.getElementsByClassName("iconlinks");
+  for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
 
   document.getElementById(iconName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
 
 /*Key Tabs Functionality
