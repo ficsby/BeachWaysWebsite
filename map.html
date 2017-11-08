@@ -19,90 +19,92 @@
   </head>
 
   <body>
-        <div id="color-overlay"></div>
-        <div id="top-section" class="container-fluid">
-            <div class="col-xs-3 col-md-3"> <!--Top-left section-->
-                <header>
-                    <a target="_top" href="index.html" ><img src="https://blog.flamingtext.com/blog/2017/11/01/flamingtext_com_1509570576_346846638.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>
-                </header>
-            </div>
-            <div class="col-xs-9 col-md-9"> <!--Top-right section-->
-                <div id="search-bar"></div>
-            </div>
-        </div>
-        <div id="body-panel" class="container-fluid">
-            <div id="left-section" class="col-xs-3 col-md-3"> <!--Left section-->
-                <div class="icon-bar">
-                  <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation')"><i class="icon-aim"></i></a>
-                  <a href="#" class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-key-1"></i></a>
-                  <a href="#" class="iconlinks" onclick="openIconTab(event, 'info-circle')"><i class="icon-info-circled"></i></a>
-                </div>
 
-                <div id="navigation" class="icon-content tab active">
-                  <input id="start" class="controls" type="text" placeholder="Enter an origin location">
-                  <input id="end" class="controls" type="text" placeholder="Enter a destination location">
-                </div>
+    <div class="container">
 
-                <div id="key" class="icon-content tab">
-                    <div class="keytabs">
-                       <button class="tablinks active" onclick="openKey(event, 'legend')">Legend</button>
-                       <button class="tablinks" onclick="openKey(event, 'parking')">Parking</button>
-                       <button class="tablinks" onclick="openKey(event, 'food')">Food &amp; Drink</button>
-                     </div>
+      <header>
+        <a target="_top" href="index.html" ><img src="https://blog.flamingtext.com/blog/2017/11/01/flamingtext_com_1509570576_346846638.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>
+      </header>
 
-                      <div id="legend" class="tabcontent tab active">
-                         <h3>Legend</h3>
-                          <div class="container-fluid">
-                             <div class="symbols col-xs-1 col-md-1">
-                                 <a href="#" class="row building-symbol"></a>
-                                 <a href="#" class="row cc-symbol"></a>
-                                 <a href="#" class="row transit-symbol"></a>
-                                 <a href="#" class="row lbpolice-symbol"></a>
-                                 <a href="#" class="row pps-symbol"></a>
-                                 <a href="#" class="row amazon-symbol"></a>
-                             </div>
-                             <div class="locations col-xs-10 col-md-10">
-                                 <a href="#" class="row">Building</a>
-                                 <a href="#" class="row">CSULB "Campus Connection" Stop</a>
-                                 <a href="#" class="row">Long Beach Transit Bus Stop</a><br>
-                                 <a href="#" class="row">University Police</a>
-                                 <a href="#" class="row">Parking Pay Station</a>
-                                 <a href="#" class="row"></a>
-                            </div>
-                          </div>
-                      </div>
-                      <div id="parking" class="tabcontent tab">
-                         <h3>Parking</h3>
-                         <ul class="parking">
-                           <li><a href=#>Building</a></li>
-                           <li><a href=#>CSULB "Campus Connection" Stop</a></li>
-                           <li><a href=#>Long Beach Transit Bus Stop</a></li>
-                           <li><a href=#>University Police</a></li>
-                           <li><a href=#>Parking Pay Station</a></li>
-                           <li><a href=#>Amazon @ TheBeach</a></li>
-                         </ul>
-                      </div>
-                      <div id="food" class="tabcontent tab">
-                       <h3>Food &amp; Drink</h3>
-                       <ul class="food">
-                         <li><a href=#>University Dining Plaza</a></li>
-                         <li><a href=#>The Chartroom</a></li>
-                         <li><a href=#>Outpost Grill</a></li>
-                         <li><a href=#>Nugget Grill &amp; Pub</a></li>
-                         <li><a href=#>Starbucks</a></li>
-                         <li><a href=#>Coffee Bean</a></li>
-                         <li><a href=#>Robeks</a></li>
-                       </ul>
-                   </div>
-                </div>
-
-                <div id="info-circle" class="icon-content tab">
-                </div>
-            </div>
-              <div id="map" class="col-xs-9 col-md-9">
+      <aside>
+        <div class="icon-bar">
+                <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation')"><i class="icon-aim"></i></a>
+                <a href="#" class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-key-1"></i></a>
+                <a href="#" class="iconlinks" onclick="openIconTab(event, 'info-circle')"><i class="icon-info-circled"></i></a>
               </div>
-           </div>
-        </div>
+
+              <div id="navigation" class="icon-content tab active">
+                <input id="start" class="controls" type="text" placeholder="Enter an origin location">
+                <input id="end" class="controls" type="text" placeholder="Enter a destination location">
+              </div>
+
+              <div id="key" class="icon-content tab">
+                  <div class="keytabs">
+                     <button class="tablinks" onclick="openKey(event, 'legend')">Legend</button>
+                     <button class="tablinks" onclick="openKey(event, 'parking')">Parking</button>
+                     <button class="tablinks" onclick="openKey(event, 'food')">Food &amp; Drink</button>
+                   </div>
+
+                    <div id="legend" class="tabcontent tab active">
+                       <h3>Legend</h3>
+                        <div class="container-fluid">
+                           <div class="symbols col-xs-1 col-md-1">
+                               <a href="#" class="row building-symbol"></a>
+                               <a href="#" class="row cc-symbol"></a>
+                               <a href="#" class="row transit-symbol"></a>
+                               <a href="#" class="row lbpolice-symbol"></a>
+                               <a href="#" class="row pps-symbol"></a>
+                               <a href="#" class="row amazon-symbol"></a>
+                           </div>
+                           <div class="locations col-xs-10 col-md-10">
+                               <a href="#" class="row">Building</a>
+                               <a href="#" class="row">CSULB "Campus Connection" Stop</a>
+                               <a href="#" class="row">Long Beach Transit Bus Stop</a>
+                               <a href="#" class="row">University Police</a>
+                               <a href="#" class="row">Parking Pay Station</a>
+                               <a href="#" class="row"></a>
+                          </div>
+                        </div>
+                    </div>
+                    <div id="parking" class="tabcontent tab">
+                       <h3>Parking</h3>
+                       <ul class="parking">
+                         <li><a href=#>Building</a></li>
+                         <li><a href=#>CSULB "Campus Connection" Stop</a></li>
+                         <li><a href=#>Long Beach Transit Bus Stop</a></li>
+                         <li><a href=#>University Police</a></li>
+                         <li><a href=#>Parking Pay Station</a></li>
+                         <li><a href=#>Amazon @ TheBeach</a></li>
+                       </ul>
+                    </div>
+                    <div id="food" class="tabcontent tab">
+                     <h3>Food &amp; Drink</h3>
+                     <ul class="food">
+                       <li><a href=#>University Dining Plaza</a></li>
+                       <li><a href=#>The Chartroom</a></li>
+                       <li><a href=#>Outpost Grill</a></li>
+                       <li><a href=#>Nugget Grill &amp; Pub</a></li>
+                       <li><a href=#>Starbucks</a></li>
+                       <li><a href=#>Coffee Bean</a></li>
+                       <li><a href=#>Robeks</a></li>
+                     </ul>
+                 </div>
+              </div>
+
+              <div id="info-circle" class="icon-content tab">
+              </div>
+      </aside>
+
+      <div id="map">
+        <h1>London</h1>
+        <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+        <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+      </div>
+
+      <footer>Copyright &copy; BeachWaysTeam</footer>
+
+    </div>
+
   </body>
 
 </html>
