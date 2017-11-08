@@ -27,78 +27,83 @@
       </header>
 
       <aside>
-        <div class="icon-bar">
-                <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation')"><i class="icon-aim"></i></a>
-                <a href="#" class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-key-1"></i></a>
-                <a href="#" class="iconlinks" onclick="openIconTab(event, 'info-circle')"><i class="icon-info-circled"></i></a>
-              </div>
+            <div class="icon-bar">
+              <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation')"><i class="icon-aim"></i></a>
+              <a href="#" class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-key-1"></i></a>
+              <a href="#" class="iconlinks" onclick="openIconTab(event, 'info-circle')"><i class="icon-info-circled"></i></a>
+            </div>
 
-              <div id="navigation" class="icon-content tab active">
-                <input id="start" class="controls" type="text" placeholder="Enter an origin location">
-                <input id="end" class="controls" type="text" placeholder="Enter a destination location">
-              </div>
+            <div id="navigation" class="icon-content tab active">
+              <input id="start" class="controls" type="text" placeholder="Enter an origin location">
+              <input id="end" class="controls" type="text" placeholder="Enter a destination location">
+            </div>
 
-              <div id="key" class="icon-content tab">
-                  <div class="keytabs">
-                     <button class="tablinks active" onclick="openKey(event, 'legend')">Legend</button>
-                     <button class="tablinks" onclick="openKey(event, 'parking')">Parking</button>
-                     <button class="tablinks" onclick="openKey(event, 'food')">Food &amp; Drink</button>
-                   </div>
-
-                    <div id="legend" class="key-content tab active">
-                       <h3>Legend</h3>
-                        <div class="container-fluid">
-                           <div class="symbols col-xs-1 col-md-1">
-                               <a href="#" class="row building-symbol"></a>
-                               <a href="#" class="row cc-symbol"></a>
-                               <a href="#" class="row transit-symbol"></a>
-                               <a href="#" class="row lbpolice-symbol"></a>
-                               <a href="#" class="row pps-symbol"></a>
-                               <a href="#" class="row amazon-symbol"></a>
-                           </div>
-                           <div class="locations col-xs-10 col-md-10">
-                               <a href="#" class="row">Building</a>
-                               <a href="#" class="row">CSULB "Campus Connection" Stop</a>
-                               <a href="#" class="row">Long Beach Transit Bus Stop</a>
-                               <a href="#" class="row">University Police</a>
-                               <a href="#" class="row">Parking Pay Station</a>
-                               <a href="#" class="row"></a>
-                          </div>
-                        </div>
-                    </div>
-                    <div id="parking" class="key-content tab">
-                       <h3>Parking</h3>
-                       <ul class="parking">
-                         <li><a href=#>Building</a></li>
-                         <li><a href=#>CSULB "Campus Connection" Stop</a></li>
-                         <li><a href=#>Long Beach Transit Bus Stop</a></li>
-                         <li><a href=#>University Police</a></li>
-                         <li><a href=#>Parking Pay Station</a></li>
-                         <li><a href=#>Amazon @ TheBeach</a></li>
-                       </ul>
-                    </div>
-                    <div id="food" class="key-content tab">
-                     <h3>Food &amp; Drink</h3>
-                     <ul class="food">
-                       <li><a href=#>University Dining Plaza</a></li>
-                       <li><a href=#>The Chartroom</a></li>
-                       <li><a href=#>Outpost Grill</a></li>
-                       <li><a href=#>Nugget Grill &amp; Pub</a></li>
-                       <li><a href=#>Starbucks</a></li>
-                       <li><a href=#>Coffee Bean</a></li>
-                       <li><a href=#>Robeks</a></li>
-                     </ul>
+            <div id="key" class="icon-content tab">
+                <div class="keytabs">
+                   <button class="tablinks active" onclick="openKey(event, 'legend')">Legend</button>
+                   <button class="tablinks" onclick="openKey(event, 'parking')">Parking</button>
+                   <button class="tablinks" onclick="openKey(event, 'food')">Food &amp; Drink</button>
                  </div>
-              </div>
 
-              <div id="info-circle" class="icon-content tab">
-              </div>
+                  <div id="legend" class="key-content tab active">
+                     <h3>Legend</h3>
+                      <div class="key-container">
+                           <a href="#">
+                             <div class="symbol building-symbol"></div>
+                             <div class="loc">Building</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol cc-symbol"></div>
+                             <div class="loc">CSULB Campus Connection Stop</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol transit-symbol"></div>
+                             <div class="loc">Long Beach Transit Bus Stop</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol lbpolice-symbol"></div>
+                             <div class="loc">University Police</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol pps-symbol"></div>
+                             <div class="loc">Parking Pay Station</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol amazon-symbol"></div>
+                             <div class="loc">Amazon &amp; The Beach</div>
+                           </a>
+                      </div>
+                  </div>
+                  <div id="parking" class="key-content tab">
+                     <h3>Parking</h3>
+                     <ul class="parking">
+                       <li><a href=#>Building</a></li>
+                       <li><a href=#>CSULB "Campus Connection" Stop</a></li>
+                       <li><a href=#>Long Beach Transit Bus Stop</a></li>
+                       <li><a href=#>University Police</a></li>
+                       <li><a href=#>Parking Pay Station</a></li>
+                       <li><a href=#>Amazon @ TheBeach</a></li>
+                     </ul>
+                  </div>
+                  <div id="food" class="key-content tab">
+                   <h3>Food &amp; Drink</h3>
+                   <ul class="food">
+                     <li><a href=#>University Dining Plaza</a></li>
+                     <li><a href=#>The Chartroom</a></li>
+                     <li><a href=#>Outpost Grill</a></li>
+                     <li><a href=#>Nugget Grill &amp; Pub</a></li>
+                     <li><a href=#>Starbucks</a></li>
+                     <li><a href=#>Coffee Bean</a></li>
+                     <li><a href=#>Robeks</a></li>
+                   </ul>
+               </div>
+            </div>
+
+            <div id="info-circle" class="icon-content tab"></div>
       </aside>
 
       <div id="map"></div>
-
       <footer>Copyright &copy; BeachWaysTeam</footer>
-
     </div>
 
   </body>

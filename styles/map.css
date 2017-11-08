@@ -34,11 +34,6 @@ aside {
     float: left;
 }
 
-#map{
-    overflow: hidden;
-    width: 75%;
-    height: 1000px;
-}
 
 .tab{
   display: none;
@@ -130,8 +125,12 @@ div.keytabs button.active {
    height: 400px;
 }
 
-.symbols{
-  padding: 15px 20px 0px 20px;
+.loc{
+  margin-bottom: 30px;
+}
+
+.symbol{
+   float: left;
 }
 
 .building-symbol{
@@ -174,18 +173,13 @@ div.keytabs button.active {
   background-repeat: no-repeat;
 }
 
-/* RIGHT MAP SECTION
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-#right-section{
-    /*float: left;*/
-    /*background: white;*/
-    /*width: 75%;*/
-    /*height: 42.7em;*/
-}
-
 /* GOOGLE MAPS SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
+#map{
+    overflow: hidden;
+    width: 75%;
+    height: 1000px;
+}
 
 #start, #end{
     display:block;
