@@ -40,12 +40,47 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
 /*Icon Bar Functionality
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-function openIconTab(iconName){
-  var i;
-  var x = document.getElementsByClassName("icon");
-  for(i = 0; i < x.length; i++){
-    x[i].style.display = "none"
+function openIconTab(evt, iconName){
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="icon-content" and hide them
+  tabcontent = document.getElementsByClassName("icon-content");
+  for(i = 0; i < tabcontent.length; i++){
+    tabcontent[i].style.display = "none"
   }
 
+  // Get all elements with class="iconlinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("iconlinks");
+  for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the link that opened the tab
   document.getElementById(iconName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+/*Key Tabs Functionality
+---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+function openKey(evt, keyName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the link that opened the tab
+    document.getElementById(keyName).style.display = "block";
+    evt.currentTarget.className += " active";
 }

@@ -2,7 +2,7 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 $(function() {
   var locations = [
-    {value:"49er Pool", data: 'data'}, {value:"POOL", data: 'tool'},
+    {value:"49er Pool", data: 'd'}, {value:"POOL", data: 'tool'},
     {value:"49er Softball Complex", data: }, {value:"SC", data: },
     {value:"Academic Services", data: }, {value:"AS", data: },
     {value:"Barrett Athletic Administration Center", data: }, {value:"BAC", data: },
@@ -74,7 +74,7 @@ $(function() {
     {value:"Social Sciences/Public Administration", data: }, {value:"SS/PA", data: },
     {value:"Soroptomist House", data: }, {value:"SOR", data: },
     {value:"Student Health Services", data: }, {value:"SHS", data: },
-    {value:"Student Recreation | Wellness Center", data: }, {value:"SRWC", data: },
+    {value:"Student Recreation | Wellness Center", data: {lat:33.785211130686655, lng:-118.10900330543518} }}, {value:"SRWC", data: {lat:33.785211130686655, lng:-118.10900330543518} }},
     {value:"Tennis Courts", data: },
     {value:"Theater Arts", data: }, {value:"TA", data: },
     {value:"University Art Museum", data: }, {value:"UAM", data: },
@@ -86,9 +86,7 @@ $(function() {
     {value:"University Student Union", data: }, {value:"USU", data: },
     {value:"University Telecommunications", data: }, {value:"UTC", data: },
     {value:"Visitor Information Center", data: }, {value:"VIC", data: },
-    {value:"Vivian Engineering Center", data: }, {value:"VEC", data: }
-  ];
-
+    {value:"Vivian Engineering Center", data: {lat:33.782830248878916, lng:-118.11044096946716} }, {value:"VEC", data: {lat:33.782830248878916, lng:-118.11044096946716} },
   ];
 
   $("#start").autocomplete({

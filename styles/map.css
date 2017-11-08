@@ -7,15 +7,24 @@
     margin-left:auto;
  }
 
-/* GENERAL
+/* GLOBAL
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 html{
 
 }
 
+header{
+
+}
+
+
 body{
 
+}
+
+ul{
+  list-style: none;
 }
 
 #top-section{
@@ -25,14 +34,20 @@ body{
     background-size:cover;
 }
 
-header{
-
-}
-
 #body-panel{
     margin-left:0;
     margin-right:0;
 }
+
+.tab{
+  display: none;
+}
+
+.tab.active{
+  display: block;
+}
+
+
 
 /* LEFT SIDE BAR SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -65,8 +80,107 @@ header{
     background-color: #000; /* Add a hover color */
 }
 
-,icon-bar a:active {
-    background-color: #629182; /* Add an active/current color */
+div.icon-bar a.active {
+   background-color: #52a88b;
+}
+
+/* Map key subsection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#key{
+  color: #ffffff;
+}
+#key a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Style the tab */
+div.keytabs {
+   float: left;
+   border: 1px solid #ccc;
+   background-color: #f1f1f1;
+   width: 30%;
+   height: 300px;
+}
+
+/* Style the buttons inside the tab */
+div.keytabs button {
+   display: block;
+   background-color: inherit;
+   color: black;
+   padding: 22px 16px;
+   width: 100%;
+   height: 133px;
+   border: none;
+   outline: none;
+   text-align: left;
+   cursor: pointer;
+   transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+div.keytabs button:hover {
+   background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+div.keytabs button.active {
+   background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+   float: left;
+   padding: 0px 12px;
+   border: 1px solid #ccc;
+   width: 70%;
+   border-left: none;
+   height: 400px;
+}
+
+.symbols{
+  padding: 15px 20px 0px 20px;
+}
+
+.building-symbol{
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url('../icons/building-symbol.png');
+  background-repeat: no-repeat;
+}
+
+.cc-symbol{
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url('../icons/cc-symbol.png');
+  background-repeat: no-repeat;
+}
+
+.lbpolice-symbol{
+  display: block;
+  width: 40px;
+  height: 50px;
+
+  background-image: url('../icons/lbpolice-symbol.png');
+  background-repeat: no-repeat;
+}
+
+.pps-symbol{
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url('../icons/pps-symbol.png');
+  background-repeat: no-repeat;
+}
+
+.transit-symbol{
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-image: url('../icons/transit-symbol.png');
+  background-repeat: no-repeat;
 }
 
 /* RIGHT MAP SECTION
