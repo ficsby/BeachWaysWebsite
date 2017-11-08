@@ -1,17 +1,17 @@
-
+/*Google Maps API
+-------------------------------------------------------------------------------------------------------------------------------------*/
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 16,                                                     //Change this to change the map zoom
-      center: {lat: 33.7838, lng: -118.1141}
+      zoom: 16, //Change this to change the map zoom
+      center: {lat: 33.7838, lng: -118.1141}  //Default map center is CSULB
     });
-    directionsDisplay.setMap(map); directionsDisplay.setPanel(document.getElementById('right-panel'));
 
-
+    directionsDisplay.setMap(map); directionsDisplay.setPanel(document.getElementById('right-panel')); //Displays the directions through the route for the user (i.e. Turn left, Turn Right...etc)
 
     var onChangeHandler = function() {
-      calculateAndDisplayRoute(directionsService, directionsDisplay);
+      calculateAndDisplayRoute(directionsService, directionsDisplay); //Draws the route
     };
     document.getElementById('start').addEventListener('change', onChangeHandler);
     document.getElementById('end').addEventListener('change', onChangeHandler);

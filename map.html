@@ -2,16 +2,18 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/map.css">
     <link rel="stylesheet" href="https://file.myfontastic.com/uMXUMpnawi8eu6V7LRA243/icons.css">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Google Maps API-->
     <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAemlR3DsIOjcrtwncedOU6gbR7Gc_3Eis&callback=initMap" type="text/javascript"></script>
+    <!--JQuery-->
     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+    <!--Personal Scripts-->
     <script type="text/javascript" src="js/auto.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 
@@ -31,7 +33,7 @@
             </div>
         </div>
         <div id="body-panel" class="container-fluid">
-            <div id="left-section" class="col-xs-3 col-md-3"> <!--Left section-->
+            <div id="left-section" class="col-xs-3 col-md-3"> <!--Left section includes all the tabs and icons-->
                 <div class="icon-bar">
                   <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation')"><i class="icon-aim"></i></a>
                   <a href="#" class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-key-1"></i></a>
