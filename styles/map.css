@@ -121,7 +121,7 @@ div.keytabs button.active {
 }
 
 /* Style the tab content */
-.tabcontent {
+.key-content {
    float: left;
    padding: 0px 12px;
    border: 1px solid #ccc;
