@@ -41,20 +41,22 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 /*Icon Bar Functionality
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 function openIconTab(evt, iconName){
-  var i;
+  // Declare all variables
+  var i, tabcontent, tablinks;
 
   // Get all elements with class="icon-content" and hide them
-  var tabcontent = document.getElementsByClassName("icon-content");
+  tabcontent = document.getElementsByClassName("icon-content");
   for(i = 0; i < tabcontent.length; i++){
     tabcontent[i].style.display = "none"
   }
 
   // Get all elements with class="iconlinks" and remove the class "active"
-  var tablinks = document.getElementsByClassName("iconlinks");
+  tablinks = document.getElementsByClassName("iconlinks");
   for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
 
+  // Show the current tab, and add an "active" class to the link that opened the tab
   document.getElementById(iconName).style.display = "block";
   evt.currentTarget.className += " active";
 }
