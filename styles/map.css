@@ -20,7 +20,7 @@ header{
 
 
 body{
-
+  background: white;
 }
 
 ul{
@@ -185,10 +185,10 @@ div.keytabs button.active {
 /* RIGHT MAP SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #right-section{
-    float: left;
-    background: black;
-    width: 75%;
-    height: 42.7em;
+    /*float: left;*/
+    /*background: white;*/
+    /*width: 75%;*/
+    /*height: 42.7em;*/
 }
 
 /* GOOGLE MAPS SECTION
@@ -200,8 +200,6 @@ div.keytabs button.active {
     padding-right: 72.3em;
     width:100%;
     height: inherit;
-    /*background: lightgrey;*/
-
 }
 
 #start, #end{
@@ -215,19 +213,13 @@ div.keytabs button.active {
 /* EXTRA SMALL SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width:576px){
+  #top-section{
+      min-height:100%;
+      background: url('../images/csulb-pano.png') ;
+      background-position: left;
+      background-size: cover;
+  }
 
-}
-/* SMALL SCREEN SECTION
--------------------------------------------------------------------------------------------------------------------------------*/
-@media screen and (min-width:576px){
-
-}
-
-/* SMALL SCREEN SECTION
-
-/* LARGE SCREEN SECTION
--------------------------------------------------------------------------------------------------------------------------------*/
-@media screen and (min-width:992px){
   #left-section{
       background: #3F3736;
       width: 25%;
@@ -236,10 +228,87 @@ div.keytabs button.active {
       margin: 0px;
   }
 
-  #right-section{
+  #map{
       float: left;
       background: black;
       width: 75%;
       height: 61.6em;
+  }
+}
+/* SMALL SCREEN SECTION
+-------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (min-width:576px){
+  #top-section{
+      min-height:100%;
+      background: url('../images/csulb-pano.png') ;
+      background-position: left;
+      background-size:cover;
+  }
+
+  #left-section{
+      background: #3F3736;
+      width: 25%;
+      height: 61.5em;
+      padding: 0px;
+      margin: 0px;
+  }
+
+  #map{
+      float: left;
+      background: black;
+      width: 75%;
+      height: 61.6em;
+  }
+}
+
+/* MEDIUM SCREEN SECTION
+-------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (min-width:800px){
+  #top-section{
+      min-height:100%;
+      background: url('../images/csulb-pano.png') ;
+      background-position: left;
+      background-size:cover;
+  }
+
+  #left-section{
+      background: #3F3736;
+      width: 25%;
+      height: 61.5em;
+      padding: 0px;
+      margin: 0px;
+  }
+
+  #map{
+      float: left;
+      background: black;
+      width: 75%;
+      height: 61.6em;
+  }
+}
+
+/* LARGE SCREEN SECTION
+-------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (min-width:1024px){
+  #top-section{
+      min-height:100%;
+      background: url('../images/csulb-pano.png') ;
+      background-position: left;
+      background-size:cover;
+  }
+  
+  #left-section{
+      background: #3F3736;
+      width: 25%;
+      height: 48em;
+      padding: 0px;
+      margin: 0px;
+  }
+
+  #map{
+      background: white;
+      width: 75%;
+      margin: 0;
+      height: 48em;
   }
 }
