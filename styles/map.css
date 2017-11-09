@@ -186,8 +186,8 @@ div.keytabs button.active {
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #right-section{
     float: left;
-    background: black;
-    width: 75%;
+    background: #555;
+    /*width: 75%;*/
     height: 42.7em;
 }
 
@@ -196,8 +196,8 @@ div.keytabs button.active {
 #map {
     /*zoom: 400%;*/
     /*-moz-transform: scale(3);*/
-    margin-left:-15px;
-    padding-right: 72.3em;
+    /*margin-left:-15px;*/
+    /*padding-right: 72.3em;*/
     width:100%;
     height: inherit;
     /*background: lightgrey;*/
@@ -227,7 +227,7 @@ div.keytabs button.active {
 
 /* LARGE SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
-@media screen and (min-width:992px){
+@media screen and (min-width:992px){ /*Laptop sizes 14inches+ */
   #left-section{
       background: #3F3736;
       width: 25%;
@@ -238,7 +238,7 @@ div.keytabs button.active {
 
   #right-section{
       float: left;
-      background: black;
+      background:white;
       width: 75%;
       height: 61.6em;
   }
