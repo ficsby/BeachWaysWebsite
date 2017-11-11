@@ -1,4 +1,5 @@
 
+
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -6,6 +7,11 @@ function initMap() {
       zoom: 16,                                                     //Change this to change the map zoom
       center: {lat: 33.7838, lng: -118.1141}
     });
+
+    // var bounds = new google.maps.LatLngBounds(
+    //         new google.maps.LatLng(62.281819, -150.287132),
+    //         new google.maps.LatLng(62.400471, -150.005608));
+
     directionsDisplay.setMap(map); directionsDisplay.setPanel(document.getElementById('right-panel'));
 
 

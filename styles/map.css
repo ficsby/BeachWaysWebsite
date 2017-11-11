@@ -1,6 +1,5 @@
 /* GLOBAL
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
 div.container {
     width: 100%;
     margin:0px;
@@ -95,7 +94,7 @@ div.keytabs button {
    display: block;
    background-color: inherit;
    color: black;
-   padding: 22px 16px;
+   /*padding: 22px 16px;   */
    width: 100%;
    height: 133px;
    border: none;
@@ -125,16 +124,18 @@ div.keytabs button.active {
    height: 400px;
 }
 
+/* Aligns the text descriptions in the key tab*/
 .loc{
   margin-bottom: 30px;
 }
 
+/* Displays and positions the symbols in the key tab()*/
 .symbol{
   display: block;
   width: 50px;
   height: 50px;
   background-repeat: no-repeat;
-   float: left;
+  float: left;
 }
 
 .building-symbol{
