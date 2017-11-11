@@ -1,43 +1,39 @@
-/* BOOTSTRAP
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-.container-fluid {
-    padding-right:0;
-    padding-left:0;
-    margin-right:auto;
-    margin-left:auto;
- }
-
 /* GLOBAL
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-html{
+div.container {
+    width: 100%;
+    margin:0px;
+    padding:0px;
+    border: 1px solid gray;
+}
 
+header, footer {
+    padding: .5em;
+    color: white;
+    background-color: black;
+    clear: left;
 }
 
 header{
-
+  text-align: left;
+  min-height:100%;
+  background: url('../images/csulb-pano.png') ;
+  background-position: left;
+  background-size:cover;
 }
 
-
-body{
-
+footer{
+    text-align: center;
 }
 
-ul{
-  list-style: none;
+aside {
+    background-color: #3F3736;
+    width: 25%;
+    height: 1000px;
+    float: left;
 }
 
-#top-section{
-    min-height:100%;
-    background: url('../images/csulb-pano.png') ;
-    background-position: left;
-    background-size:cover;
-}
-
-#body-panel{
-    margin-left:0;
-    margin-right:0;
-}
 
 .tab{
   display: none;
@@ -51,14 +47,6 @@ ul{
 
 /* LEFT SIDE BAR SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-#left-section{
-    background: #3F3736;
-    width: 25%;
-    height: 42.7em;
-    padding: 0px;
-    margin: 0px;
-}
-
 .icon-bar {
     width: 100%; /* Set a specific width */
     background-color: #555; /* Dark-grey background */
@@ -84,7 +72,7 @@ div.icon-bar a.active {
    background-color: #52a88b;
 }
 
-/* Map key subsection
+/* MAP KEY SUBSECTION
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #key{
   color: #ffffff;
@@ -94,16 +82,15 @@ div.icon-bar a.active {
   text-decoration: none;
 }
 
-/* Style the tab */
+/* Styles the key tab box */
 div.keytabs {
    float: left;
    border: 1px solid #ccc;
    background-color: #f1f1f1;
    width: 30%;
-   height: 300px;
 }
 
-/* Style the buttons inside the tab */
+/* Styles the buttons inside the tab */
 div.keytabs button {
    display: block;
    background-color: inherit;
@@ -129,7 +116,7 @@ div.keytabs button.active {
 }
 
 /* Style the tab content */
-.tabcontent {
+.key-content {
    float: left;
    padding: 0px 12px;
    border: 1px solid #ccc;
@@ -138,71 +125,48 @@ div.keytabs button.active {
    height: 400px;
 }
 
-.symbols{
-  padding: 15px 20px 0px 20px;
+.loc{
+  margin-bottom: 30px;
+}
+
+.symbol{
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+   float: left;
 }
 
 .building-symbol{
-  display: block;
-  width: 50px;
-  height: 50px;
   background-image: url('../icons/building-symbol.png');
-  background-repeat: no-repeat;
 }
 
 .cc-symbol{
-  display: block;
-  width: 50px;
-  height: 50px;
   background-image: url('../icons/cc-symbol.png');
-  background-repeat: no-repeat;
 }
 
 .lbpolice-symbol{
-  display: block;
-  width: 40px;
-  height: 50px;
-
   background-image: url('../icons/lbpolice-symbol.png');
-  background-repeat: no-repeat;
 }
 
 .pps-symbol{
-  display: block;
-  width: 50px;
-  height: 50px;
   background-image: url('../icons/pps-symbol.png');
-  background-repeat: no-repeat;
 }
 
 .transit-symbol{
-  display: block;
-  width: 50px;
-  height: 50px;
   background-image: url('../icons/transit-symbol.png');
-  background-repeat: no-repeat;
 }
 
-/* RIGHT MAP SECTION
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-#right-section{
-    float: left;
-    background: black;
-    width: 75%;
-    height: 42.7em;
+.amazon-symbol{
+  background-image: url('../icons/amazon-symbol.png');
 }
 
 /* GOOGLE MAPS SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-#map {
-    /*zoom: 400%;*/
-    /*-moz-transform: scale(3);*/
-    margin-left:-15px;
-    padding-right: 72.3em;
-    width:100%;
-    height: inherit;
-    /*background: lightgrey;*/
-
+#map{
+    overflow: hidden;
+    width: 75%;
+    height: 1000px;
 }
 
 #start, #end{
@@ -224,23 +188,14 @@ div.keytabs button.active {
 
 }
 
-/* SMALL SCREEN SECTION
+/* MEDIUM SCREEN SECTION
+-------------------------------------------------------------------------------------------------------------------------------*/
+@media screen and (min-width:800px){
+
+}
 
 /* LARGE SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
-@media screen and (min-width:992px){
-  #left-section{
-      background: #3F3736;
-      width: 25%;
-      height: 61.5em;
-      padding: 0px;
-      margin: 0px;
-  }
+@media screen and (min-width:1024px){
 
-  #right-section{
-      float: left;
-      background: black;
-      width: 75%;
-      height: 61.6em;
-  }
 }

@@ -19,91 +19,95 @@
   </head>
 
   <body>
-        <div id="color-overlay"></div>
-        <div id="top-section" class="container-fluid">
-            <div class="col-xs-3 col-md-3"> <!--Top-left section-->
-                <header>
-                    <a target="_top" href="index.html" ><img src="https://blog.flamingtext.com/blog/2017/11/01/flamingtext_com_1509570576_346846638.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>
-                </header>
+
+    <div class="container">
+
+      <header>
+        <a target="_top" href="index.html" ><img src="https://blog.flamingtext.com/blog/2017/11/01/flamingtext_com_1509570576_346846638.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>
+      </header>
+
+      <aside>
+            <div class="icon-bar">
+              <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation')"><i class="icon-aim"></i></a>
+              <a href="#" class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-key-1"></i></a>
+              <a href="#" class="iconlinks" onclick="openIconTab(event, 'info-circle')"><i class="icon-info-circled"></i></a>
             </div>
-            <div class="col-xs-9 col-md-9"> <!--Top-right section-->
-                <div id="search-bar"></div>
+
+            <div id="navigation" class="icon-content tab active">
+              <input id="start" class="controls" type="text" placeholder="Enter an origin location">
+              <input id="end" class="controls" type="text" placeholder="Enter a destination location">
             </div>
-        </div>
-        <div id="body-panel" class="container-fluid">
-            <div id="left-section" class="col-xs-3 col-md-3"> <!--Left section-->
-                <div class="icon-bar">
-                  <a class="iconlinks active" onclick="openIconTab(event, 'navigation')"><i class="icon-aim"></i></a>
-                  <a class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-key-1"></i></a>
-                  <a class="iconlinks" onclick="openIconTab(event, 'info-circle')"><i class="icon-info-circled"></i></a>
-                </div>
 
-                <div id="navigation" class="icon-content tab active">
-                  <input id="start" class="controls" type="text" placeholder="Enter an origin location">
-                  <input id="end" class="controls" type="text" placeholder="Enter a destination location">
-                </div>
+            <div id="key" class="icon-content tab">
+                <div class="keytabs">
+                   <button class="tablinks active" onclick="openKey(event, 'legend')">Legend</button>
+                   <button class="tablinks" onclick="openKey(event, 'parking')">Parking</button>
+                   <button class="tablinks" onclick="openKey(event, 'food')">Food &amp; Drink</button>
+                 </div>
 
-                <div id="key" class="icon-content tab">
-                    <div class="keytabs">
-                       <button class="tablinks" onclick="openKey(event, 'legend')">Legend</button>
-                       <button class="tablinks" onclick="openKey(event, 'parking')">Parking</button>
-                       <button class="tablinks" onclick="openKey(event, 'food')">Food &amp; Drink</button>
-                     </div>
-
-                      <div id="legend" class="tabcontent tab active">
-                         <h3>Legend</h3>
-                          <div class="container-fluid">
-                             <div class="symbols col-xs-1 col-md-1">
-                                 <div class="row building-symbol"></div>
-                                 <div class="row cc-symbol"></div>
-                                 <div class="row transit-symbol"></div>
-                                 <div class="row lbpolice-symbol"></div>
-                                 <div class="row pps-symbol"></div>
-                                 <div class="row amazon-symbol"></div>
-                             </div>
-                             <div class="locations col-xs-10 col-md-10">
-                                 <a class="row" href=#>Building</a>
-                                 <a class="row" href=#>CSULB "Campus Connection" Stop</a>
-                                 <a class="row" href=#>Long Beach Transit Bus Stop</a>
-                                 <a class="row" href=#>University Police</a>
-                                 <a class="row" href=#>Parking Pay Station</a>
-                                 <a class="row" href=#></a>
-                            </div>
-                          </div>
+                  <div id="legend" class="key-content tab active">
+                     <h3>Legend</h3>
+                      <div class="key-container">
+                           <a href="#">
+                             <div class="symbol building-symbol"></div>
+                             <div class="loc">Building</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol cc-symbol"></div>
+                             <div class="loc">CSULB Campus Connection Stop</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol transit-symbol"></div>
+                             <div class="loc">Long Beach Transit Bus Stop</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol lbpolice-symbol"></div>
+                             <div class="loc">University Police</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol pps-symbol"></div>
+                             <div class="loc">Parking Pay Station</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol amazon-symbol"></div>
+                             <div class="loc">Amazon &commat; The Beach</div>
+                           </a>
                       </div>
-                      <div id="parking" class="tabcontent tab">
-                         <h3>Parking</h3>
-                         <ul class="parking">
-                           <li><a href=#>Building</a></li>
-                           <li><a href=#>CSULB "Campus Connection" Stop</a></li>
-                           <li><a href=#>Long Beach Transit Bus Stop</a></li>
-                           <li><a href=#>University Police</a></li>
-                           <li><a href=#>Parking Pay Station</a></li>
-                           <li><a href=#>Amazon @ TheBeach</a></li>
-                         </ul>
-                      </div>
-                      <div id="food" class="tabcontent tab">
-                       <h3>Food &amp; Drink</h3>
-                       <ul class="food">
-                         <li><a href=#>University Dining Plaza</a></li>
-                         <li><a href=#>The Chartroom</a></li>
-                         <li><a href=#>Outpost Grill</a></li>
-                         <li><a href=#>Nugget Grill &amp; Pub</a></li>
-                         <li><a href=#>Starbucks</a></li>
-                         <li><a href=#>Coffee Bean</a></li>
-                         <li><a href=#>Robeks</a></li>
-                       </ul>
-                   </div>
-                </div>
+                  </div>
+                  <div id="parking" class="key-content tab">
+                      <h3>Parking</h3>
+                    <!--<ul class="parking">
+                       <li><a href=#>Building</a></li>
+                       <li><a href=#>CSULB "Campus Connection" Stop</a></li>
+                       <li><a href=#>Long Beach Transit Bus Stop</a></li>
+                       <li><a href=#>University Police</a></li>
+                       <li><a href=#>Parking Pay Station</a></li>
+                       <li><a href=#>Amazon @ TheBeach</a></li>
+                     </ul>
+                  </div>-->
 
-                <div id="info-circle" class="icon-content tab">
-                </div>
+                  <div id="food" class="key-content tab">
+                   <h3>Food &amp; Drink</h3>
+                   <!-- <ul class="food">
+                     <li><a href=#>University Dining Plaza</a></li>
+                     <li><a href=#>The Chartroom</a></li>
+                     <li><a href=#>Outpost Grill</a></li>
+                     <li><a href=#>Nugget Grill &amp; Pub</a></li>
+                     <li><a href=#>Starbucks</a></li>
+                     <li><a href=#>Coffee Bean</a></li>
+                     <li><a href=#>Robeks</a></li>
+                   </ul>
+                    -->
+               </div>
             </div>
-              <div id="right-section" class="col-xs-9 col-md-9">
-                  <div id="map">
-              </div>
-           </div>
-        </div>
+
+            <div id="info-circle" class="icon-content tab"></div>
+      </aside>
+
+      <div id="map"></div>
+      <footer>Copyright &copy; BeachWaysTeam</footer>
+    </div>
+
   </body>
 
 </html>
