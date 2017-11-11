@@ -2,16 +2,19 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/map.css">
     <link rel="stylesheet" href="https://file.myfontastic.com/uMXUMpnawi8eu6V7LRA243/icons.css">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Google Map API   -->
     <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAemlR3DsIOjcrtwncedOU6gbR7Gc_3Eis&callback=initMap" type="text/javascript"></script>
+    <!--JQuery  -->
     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+    <!--Personal Scripts  -->
     <script type="text/javascript" src="js/auto.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 
@@ -26,6 +29,7 @@
         <a target="_top" href="index.html" ><img src="https://blog.flamingtext.com/blog/2017/11/01/flamingtext_com_1509570576_346846638.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>
       </header>
 
+      <!--Left Section with icon bar  -->
       <aside>
             <div class="icon-bar">
               <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation')"><i class="icon-aim"></i></a>
@@ -38,6 +42,7 @@
               <input id="end" class="controls" type="text" placeholder="Enter a destination location">
             </div>
 
+            <!--Key tabs  -->
             <div id="key" class="icon-content tab">
                 <div class="keytabs">
                    <button class="tablinks active" onclick="openKey(event, 'legend')">Legend</button>
@@ -83,8 +88,8 @@
                        <li><a href=#>University Police</a></li>
                        <li><a href=#>Parking Pay Station</a></li>
                        <li><a href=#>Amazon @ TheBeach</a></li>
-                     </ul>
-                  </div>-->
+                     </ul>-->
+                  </div>
 
                   <div id="food" class="key-content tab">
                    <h3>Food &amp; Drink</h3>
@@ -104,7 +109,7 @@
             <div id="info-circle" class="icon-content tab"></div>
       </aside>
 
-      <div id="map"></div>
+      <div id="map"></div>  <!-- Div container for the google map -->
       <footer>Copyright &copy; BeachWaysTeam</footer>
     </div>
 
