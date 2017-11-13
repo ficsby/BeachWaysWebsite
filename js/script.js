@@ -1,38 +1,89 @@
-
-
+var map, infoWindow;
+var currPosition;
+var latlngS;
+var latlngE;
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
       zoom: 16,                                                     //Change this to change the map zoom
       center: {lat: 33.7838, lng: -118.1141}
     });
 
-    // var bounds = new google.maps.LatLngBounds(
-    //         new google.maps.LatLng(62.281819, -150.287132),
-    //         new google.maps.LatLng(62.400471, -150.005608));
+    // Try HTML5 geolocation.
+    infoWindow = new google.maps.InfoWindow;
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(success, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
 
-    directionsDisplay.setMap(map); directionsDisplay.setPanel(document.getElementById('right-panel'));
+    /*Handles error in case geolocation isn't supported
+    -----------------------------------------------------------------------------------*/
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ?
+                            'Error: The Geolocation service failed.' :
+                            'Error: Your browser doesn\'t support geolocation.');
+      infoWindow.open(map);
+    }
+    /*Success function, needed for geolocation service
+    -----------------------------------------------------------------------------------*/
+    function success(position){
+      currPosition = new google.maps.LatLng(position.coords.latitude,
+    						position.coords.longitude);
+      if(document.getElementById('start').value.length == 0){
+        latlngS = currPosition;
+      }
+      if(document.getElementById('end').value.length == 0){
+        latlngE = currPosition;
+      }
+      /*Autocomplete and Search Bars
+      ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+      $(function() {
+        /*CSULB Locations
+        -----------------------------------------------------------------------------------*/
+        var locations = [
+          {value:"Current Location", data: currPosition},
+          {value:"Student Recreation | Wellness Center", data: {lat:33.785211130686655, lng:-118.10900330543518} }, {value:"SRWC", data: "33.785211130686655,-118.10900330543518" },
+          {value:"Vivian Engineering Center", data: {lat: 33.782830248878916, lng:-118.11044096946716} }, {value:"VEC", data: "33.782830248878916,-118.11044096946716"}
+        ];
 
+        /*Autocomplete
+        -----------------------------------------------------------------------------------*/
+        $("#start").autocomplete({
+          lookup: locations,
+          onSelect: function(suggestion){
+          latlngS = suggestion.data;
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+          console.log("In autocomplete: " + latlngS);
+          }
+        });
 
+        $("#end").autocomplete({
+          lookup: locations,
+          onSelect: function(suggestion){
+            latlngE = suggestion.data;
+            calculateAndDisplayRoute(directionsService, directionsDisplay);
+          }
+        });
+      }); //End of jQuery function
+    } //End of success function
 
-    var onChangeHandler = function() {
-      calculateAndDisplayRoute(directionsService, directionsDisplay);
-    };
-    document.getElementById('start').addEventListener('change', onChangeHandler);
-    document.getElementById('end').addEventListener('change', onChangeHandler);
+    /*Displays geolocation coordinates and location
+    -----------------------------------------------------------------------------------*/
+    infoWindow.setPosition(currPosition);
+    infoWindow.setContent('Location found.');
+    infoWindow.open(map);
+    map.setCenter(currPosition);
+    directionsDisplay.setMap(map); directionsDisplay.setPanel(document.getElementById('direction-panel'));
 }
 
-var latlngS = {lat:33.7838, lng:-118.1141};
-var latlngE = {lat:33.781395, lng:-118.113499};
-
-test = document.getElementById('start').value.split(",");
-console.log(test[0])
-latlngS = {lat:parseFloat(test[0]), lng:parseFloat(test[1])};
-test2 = document.getElementById('start').value.split(",");
-latlngE = {lat:parseFloat(test2[0]), lng:parseFloat(test2[1])};
-
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+      console.log("In displayRoute: " + document.getElementById('start').value);
       directionsService.route({
       origin: latlngS,
       destination: latlngE,

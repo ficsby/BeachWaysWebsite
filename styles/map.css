@@ -71,6 +71,37 @@ div.icon-bar a.active {
    background-color: #52a88b;
 }
 
+/* NAVIGATION SUBSECTION
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#direction-panel {
+    font-family: 'Roboto','sans-serif';
+/*    line-height: 30px;*/
+    padding-left: 10px;
+    background-color:white;
+}
+
+#direction-panel select, #direction-panel input {
+    font-size: 1em;
+}
+
+#direction-panel select {
+    width: 100%;
+}
+
+#direction-panel i {
+    font-size: 1em;
+}
+
+#direction-panel {
+    margin-left: 8px;
+    margin-top:30px;
+    font-size: 1em;
+    height: 100%;
+    float: left;
+    width:95%;
+    /*background-color: white;*/
+    overflow: auto;
+}
 /* MAP KEY SUBSECTION
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #key{
@@ -175,6 +206,14 @@ div.keytabs button.active {
     color:black;
 }
 
+.autocomplete-suggestions { border: 1px solid #999; background: #fff; cursor: default; overflow: auto; }
+.autocomplete-suggestion { padding: 10px 5px; font-size: 1.2em; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #f0f0f0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }
+
+p{
+  color:white;
+}
 /* MEDIA SECTION (Different screen sizes)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
