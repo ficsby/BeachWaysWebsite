@@ -46,6 +46,9 @@ aside {
 
 /* LEFT SIDE BAR SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+}
+
 .icon-bar {
     width: 100%; /* Set a specific width */
     background-color: #555; /* Dark-grey background */
@@ -117,6 +120,13 @@ div.icon-bar a.active {
 }
 /* MAP KEY SUBSECTION
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.icon-mapkey{
+   background-image: url('../icons/mapkey.png');
+   display: block;
+   width: 50px;
+   height: 50px;
+   background-repeat: no-repeat;
+}
 #key{
   color: #ffffff;
 }
@@ -182,6 +192,7 @@ div.keytabs button.active {
   float: left;
 }
 
+/* LEGEND SYMBOLS */
 .building-symbol{
   background-image: url('../icons/building-symbol.png');
 }
@@ -204,6 +215,31 @@ div.keytabs button.active {
 
 .amazon-symbol{
   background-image: url('../icons/amazon-symbol.png');
+}
+
+/* PARKING SYMBOLS */
+.student-symbol{
+  background-image: url('../icons/student.png');
+}
+
+.employee-symbol{
+  background-image: url('../icons/employee.png');
+}
+
+.shortterm-symbol{
+  background-image: url('../icons/short-term.png');
+}
+
+.residential-symbol{
+  background-image: url('../icons/residential.png');
+}
+
+.officialguest-symbol{
+  background-image: url('../icons/official-guest.png');
+}
+
+.lot10a-symbol{
+  background-image: url('../icons/lot-10a.png');
 }
 
 /* GOOGLE MAPS SECTION
@@ -233,17 +269,51 @@ p{
 /* EXTRA SMALL SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width:576px){
+  div.container {
+      display: table;
+  }
 
+
+  aside {
+      display: table-footer-group;
+      width: 100%;
+      height: 500px;
+
+  }
+
+  #map{
+      display: table-header-group;
+      overflow: hidden;
+      width: 100%;
+      height: 500px;
+  }
 }
 /* SMALL SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
-@media screen and (min-width:576px){
+@media screen and (max-width:800px){
+  div.container {
+      display: table;
+  }
 
+
+  aside {
+      display: table-footer-group;
+      width: 100%;
+      height: 500px;
+
+  }
+
+  #map{
+      display: table-header-group;
+      overflow: hidden;
+      width: 100%;
+      height: 500px;
+  }
 }
 
 /* MEDIUM SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
-@media screen and (min-width:800px){
+@media screen and (max-width: 1024px){
 
 }
 
