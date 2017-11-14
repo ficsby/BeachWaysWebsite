@@ -35,12 +35,9 @@ function initMap() {
     function success(position){
       currPosition = new google.maps.LatLng(position.coords.latitude,
     						position.coords.longitude);
-      if(document.getElementById('start').value.length == 0){
-        latlngS = currPosition;
-      }
-      if(document.getElementById('end').value.length == 0){
-        latlngE = currPosition;
-      }
+      latlngS = currPosition;
+      latlngE = currPosition;
+
       /*Autocomplete and Search Bars
       ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
       $(function() {
@@ -71,14 +68,16 @@ function initMap() {
           }
         });
       }); //End of jQuery function
+      infoWindow.setPosition(currPosition);
+      infoWindow.setContent('Location found.');
+      infoWindow.open(map);
+      map.setCenter(currPosition);
     } //End of success function
 
     /*Displays geolocation coordinates and location
     -----------------------------------------------------------------------------------*/
-    infoWindow.setPosition(currPosition);
-    infoWindow.setContent('Location found.');
-    infoWindow.open(map);
-    map.setCenter(currPosition);
+
+
     directionsDisplay.setMap(map); directionsDisplay.setPanel(document.getElementById('direction-panel'));
 }
 

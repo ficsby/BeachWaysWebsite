@@ -73,6 +73,19 @@ div.icon-bar a.active {
 
 /* NAVIGATION SUBSECTION
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#from{
+  float:left;
+}
+
+#to{
+  /*margin-top:20px;*/
+  clear:left;
+  float:left;
+}
+#start, #end{
+  border-radius:40px;
+  /*margin-left:80px;*/
+}
 #direction-panel {
     font-family: 'Roboto','sans-serif';
 /*    line-height: 30px;*/
