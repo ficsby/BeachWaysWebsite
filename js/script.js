@@ -42,7 +42,7 @@ function initMap() {
       var marker = new google.maps.Marker({
         position:currPosition,
         map:map,
-        icon:"../images/testMarker.PNG"
+        icon:"../images/testMarker.png"
       });
       markers.push(marker);
       if(markers.length == 2){
