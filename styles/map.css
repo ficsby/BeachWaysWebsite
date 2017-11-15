@@ -313,9 +313,17 @@ p{
     flex-direction: column-reverse;
   }
 
+  #map{
+     /*clear:left;*/
+      width: 100%;
+      height: 700px;
+  }
+
   aside {
       width: 100%;
-      height: inherit;
+      /*height:inherit;*/
+      height:600px;
+      /*height: 30%;*/
   }
 
   .icon-bar {
@@ -324,13 +332,33 @@ p{
       overflow: auto;
   }
 
-  #map{
-      width: 100%;
-      height: 1000px;
-  }
+div.container{
+  height: 1000px;
+}
+
 
   #navigation{
-    height: 500px;
+    height: 400px;
+  }
+
+  #key{
+    height:400px;
+  }
+
+  #info-circle{
+    height:400px;
+  }
+
+  #direction-panel {
+      margin: 0px 0px 0px 8px;
+      font-size: 1em;
+      /*height: 100%;*/
+      float: left;
+
+      width:95%;
+      height:80%;
+      /*background-color: white;*/
+      overflow: hidden;
   }
 }
 
