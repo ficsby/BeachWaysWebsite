@@ -52,7 +52,7 @@ function initMap() {
         }
       }
       latlngS = currPosition;
-      latlngE = currPosition;
+      // latlngE = currPosition;
 
       /*Autocomplete and Search Bars
       ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -184,9 +184,9 @@ function initMap() {
         });
         window.setInterval(function(){
             // console.log("START");
+            // console.log("HI");
             // intervalID = setInterval(calculateAndDisplayRoute(directionsService, directionsDisplay), 1000);
-            calculateAndDisplayRoute(directionsService, directionsDisplay)
-
+            calculateAndDisplayRoute(directionsService, directionsDisplay);
         }, 1000);
 
       }); //End of jQuery function
@@ -207,8 +207,8 @@ function initMap() {
     directionsDisplay.setMap(map); directionsDisplay.setPanel(document.getElementById('direction-panel'));
 }
 function changeLatLng(latlngS, latlngE){
-  latlngS = latlngS;
-  latlngE = latlngE;
+  this.latlngS = latlngS;
+  this.latlngE = latlngE;
 }
 
 function updateNames(sName, eName){
@@ -239,6 +239,15 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       travelMode: 'WALKING'
     }, function(response, status) {
           if (status === 'OK') {
+            if(latlngS === currPosition){
+              directionsDisplay.setOptions({ preserveViewport: true });
+              map.setZoom(18);
+              map.setCenter(currPosition);
+              // directionsDisplay.setDirections(response);
+            }
+            else{
+              directionsDisplay.setOptions({ preserveViewport: false });
+            }
             directionsDisplay.setDirections(response);
           }
         });
