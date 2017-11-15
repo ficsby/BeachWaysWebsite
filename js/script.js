@@ -150,6 +150,18 @@ function initMap() {
 
         /*Autocomplete
         -----------------------------------------------------------------------------------*/
+        $(".searchbar").autocomplete({
+          lookup: locations,
+          onSelect: function(suggestion){
+            latlngS = currPosition;
+            latlngE = suggestion.data;
+            switchToDirectionSearch();
+            document.getElementById("start").value = "Current Location";
+            document.getElementById("end").value = suggestion.value;
+            calculateAndDisplayRoute(directionsService, directionsDisplay);
+          }
+        });
+
         $("#start").autocomplete({
           lookup: locations,
           onSelect: function(suggestion){
@@ -166,6 +178,7 @@ function initMap() {
           }
         });
       }); //End of jQuery function
+      calculateAndDisplayRoute(directionsService, directionsDisplay);
       infoWindow.setPosition(currPosition);
       infoWindow.setContent('Location found.');
       infoWindow.open(map);
@@ -175,18 +188,6 @@ function initMap() {
     /*Displays geolocation coordinates and location
     -----------------------------------------------------------------------------------*/
     directionsDisplay.setMap(map); directionsDisplay.setPanel(document.getElementById('direction-panel'));
-}
-
-function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-      directionsService.route({
-      origin: latlngS,
-      destination: latlngE,
-      travelMode: 'WALKING'
-    }, function(response, status) {
-          if (status === 'OK') {
-            directionsDisplay.setDirections(response);
-          }
-        });
 }
 
 function switchToMainSearch(){
@@ -204,6 +205,24 @@ function switchToDirectionSearch(){
   mainSearch.style.display = "none";
   searchDirections.style.display = "block";
 }
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+      directionsService.route({
+      origin: latlngS,
+      destination: latlngE,
+      travelMode: 'WALKING'
+    }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+          }
+        });
+}
+
+$('a').click(function(e)
+{
+    // Cancel the default action
+    e.preventDefault();
+});
 
 /*Icon Bar Functionality
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/

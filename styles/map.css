@@ -104,11 +104,12 @@ div.icon-bar a.active {
 
 .x-icon{
   position:relative;
-  left:10px;
-  top:12px;
+  left:300px;
+  /*top:12px;*/
 }
 #start, #end{
   border-radius:40px;
+  width:300px;
 }
 
 #direction-panel {
