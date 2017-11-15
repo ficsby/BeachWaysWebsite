@@ -12,11 +12,11 @@ function initMap() {
     });
 
     // Try HTML5 geolocation.
-    infoWindow = new google.maps.InfoWindow;
+    // infoWindow = new google.maps.InfoWindow;
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(success, function() {
         handleLocationError(true, infoWindow, map.getCenter());
-      });
+      }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
     } else {
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
@@ -166,10 +166,10 @@ function initMap() {
           }
         });
       }); //End of jQuery function
-      infoWindow.setPosition(currPosition);
-      infoWindow.setContent('Location found.');
-      infoWindow.open(map);
-      map.setCenter(currPosition);
+      // infoWindow.setPosition(currPosition);
+      // infoWindow.setContent('Location found.');
+      // infoWindow.open(map);
+      // map.setCenter(currPosition);
     } //End of success function
 
     /*Displays geolocation coordinates and location

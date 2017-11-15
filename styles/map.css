@@ -270,19 +270,19 @@ p{
 -------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width:576px){
   div.container {
-      display: table;
+      /*display: table;*/
   }
 
 
   aside {
-      display: table-footer-group;
+      /*display: table-footer-group;*/
       width: 100%;
       height: 500px;
 
   }
 
   #map{
-      display: table-header-group;
+      /*display: table-header-group;*/
       overflow: hidden;
       width: 100%;
       height: 500px;
@@ -292,19 +292,19 @@ p{
 -------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width:800px){
   div.container {
-      display: table;
+      /*display: table;*/
   }
 
 
   aside {
-      display: table-footer-group;
+      /*display: table-footer-group;*/
       width: 100%;
       height: 500px;
 
   }
 
   #map{
-      display: table-header-group;
+      /*display: table-header-group;*/
       overflow: hidden;
       width: 100%;
       height: 500px;
