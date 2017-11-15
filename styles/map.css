@@ -117,6 +117,7 @@ div.icon-bar a.active {
 /*    line-height: 30px;*/
     padding-left: 10px;
     background-color:white;
+
 }
 
 #direction-panel select, #direction-panel input {
@@ -125,6 +126,7 @@ div.icon-bar a.active {
 
 #direction-panel select {
     width: 100%;
+
 }
 
 #direction-panel i {
