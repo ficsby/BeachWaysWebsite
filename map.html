@@ -21,102 +21,120 @@
     <div class="container">
       <!--Left Section with icon bar  -->
       <aside>
-              <div class="icon-bar">
+            <div class="icon-bar">
                 <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation')"><i class="icon-aim"></i></a>
                 <a href="#" class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-if-map-marker-2639857"></i></a>
                 <a href="#" class="iconlinks" onclick="openIconTab(event, 'info-circle')"><i class="icon-info-circled"></i></a>
-              </div>
-
-            <div id="navigation" class="icon-content tab active">
-              <input id="mainSearch" type="text" placeholder="Search...">
-              <button type="button" onclick="switchSearch()">smd</button>
-              <p id="from">FROM: <input id="start" class="controls directions" type="text" placeholder="Enter an origin location"></p>
-              <p id="to">TO: <input id="end" class="controls directions" type="text" placeholder="Enter a destination location"></p>
-              <div id="direction-panel"></div>
-              <p id="start-lat"></p>
-              <p id="end-lat"></p>
             </div>
-
-              <!--Key tabs  -->
-              <div id="key" class="icon-content tab">
-                  <div class="keytabs">
-                     <button class="tablinks active" onclick="openKey(event, 'legend')">Legend</button>
-                     <button class="tablinks" onclick="openKey(event, 'parking')">Parking</button>
-                     <button class="tablinks" onclick="openKey(event, 'food')">Food &amp; Drink</button>
-                   </div>
-
-                    <div id="legend" class="key-content tab active">
-                       <h3>Legend</h3>
-                        <div class="key-container">
-                             <a href="#">
-                               <div class="symbol building-symbol"></div>
-                               <div class="loc">Building</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol cc-symbol"></div>
-                               <div class="loc">CSULB Campus Connection Stop</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol transit-symbol"></div>
-                               <div class="loc">Long Beach Transit Bus Stop</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol lbpolice-symbol"></div>
-                               <div class="loc">University Police</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol pps-symbol"></div>
-                               <div class="loc">Parking Pay Station</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol amazon-symbol"></div>
-                               <div class="loc">Amazon &commat; The Beach</div>
-                             </a>
-                        </div>
-                    </div>
-                    <div id="parking" class="key-content tab">
-                        <h3>Parking</h3>
-                        <div class="key-container">
-                             <a href="#">
-                               <div class="symbol student-symbol"></div>
-                               <div class="loc">Student Parking Structure / Parking Lot</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol employee-symbol"></div>
-                               <div class="loc">Employee Parking</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol shortterm-symbol"></div>
-                               <div class="loc">Short-term Parking</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol officialguest-symbol"></div>
-                               <div class="loc">Official Guest of the University Parking</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol lot10a-symbol"></div>
-                               <div class="loc">Lot 10A Permit Parking</div>
-                             </a>
-                        </div>
-                    </div>
-
-                    <div id="food" class="key-content tab">
-                     <h3>Food &amp; Drink</h3>
-                     <!-- <ul class="food">
-                       <li><a href=#>University Dining Plaza</a></li>
-                       <li><a href=#>The Chartroom</a></li>
-                       <li><a href=#>Outpost Grill</a></li>
-                       <li><a href=#>Nugget Grill &amp; Pub</a></li>
-                       <li><a href=#>Starbucks</a></li>
-                       <li><a href=#>Coffee Bean</a></li>
-                       <li><a href=#>Robeks</a></li>
-                     </ul>
-                      -->
+                  <div id="navigation" class="icon-content tab initial-active">
+                    <input id="mainSearch" type="text" placeholder="Search...">
+                    <button type="button" onclick="switchSearch()">smd</button>
+                    <p id="from">FROM: <input id="start" class="controls directions" type="text" placeholder="Enter an origin location"></p>
+                    <p id="to">TO: <input id="end" class="controls directions" type="text" placeholder="Enter a destination location"></p>
+                    <div id="direction-panel"></div>
+                    <p id="start-lat"></p>
+                    <p id="end-lat"></p>
                  </div>
-              </div>
 
-              <div id="info-circle" class="icon-content tab"></div>
+                <!--Key tabs  -->
+                 <div id="key" class="icon-content tab">
+                    <div class="keytabs">
+                       <button class="tablinks active" onclick="openKey(event, 'legend')">Legend</button>
+                       <button class="tablinks" onclick="openKey(event, 'parking')">Parking</button>
+                       <button class="tablinks" onclick="openKey(event, 'food')">Food &amp; Drink</button>
+                     </div>
 
+                      <div id="legend" class="key-content tab active">
+                         <h3>Legend</h3>
+                          <div class="key-container">
+                               <a href="#">
+                                 <div class="symbol building-symbol"></div>
+                                 <div class="loc">Building</div>
+                               </a>
+                               <a href="#">
+                                 <div class="symbol cc-symbol"></div>
+                                 <div class="loc">CSULB Campus Connection Stop</div>
+                               </a>
+                               <a href="#">
+                                 <div class="symbol transit-symbol"></div>
+                                 <div class="loc">Long Beach Transit Bus Stop</div>
+                               </a>
+                               <a href="#">
+                                 <div class="symbol lbpolice-symbol"></div>
+                                 <div class="loc">University Police</div>
+                               </a>
+                               <a href="#">
+                                 <div class="symbol pps-symbol"></div>
+                                 <div class="loc">Parking Pay Station</div>
+                               </a>
+                               <a href="#">
+                                 <div class="symbol amazon-symbol"></div>
+                                 <div class="loc">Amazon &commat; The Beach</div>
+                               </a>
+                          </div>
+                      </div>
+                      <div id="parking" class="key-content tab">
+                          <h3>Parking</h3>
+                          <div class="key-container">
+                               <a href="#">
+                                 <div class="symbol student-symbol"></div>
+                                 <div class="loc">Student Parking Structure / Parking Lot</div>
+                               </a>
+                               <a href="#">
+                                 <div class="symbol employee-symbol"></div>
+                                 <div class="loc">Employee Parking</div>
+                               </a>
+                               <a href="#">
+                                 <div class="symbol shortterm-symbol"></div>
+                                 <div class="loc">Short-term Parking</div>
+                               </a>
+                               <a href="#">
+                                 <div class="symbol officialguest-symbol"></div>
+                                 <div class="loc">Official Guest of the University Parking</div>
+                               </a>
+                               <a href="#">
+                                 <div class="symbol lot10a-symbol"></div>
+                                 <div class="loc">Lot 10A Permit Parking</div>
+                               </a>
+                          </div>
+                      </div>
+
+                      <div id="food" class="key-content tab">
+                       <h3>Food &amp; Drink</h3>
+                        <div class="key-container">
+                             <a href="#">
+                               <div class="symbol dining-symbol"></div>
+                               <div class="loc">University Dining Plaza</div>
+                             </a>
+                             <a href="#">
+                               <div class="symbol chartroom-symbol"></div>
+                               <div class="loc">The Chartroom</div>
+                             </a>
+                             <a href="#">
+                               <div class="symbol outpost-symbol"></div>
+                               <div class="loc">Outpost Grill</div>
+                             </a>
+                             <a href="#">
+                               <div class="symbol nugget-symbol"></div>
+                               <div class="loc">Nugget Grill &amp; Pub</div>
+                             </a>
+                             <a href="#">
+                               <div class="symbol starbucks-symbol"></div>
+                               <div class="loc">Starbucks</div>
+                             </a>
+                             <a href="#">
+                               <div class="symbol cbean-symbol"></div>
+                               <div class="loc">Coffee Bean</div>
+                             </a>
+                             <a href="#">
+                               <div class="symbol robeks-symbol"></div>
+                               <div class="loc">Robeks</div>
+                             </a>
+                        </div>
+                   </div>
+                </div>
+
+                <div id="info-circle" class="icon-content tab"></div>
       </aside>
 
       <div id="map"></div>  <!-- Div container for the google map -->
