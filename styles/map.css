@@ -78,17 +78,39 @@ div.icon-bar a.active {
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #from{
   float:left;
+
 }
 
 #to{
-  /*margin-top:20px;*/
   clear:left;
   float:left;
 }
+
+.searchbar{
+  /*margin-top:1px;*/
+  margin-left:20px;
+  height:50px;
+  width:230px;
+  font-size:25px;
+}
+
+.compass-icon{
+  /*padding-top:1000px;*/
+  position:relative;
+  left:10px;
+  top:12px;
+  /*margin-left:10px;*/
+}
+
+.x-icon{
+  position:relative;
+  left:10px;
+  top:12px;
+}
 #start, #end{
   border-radius:40px;
-  /*margin-left:80px;*/
 }
+
 #direction-panel {
     font-family: 'Roboto','sans-serif';
 /*    line-height: 30px;*/

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/map.css">
     <link rel="stylesheet" href="https://file.myfontastic.com/aBNsrxWu6CHZcgsgfvVkPD/icons.css">
     <!--jQuery-->
-
+    <script src="https://use.fontawesome.com/4d1f967533.js"></script>
     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
     <title>BeachWays Map</title>
@@ -28,10 +28,17 @@
               </div>
 
             <div id="navigation" class="icon-content tab active">
-              <input id="mainSearch" type="text" placeholder="Search...">
-              <button type="button" onclick="switchSearch()">smd</button>
-              <p id="from">FROM: <input id="start" class="controls directions" type="text" placeholder="Enter an origin location"></p>
-              <p id="to">TO: <input id="end" class="controls directions" type="text" placeholder="Enter a destination location"></p>
+              <div id="mainSearch">
+                <input class= "searchbar" type="text" placeholder="Search...">
+                <a href="#" class="compass-icon"onclick="switchToDirectionSearch()"><i class="fa fa-compass fa-4x" aria-hidden="true"></i></a>
+              </div>
+
+              <div id="search-directions" class="tab">
+                <a href="#" class="x-icon"type="button" onclick="switchToMainSearch()"><i class="fa fa-times fa-4x" aria-hidden="true"></i></a>
+                <p id="from">FROM: <input id="start" class="controls searchbar" type="text" placeholder="Enter an origin location"></p>
+                <p id="to">TO: <input id="end" class="controls searchbar" type="text" placeholder="Enter a destination location"></p>
+              </div>
+
               <div id="direction-panel"></div>
               <p id="start-lat"></p>
               <p id="end-lat"></p>

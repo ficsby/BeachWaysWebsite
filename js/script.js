@@ -12,7 +12,7 @@ function initMap() {
     });
 
     // Try HTML5 geolocation.
-    // infoWindow = new google.maps.InfoWindow;
+    infoWindow = new google.maps.InfoWindow;
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(success, function() {
         handleLocationError(true, infoWindow, map.getCenter());
@@ -166,10 +166,10 @@ function initMap() {
           }
         });
       }); //End of jQuery function
-      // infoWindow.setPosition(currPosition);
-      // infoWindow.setContent('Location found.');
-      // infoWindow.open(map);
-      // map.setCenter(currPosition);
+      infoWindow.setPosition(currPosition);
+      infoWindow.setContent('Location found.');
+      infoWindow.open(map);
+      map.setCenter(currPosition);
     } //End of success function
 
     /*Displays geolocation coordinates and location
@@ -189,9 +189,20 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         });
 }
 
-function switchSearch(marker){
-  var searchContent;
-  searchContent = document.getElementsByClassName();
+function switchToMainSearch(){
+  var searchDirections, mainSearch;
+  searchDirections = document.getElementById("search-directions");
+  mainSearch = document.getElementById("mainSearch");
+  searchDirections.style.display = "none";
+  mainSearch.style.display = "block";
+}
+
+function switchToDirectionSearch(){
+  var searchDirections, mainSearch;
+  searchDirections = document.getElementById("search-directions");
+  mainSearch = document.getElementById("mainSearch");
+  mainSearch.style.display = "none";
+  searchDirections.style.display = "block";
 }
 
 /*Icon Bar Functionality
@@ -203,7 +214,7 @@ function openIconTab(evt, iconName){
   // Get all elements with class="icon-content" and hide them
   tabcontent = document.getElementsByClassName("icon-content");
   for(i = 0; i < tabcontent.length; i++){
-    tabcontent[i].style.display = "none"
+    tabcontent[i].style.display = "none";
   }
 
   // Get all elements with class="iconlinks" and remove the class "active"
