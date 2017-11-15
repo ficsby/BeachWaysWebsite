@@ -275,6 +275,35 @@ div.keytabs button.active {
   background-image: url('../icons/lot-10a.png');
 }
 
+* FOOD SYMBOLS */
+.dining-symbol{
+  background-image: url('../icons/dining.png');
+}
+
+.chartroom-symbol{
+  background-image: url('../icons/chartroom.png');
+}
+
+.outpost-symbol{
+  background-image: url('../icons/outpost.png');
+}
+
+.nugget-symbol{
+  background-image: url('../icons/nugget.png')
+}
+
+.starbucks-symbol{
+  background-image: url('../icons/starbucks.png');
+}
+
+.cbean-symbol{
+  background-image: url('../icons/cbean.png');
+}
+
+.robeks-symbol{
+  background-image: url('../icons/robeks.png');
+}
+
 /* GOOGLE MAPS SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #map{
