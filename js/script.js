@@ -62,7 +62,8 @@ function initMap() {
         var locations = [
           {value:"Your Location", data: currPosition},
           {value:"Student Recreation | Wellness Center", data: new google.maps.LatLng(33.785211130686655, -118.10900330543518) }, {value:"SRWC", data: new google.maps.LatLng(33.785211130686655, -118.10900330543518) },
-          {value:"Vivian Engineering Center", data: new google.maps.LatLng(33.782830248878916, -118.11044096946716) }, {value:"VEC", data: new google.maps.LatLng(33.782830248878916, -118.11044096946716)}
+          {value:"Vivian Engineering Center", data: new google.maps.LatLng(33.782830248878916, -118.11044096946716) }, {value:"VEC", data: new google.maps.LatLng(33.782830248878916, -118.11044096946716)},
+          {value:"Glee Donuts and Burgers", data: new google.maps.LatLng(33.7236971, -117.96374149999997)}
           /*{value:"49er Pool", data: 'd'}, {value:"POOL", data: 'tool'},
           {value:"49er Softball Complex", data: }, {value:"SC", data: },
           {value:"Academic Services", data: }, {value:"AS", data: },
@@ -181,6 +182,13 @@ function initMap() {
             updateNames(startLocationName, suggestion.value);
           }
         });
+        window.setInterval(function(){
+            // console.log("START");
+            // intervalID = setInterval(calculateAndDisplayRoute(directionsService, directionsDisplay), 1000);
+            calculateAndDisplayRoute(directionsService, directionsDisplay)
+
+        }, 1000);
+
       }); //End of jQuery function
 
 
@@ -190,16 +198,6 @@ function initMap() {
       map.setCenter(currPosition);
       // console.log(startLocationName);
 
-        window.setInterval(function(){
-          if(startLocationName === "Your Location"){
-            console.log("START");
-            intervalID = setInterval(calculateAndDisplayRoute(directionsService, directionsDisplay), 1000);
-          }
-          else{
-            console.log("STOP");
-            clearInterval(intervalID);
-          }
-        }, 1000);
 
 
     } //End of success function
