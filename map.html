@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/map.css">
     <link rel="stylesheet" href="https://file.myfontastic.com/aBNsrxWu6CHZcgsgfvVkPD/icons.css">
     <!--jQuery-->
-
+    <script src="https://use.fontawesome.com/4d1f967533.js"></script>
     <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
     <title>BeachWays Map</title>
@@ -25,6 +25,23 @@
                 <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation')"><i class="icon-aim"></i></a>
                 <a href="#" class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-if-map-marker-2639857"></i></a>
                 <a href="#" class="iconlinks" onclick="openIconTab(event, 'info-circle')"><i class="icon-info-circled"></i></a>
+              </div>
+
+            <div id="navigation" class="icon-content tab active">
+              <div id="mainSearch">
+                <input class= "searchbar" type="text" placeholder="Search...">
+                <a href="#" class="compass-icon"onclick="switchToDirectionSearch()"><i class="fa fa-compass fa-4x" aria-hidden="true"></i></a>
+              </div>
+
+              <div id="search-directions" class="tab">
+                <a href="#" class="x-icon" type="button" onclick="switchToMainSearch()"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+                <p id="from">FROM: <input id="start" class="controls searchbar" type="text" placeholder="Enter an origin location"></p>
+                <p id="to">TO: <input id="end" class="controls searchbar" type="text" placeholder="Enter a destination location"></p>
+              </div>
+
+              <div id="direction-panel"></div>
+              <p id="start-lat"></p>
+              <p id="end-lat"></p>
             </div>
                   <div id="navigation" class="icon-content tab initial-active">
                     <input id="mainSearch" type="text" placeholder="Search...">
@@ -141,11 +158,11 @@
     </div>
     <footer>Copyright &copy; BeachWaysTeam &amp; Google</footer>
 
-
-    <script type="text/javascript" src="js/auto.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
     <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAemlR3DsIOjcrtwncedOU6gbR7Gc_3Eis&callback=initMap" type="text/javascript"></script>
+    <script type="text/javascript" src="js/auto.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
 
   </body>
 
