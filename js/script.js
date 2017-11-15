@@ -1,8 +1,9 @@
 var map, infoWindow;
 var currPosition;
-var latlngS;
-var latlngE;
+var latlngS, latlngE;
+var startLocationName, endLocationName;
 var markers = [];
+var intervalID = null;
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -59,9 +60,9 @@ function initMap() {
         /*CSULB Locations
         -----------------------------------------------------------------------------------*/
         var locations = [
-          {value:"Current Location", data: currPosition},
-          {value:"Student Recreation | Wellness Center", data: {lat:33.785211130686655, lng:-118.10900330543518} }, {value:"SRWC", data: {lat:33.785211130686655, lng:-118.10900330543518} },
-          {value:"Vivian Engineering Center", data: {lat: 33.782830248878916, lng:-118.11044096946716} }, {value:"VEC", data: {lat: 33.782830248878916, lng:-118.11044096946716}}
+          {value:"Your Location", data: currPosition},
+          {value:"Student Recreation | Wellness Center", data: new google.maps.LatLng(33.785211130686655, -118.10900330543518) }, {value:"SRWC", data: new google.maps.LatLng(33.785211130686655, -118.10900330543518) },
+          {value:"Vivian Engineering Center", data: new google.maps.LatLng(33.782830248878916, -118.11044096946716) }, {value:"VEC", data: new google.maps.LatLng(33.782830248878916, -118.11044096946716)}
           /*{value:"49er Pool", data: 'd'}, {value:"POOL", data: 'tool'},
           {value:"49er Softball Complex", data: }, {value:"SC", data: },
           {value:"Academic Services", data: }, {value:"AS", data: },
@@ -155,10 +156,11 @@ function initMap() {
           onSelect: function(suggestion){
             latlngS = currPosition;
             latlngE = suggestion.data;
+            changeLatLng(latlngS,latlngE);
+            updateNames("Your Location", suggestion.value);
             switchToDirectionSearch();
-            document.getElementById("start").value = "Current Location";
+            document.getElementById("start").value = "Your Location";
             document.getElementById("end").value = suggestion.value;
-            calculateAndDisplayRoute(directionsService, directionsDisplay);
           }
         });
 
@@ -166,7 +168,8 @@ function initMap() {
           lookup: locations,
           onSelect: function(suggestion){
           latlngS = suggestion.data;
-          calculateAndDisplayRoute(directionsService, directionsDisplay);
+          changeLatLng(latlngS,latlngE);
+          updateNames(suggestion.value, endLocationName);
           }
         });
 
@@ -174,20 +177,45 @@ function initMap() {
           lookup: locations,
           onSelect: function(suggestion){
             latlngE = suggestion.data;
-            calculateAndDisplayRoute(directionsService, directionsDisplay);
+            changeLatLng(latlngS,latlngE);
+            updateNames(startLocationName, suggestion.value);
           }
         });
       }); //End of jQuery function
-      calculateAndDisplayRoute(directionsService, directionsDisplay);
+
+
       infoWindow.setPosition(currPosition);
       infoWindow.setContent('Location found.');
       infoWindow.open(map);
       map.setCenter(currPosition);
+      // console.log(startLocationName);
+
+        window.setInterval(function(){
+          if(startLocationName === "Your Location"){
+            console.log("START");
+            intervalID = setInterval(calculateAndDisplayRoute(directionsService, directionsDisplay), 1000);
+          }
+          else{
+            console.log("STOP");
+            clearInterval(intervalID);
+          }
+        }, 1000);
+
+
     } //End of success function
 
     /*Displays geolocation coordinates and location
     -----------------------------------------------------------------------------------*/
     directionsDisplay.setMap(map); directionsDisplay.setPanel(document.getElementById('direction-panel'));
+}
+function changeLatLng(latlngS, latlngE){
+  latlngS = latlngS;
+  latlngE = latlngE;
+}
+
+function updateNames(sName, eName){
+  startLocationName = sName;
+  endLocationName = eName;
 }
 
 function switchToMainSearch(){
