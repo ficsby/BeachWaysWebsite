@@ -180,9 +180,13 @@ function initMap() {
             updateNames(startLocationName, suggestion.value);
           }
         });
+<<<<<<< HEAD
            window.setInterval(function(){
           calculateAndDisplayRoute(directionsService, directionsDisplay);
       }, 1000);
+=======
+
+>>>>>>> beta1
       }); //End of jQuery function
 
 
@@ -191,6 +195,19 @@ function initMap() {
       infoWindow.open(map);
       map.setCenter(currPosition);
       // console.log(startLocationName);
+<<<<<<< HEAD
+=======
+
+      window.setInterval(function(){
+          // console.log("START");
+          // console.log("HI");
+          // intervalID = setInterval(calculateAndDisplayRoute(directionsService, directionsDisplay), 1000);
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+      }, 1000);
+
+
+
+>>>>>>> beta1
     } //End of success function
 
     /*Displays geolocation coordinates and location
@@ -232,7 +249,11 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
           if (status === 'OK') {
             if(latlngS === currPosition){
               directionsDisplay.setOptions({ preserveViewport: true });
+<<<<<<< HEAD
               map.setZoom(17);
+=======
+              map.setZoom(18);
+>>>>>>> beta1
               map.setCenter(currPosition);
               // directionsDisplay.setDirections(response);
             }
