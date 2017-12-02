@@ -201,27 +201,27 @@ div.keytabs button.active {
 
 /* LEGEND SYMBOLS */
 .building-symbol{
-  background-image: url('../icons/building-symbol.png');
+  background-image: url('../icons/building.png');
 }
 
 .cc-symbol{
-  background-image: url('../icons/cc-symbol.png');
+  background-image: url('../icons/cc.png');
 }
 
 .lbpolice-symbol{
-  background-image: url('../icons/lbpolice-symbol.png');
+  background-image: url('../icons/lbpolice.png');
 }
 
 .pps-symbol{
-  background-image: url('../icons/pps-symbol.png');
+  background-image: url('../icons/pp.png');
 }
 
 .transit-symbol{
-  background-image: url('../icons/transit-symbol.png');
+  background-image: url('../icons/transit.png');
 }
 
 .amazon-symbol{
-  background-image: url('../icons/amazon-symbol.png');
+  background-image: url('../icons/amazon.png');
 }
 
 /* PARKING SYMBOLS */
@@ -247,6 +247,36 @@ div.keytabs button.active {
 
 .lot10a-symbol{
   background-image: url('../icons/lot-10a.png');
+}
+
+/*FOOD
+---------------------*/
+.dining-symbol{
+  background-image: url('../icons/dining.png');
+}
+
+.chartroom-symbol{
+  background-image: url('../icons/chartroom.png');
+}
+
+.outpost-symbol{
+  background-image: url('../icons/outpost.png');
+}
+
+.nugget-symbol{
+  background-image: url('../icons/nugget.png');
+}
+
+.starbucks-symbol{
+  background-image: url('../icons/starbucks.png');
+}
+
+.cbean-symbol{
+  background-image: url('../icons/cbean.png');
+}
+
+.robeks-symbol{
+  background-image: url('../icons/robeks.png');
 }
 
 /* GOOGLE MAPS SECTION
