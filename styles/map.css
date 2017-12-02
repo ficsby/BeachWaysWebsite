@@ -46,12 +46,6 @@ aside {
 
 /* LEFT SIDE BAR SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-<<<<<<< HEAD
-=======
-
-}
-
->>>>>>> f6a9a4ede4bc773cf2d741facfe6851e49b50ba3
 .icon-bar {
     width: 100%; /* Set a specific width */
     background-color: #555; /* Dark-grey background */
@@ -81,7 +75,6 @@ div.icon-bar a.active {
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #from{
   float:left;
-<<<<<<< HEAD
 }
 
 #to{
@@ -93,51 +86,11 @@ div.icon-bar a.active {
   border-radius:40px;
   /*margin-left:80px;*/
 }
-=======
-
-}
-
-#to{
-  clear:left;
-  float:left;
-}
-
-.searchbar{
-  /*margin-top:1px;*/
-  margin-left:20px;
-  height:50px;
-  width:230px;
-  font-size:25px;
-}
-
-.compass-icon{
-  /*padding-top:1000px;*/
-  position:relative;
-  left:10px;
-  top:12px;
-  /*margin-left:10px;*/
-}
-
-.x-icon{
-  position:relative;
-  left:300px;
-  /*top:12px;*/
-}
-#start, #end{
-  border-radius:40px;
-  width:300px;
-}
-
->>>>>>> f6a9a4ede4bc773cf2d741facfe6851e49b50ba3
 #direction-panel {
     font-family: 'Roboto','sans-serif';
 /*    line-height: 30px;*/
     padding-left: 10px;
     background-color:white;
-<<<<<<< HEAD
-=======
-
->>>>>>> f6a9a4ede4bc773cf2d741facfe6851e49b50ba3
 }
 
 #direction-panel select, #direction-panel input {
@@ -146,10 +99,6 @@ div.icon-bar a.active {
 
 #direction-panel select {
     width: 100%;
-<<<<<<< HEAD
-=======
-
->>>>>>> f6a9a4ede4bc773cf2d741facfe6851e49b50ba3
 }
 
 #direction-panel i {
@@ -168,16 +117,6 @@ div.icon-bar a.active {
 }
 /* MAP KEY SUBSECTION
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-<<<<<<< HEAD
-=======
-.icon-mapkey{
-   background-image: url('../icons/mapkey.png');
-   display: block;
-   width: 50px;
-   height: 50px;
-   background-repeat: no-repeat;
-}
->>>>>>> f6a9a4ede4bc773cf2d741facfe6851e49b50ba3
 #key{
   color: #ffffff;
 }
@@ -243,10 +182,6 @@ div.keytabs button.active {
   float: left;
 }
 
-<<<<<<< HEAD
-=======
-/* LEGEND SYMBOLS */
->>>>>>> f6a9a4ede4bc773cf2d741facfe6851e49b50ba3
 .building-symbol{
   background-image: url('../icons/building-symbol.png');
 }
@@ -271,34 +206,6 @@ div.keytabs button.active {
   background-image: url('../icons/amazon-symbol.png');
 }
 
-<<<<<<< HEAD
-=======
-/* PARKING SYMBOLS */
-.student-symbol{
-  background-image: url('../icons/student.png');
-}
-
-.employee-symbol{
-  background-image: url('../icons/employee.png');
-}
-
-.shortterm-symbol{
-  background-image: url('../icons/short-term.png');
-}
-
-.residential-symbol{
-  background-image: url('../icons/residential.png');
-}
-
-.officialguest-symbol{
-  background-image: url('../icons/official-guest.png');
-}
-
-.lot10a-symbol{
-  background-image: url('../icons/lot-10a.png');
-}
-
->>>>>>> f6a9a4ede4bc773cf2d741facfe6851e49b50ba3
 /* GOOGLE MAPS SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #map{
@@ -326,64 +233,17 @@ p{
 /* EXTRA SMALL SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width:576px){
-<<<<<<< HEAD
 
 }
 /* SMALL SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (min-width:576px){
 
-=======
-  div.container {
-      /*display: table;*/
-  }
-
-
-  aside {
-      /*display: table-footer-group;*/
-      width: 100%;
-      height: 500px;
-
-  }
-
-  #map{
-      /*display: table-header-group;*/
-      overflow: hidden;
-      width: 100%;
-      height: 500px;
-  }
-}
-/* SMALL SCREEN SECTION
--------------------------------------------------------------------------------------------------------------------------------*/
-@media screen and (max-width:800px){
-  div.container {
-      /*display: table;*/
-  }
-
-
-  aside {
-      /*display: table-footer-group;*/
-      width: 100%;
-      height: 500px;
-
-  }
-
-  #map{
-      /*display: table-header-group;*/
-      overflow: hidden;
-      width: 100%;
-      height: 500px;
-  }
->>>>>>> f6a9a4ede4bc773cf2d741facfe6851e49b50ba3
 }
 
 /* MEDIUM SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
-<<<<<<< HEAD
 @media screen and (min-width:800px){
-=======
-@media screen and (max-width: 1024px){
->>>>>>> f6a9a4ede4bc773cf2d741facfe6851e49b50ba3
 
 }
 
