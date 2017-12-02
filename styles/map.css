@@ -110,13 +110,8 @@ div.icon-bar a.active {
 
 .x-icon{
   position:relative;
-<<<<<<< HEAD
-  left:10px;
-  top:12px;
-=======
   left:300px;
   /*top:12px;*/
->>>>>>> beta1
 }
 #start, #end{
   border-radius:40px;
