@@ -227,27 +227,27 @@ div.keytabs button.active {
 
 /* LEGEND SYMBOLS */
 .building-symbol{
-  background-image: url('../icons/building-symbol.png');
+  background-image: url('../icons/building.png');
 }
 
 .cc-symbol{
-  background-image: url('../icons/cc-symbol.png');
+  background-image: url('../icons/cc.png');
 }
 
 .lbpolice-symbol{
-  background-image: url('../icons/lbpolice-symbol.png');
+  background-image: url('../icons/lbpolice.png');
 }
 
 .pps-symbol{
-  background-image: url('../icons/pps-symbol.png');
+  background-image: url('../icons/pp.png');
 }
 
 .transit-symbol{
-  background-image: url('../icons/transit-symbol.png');
+  background-image: url('../icons/transit.png');
 }
 
 .amazon-symbol{
-  background-image: url('../icons/amazon-symbol.png');
+  background-image: url('../icons/amazon.png');
 }
 
 /* PARKING SYMBOLS */
@@ -289,7 +289,7 @@ div.keytabs button.active {
 }
 
 .nugget-symbol{
-  background-image: url('../icons/nugget.png')
+  background-image: url('../icons/nugget.png');
 }
 
 .starbucks-symbol{
