@@ -304,6 +304,60 @@ div.keytabs button.active {
   background-image: url('../icons/robeks.png');
 }
 
+/* PARKING SYMBOLS */
+.student-symbol{
+  background-image: url('../icons/student.png');
+}
+
+.employee-symbol{
+  background-image: url('../icons/employee.png');
+}
+
+.shortterm-symbol{
+  background-image: url('../icons/short-term.png');
+}
+
+.residential-symbol{
+  background-image: url('../icons/residential.png');
+}
+
+.officialguest-symbol{
+  background-image: url('../icons/official-guest.png');
+}
+
+.lot10a-symbol{
+  background-image: url('../icons/lot-10a.png');
+}
+
+* FOOD SYMBOLS */
+.dining-symbol{
+  background-image: url('../icons/food.png');
+}
+
+.chartroom-symbol{
+  background-image: url('../icons/chartrm.png');
+}
+
+.outpost-symbol{
+  background-image: url('../icons/outpost.png');
+}
+
+.nugget-symbol{
+  background-image: url('../icons/nuggrill.png')
+}
+
+.starbucks-symbol{
+  background-image: url('../icons/starbucks.png');
+}
+
+.cbean-symbol{
+  background-image: url('../icons/cbean.png');
+}
+
+.robeks-symbol{
+  background-image: url('../icons/robeks.png');
+}
+
 /* GOOGLE MAPS SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #map{
