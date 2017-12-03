@@ -275,9 +275,9 @@ div.keytabs button.active {
   background-image: url('../icons/lot-10a.png');
 }
 
-* FOOD SYMBOLS */
+/* FOOD SYMBOLS */
 .dining-symbol{
-  background-image: url('../icons/usu.png');
+  background-image: url('../icons/dining.png');
 }
 
 .chartroom-symbol{
@@ -303,6 +303,12 @@ div.keytabs button.active {
 .robeks-symbol{
   background-image: url('../icons/robeks.png');
 }
+
+.chartroom{
+  background-image: url('../icons/chartroom.png')
+}
+
+
 
 /* GOOGLE MAPS SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

@@ -184,10 +184,10 @@ function initMap() {
       }); //End of jQuery function
 
 
-      infoWindow.setPosition(currPosition);
-      infoWindow.setContent('Location found.');
-      infoWindow.open(map);
-      map.setCenter(currPosition);
+      // infoWindow.setPosition(currPosition);
+      // infoWindow.setContent('Location found.');
+      // infoWindow.open(map);
+      // map.setCenter(currPosition);
       // console.log(startLocationName);
 
       window.setInterval(function(){
@@ -241,7 +241,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
             if(latlngS === currPosition){
               directionsDisplay.setOptions({ preserveViewport: true });
               map.setZoom(18);
-              map.setCenter(currPosition);
+              // map.setCenter(currPosition);
               // directionsDisplay.setDirections(response);
             }
             else{
@@ -303,4 +303,32 @@ function openKey(evt, keyName) {
     // Show the current tab, and add an "active" class to the link that opened the tab
     document.getElementById(keyName).style.display = "block";
     evt.currentTarget.className += " active";
+    if(keyName == 'food'){
+      var img_usu = '../icons/dining.png';   // Located at the USU
+      var img_outpost = '../icons/outpost.png'; //Located near the ECS
+      var img_nugget = '../icons/nugget.png'; // Located next to the USU
+      var img_starbucks= '../icons/starbucks.png'; // Located at both the Library and the USU
+      var img_cbean = '../icons/cbean.png'; // Located at the USU
+      var img_robeks = '../icons/robeks.png'; // Located at both the USU and the Rec Center
+
+      // Note: Current coordinates are incorrect, needs to be changed  */
+      var usuMarker = new google.maps.Marker({
+        position: {lat: 33.7788641948679, lng: -118.11378166079521}, map: map, icon: img_usu
+      });
+      var outpostMarker = new google.maps.Marker({
+        position: {lat: 33.7882209, lng: -118.12051209999998}, map: map, icon: img_outpost
+      });
+      var nuggetMarker = new google.maps.Marker({
+        position: {lat: 33.78368184529387, lng: -118.10850575566292}, map: map, icon: img_nugget
+      });
+      var starbucksMarker = new google.maps.Marker({
+        position: {lat: 33.778231036025645, lng: -118.12051209999998}, map: map, icon: img_starbucks
+      });
+      var cbeanMarker = new google.maps.Marker({
+        position: {lat: 33.77840716166642, lng: -118.11270207166672}, map: map, icon: img_cbean
+      });
+      var robeksMarker = new google.maps.Marker({
+        position: {lat: 33.77784088300014, lng: -118.11266049742699}, map: map, icon: img_robeks
+      });
+    }
 }
