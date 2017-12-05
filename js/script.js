@@ -307,7 +307,10 @@ function openKey(evt, keyName) {
     if(keyName == 'food'){
       setFoodMarkers();
       (document.getElementById("toggleFood").classList.contains("on"))? showFoodMarkers() : hideFoodMarkers();  // If toggle bar is on, show markers
-    }                                                                                                   // Else, hide markers
+    }
+    else {
+      hideFoodMarkers(); // Else, hide markers
+    }
 }
 
 /* Markers Functionality
@@ -335,12 +338,12 @@ function hideFoodMarkers() {
 var foodMarkers = []; // Stores the food markers
 // Creates the markers and stores them inside the 'foodMarkers' set
 function setFoodMarkers(){
-  var img_usu = '../icons/dining.png';   // Located at the USU
-  var img_outpost = '../icons/outpost.png'; //Located near the ECS
-  var img_nugget = '../icons/nugget.png'; // Located next to the USU
-  var img_starbucks= '../icons/starbucks.png'; // Located at both the Library and the USU
-  var img_cbean = '../icons/cbean.png'; // Located at the USU
-  var img_robeks = '../icons/robeks.png'; // Located at both the USU and the Rec Center
+  var img_usu = '../BeachWaysWebsite/icons/dining.png';   // Located at the USU
+  var img_outpost = '../BeachWaysWebsite/icons/outpost.png'; //Located near the ECS
+  var img_nugget = '../BeachWaysWebsite/icons/nugget.png'; // Located next to the USU
+  var img_starbucks= '../BeachWaysWebsite/icons/starbucks.png'; // Located at both the Library and the USU
+  var img_cbean = '../BeachWaysWebsite/icons/cbean.png'; // Located at the USU
+  var img_robeks = '../BeachWaysWebsite/icons/robeks.png'; // Located at both the USU and the Rec Center
 
   // Initializes the food markers; Default display is hidden (map: null)
   // Note: Current coordinates are incorrect, needs to be changed  */
