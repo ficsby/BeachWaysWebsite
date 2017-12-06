@@ -72,12 +72,12 @@ function initMap() {
       let startSearch = document.getElementById("start").value;
       let endSearch = document.getElementById("end").value;
       var watchID;
-      if(startSearch == "Your Location"){
+      if(startSearch == "Current Location"){
           watchID = navigator.geolocation.watchPosition(
           function(position){
             startSearch = document.getElementById("start").value;
             routes(position, directionsService, directionsDisplay);
-            if(startSearch != "Your Location"){
+            if(startSearch != "Current Location"){
               prompt("Test me");
               navigator.geolocation.clearWatch(watchID);
             }
@@ -201,7 +201,7 @@ function routes(position, directionsService, directionsDisplay){
         latlngS = currPosition;
         latlngE = suggestion.data;
         changeLatLng(latlngS,latlngE);
-        updateNames("Your Location", suggestion.value);
+        updateNames("Current Location", suggestion.value);
         switchToDirectionSearch();
         document.getElementById("start").value = "Your Location";
         document.getElementById("end").value = suggestion.value;
@@ -214,8 +214,7 @@ function routes(position, directionsService, directionsDisplay){
       onSelect: function(suggestion){
       let startSearch = document.getElementById("start").value;
       latlngS = suggestion.data;
-      if(startSearch == 'Your Location'){
-
+      if(startSearch == 'Current Location'){
         navigator.geolocation.clearWatch(watchID);
       }
       changeLatLng(latlngS,latlngE);
