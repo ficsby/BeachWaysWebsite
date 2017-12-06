@@ -331,4 +331,62 @@ function openKey(evt, keyName) {
     // Show the current tab, and add an "active" class to the link that opened the tab
     document.getElementById(keyName).style.display = "block";
     evt.currentTarget.className += " active";
+
+    if(keyName == 'food'){
+      setFoodMarkers();
+      (document.getElementById("toggleFood").classList.contains("on"))? showFoodMarkers() : hideFoodMarkers();  // If toggle bar is on, show markers
+    }
+    else {
+      hideFoodMarkers(); // Else, hide markers
+    }
+}
+
+/* Markers Functionality
+----------------------------------------------------------------------------------------------------------------------*/
+// Toggle switch
+function toggleFoodMarkers(){
+  document.getElementById("toggleFood").classList.toggle("on");
+  document.getElementById("toggleFood").classList.contains("on")? showFoodMarkers() : hideFoodMarkers();
+}
+
+// Shows the food markers
+function showFoodMarkers(){
+  for (var i = 0; i < foodMarkers.length; i++) {
+     foodMarkers[i].setMap(map);
+  }
+}
+
+// Hides the food markers
+function hideFoodMarkers() {
+  for (var i = 0; i < foodMarkers.length; i++) {
+    foodMarkers[i].setMap(null);
+  }
+}
+
+var foodMarkers = []; // Stores the food markers
+// Creates the markers and stores them inside the 'foodMarkers' set
+function setFoodMarkers(){
+  var img_usu = '../BeachWaysWebsite/icons/dining.png';   // Located at the USU
+  var img_outpost = '../BeachWaysWebsite/icons/outpost.png'; //Located near the ECS
+  var img_nugget = '../BeachWaysWebsite/icons/nugget.png'; // Located next to the USU
+  var img_starbucks= '../BeachWaysWebsite/icons/starbucks.png'; // Located at both the Library and the USU
+  var img_cbean = '../BeachWaysWebsite/icons/cbean.png'; // Located at the USU
+  var img_robeks = '../BeachWaysWebsite/icons/robeks.png'; // Located at both the USU and the Rec Center
+
+  // Initializes the food markers; Default display is hidden (map: null)
+  // Note: Current coordinates are incorrect, needs to be changed  */
+  var usuMarker = new google.maps.Marker({ position: {lat: 33.7788641948679, lng: -118.11378166079521}, map: null, icon: img_usu });
+  var outpostMarker = new google.maps.Marker({ position: {lat: 33.7882209, lng: -118.12051209999998}, map: null, icon: img_outpost });
+  var nuggetMarker = new google.maps.Marker({ position: {lat: 33.78368184529387, lng: -118.10850575566292}, map: null, icon: img_nugget });
+  var starbucksMarker = new google.maps.Marker({ position: {lat: 33.778231036025645, lng: -118.12051209999998}, map: null, icon: img_starbucks });
+  var cbeanMarker = new google.maps.Marker({ position: {lat: 33.77840716166642, lng: -118.11270207166672}, map: null, icon: img_cbean });
+  var robeksMarker = new google.maps.Marker({ position: {lat: 33.77784088300014, lng: -118.11266049742699}, map: null, icon: img_robeks });
+
+  // Store into foodMarkers array
+  foodMarkers.push(usuMarker);
+  foodMarkers.push(outpostMarker);
+  foodMarkers.push(nuggetMarker);
+  foodMarkers.push(starbucksMarker);
+  foodMarkers.push(cbeanMarker);
+  foodMarkers.push(robeksMarker);
 }
