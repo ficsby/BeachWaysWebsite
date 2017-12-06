@@ -180,12 +180,6 @@ function initMap() {
             updateNames(startLocationName, suggestion.value);
           }
         });
-<<<<<<< HEAD
-=======
-           window.setInterval(function(){
-          calculateAndDisplayRoute(directionsService, directionsDisplay);
-      }, 1000);
->>>>>>> aa3142ecd6ace18dd90bb1a4317b50b796935b32
 
       }); //End of jQuery function
 
@@ -246,10 +240,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
           if (status === 'OK') {
             if(latlngS === currPosition){
               directionsDisplay.setOptions({ preserveViewport: true });
-<<<<<<< HEAD
-=======
-              map.setZoom(17);
->>>>>>> aa3142ecd6ace18dd90bb1a4317b50b796935b32
               map.setZoom(18);
               map.setCenter(currPosition);
               // directionsDisplay.setDirections(response);
