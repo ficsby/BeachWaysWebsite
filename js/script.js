@@ -4,6 +4,7 @@ var latlngS, latlngE;
 var startLocationName, endLocationName;
 var markers = [];
 var intervalID = null;
+var watchID;
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -11,13 +12,24 @@ function initMap() {
       zoom: 16,                                                     //Change this to change the map zoom
       center: {lat: 33.7838, lng: -118.1141}
     });
-
+    map.setOptions({draggable:true});
     // Try HTML5 geolocation.
     infoWindow = new google.maps.InfoWindow;
+
     if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(success, function() {
-        handleLocationError(true, infoWindow, map.getCenter());
-      }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
+      $(document).ready(function(){
+        $("input").select(function(){
+          watchID = navigator.geolocation.getCurrentPosition(displayAndWatch, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
+        });
+        navigator.geolocation.clearWatch(watchID);
+        $("option").click(function(){
+            $("input").trigger("select");
+            navigator.geolocation.clearWatch(watchID);
+        });
+      });
+
     } else {
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
@@ -51,15 +63,47 @@ function initMap() {
           markers[0] = markers.pop();
         }
       }
-      latlngS = currPosition;
-      // latlngE = currPosition;
+      routes(position, directionsService, directionsDisplay);
+    } //End of success function
 
-      /*Autocomplete and Search Bars
-      ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-      $(function() {
-        /*CSULB Locations
-        -----------------------------------------------------------------------------------*/
-        var locations = [
+
+    function displayAndWatch(position){
+      let userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      let startSearch = document.getElementById("start").value;
+      let endSearch = document.getElementById("end").value;
+      var watchID;
+      if(startSearch == "Current Location"){
+          watchID = navigator.geolocation.watchPosition(
+          function(position){
+            startSearch = document.getElementById("start").value;
+            routes(position, directionsService, directionsDisplay);
+            if(startSearch != "Current Location"){
+              prompt("Test me");
+              navigator.geolocation.clearWatch(watchID);
+            }
+          });
+      }
+      else{
+        navigator.geolocation.clearWatch(watchID);
+        routes(position, directionsService, directionsDisplay);
+      }
+    }
+    /*Displays geolocation coordinates and location
+    -----------------------------------------------------------------------------------*/
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById('direction-panel'));
+}
+
+
+
+
+function routes(position, directionsService, directionsDisplay){
+  currPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+  $(function() {
+    /*CSULB Locations
+    -----------------------------------------------------------------------------------*/
+    var locations = [
           {value:"Current Location", data: currPosition},
           {value:"Student Recreation | Wellness Center", data: {lat:33.785211130686655, lng:-118.10900330543518} }, {value:"SRWC", data: "33.785211130686655,-118.10900330543518" },
           {value:"Vivian Engineering Center", data: {lat: 33.782830248878916, lng:-118.11044096946716} }, {value:"VEC", data: "33.782830248878916,-118.11044096946716"},
@@ -148,66 +192,57 @@ function initMap() {
           {value:"Visitor Information Center", data: new google.maps.LatLng(33.7819505,-118.11929709999998) }, {value:"VIC", data: new google.maps.LatLng(33.7819505,-118.11929709999998) }
         ];
 
-        /*Autocomplete
-        -----------------------------------------------------------------------------------*/
-        $(".searchbar").autocomplete({
-          lookup: locations,
-          onSelect: function(suggestion){
-            latlngS = currPosition;
-            latlngE = suggestion.data;
-            changeLatLng(latlngS,latlngE);
-            updateNames("Your Location", suggestion.value);
-            switchToDirectionSearch();
-            document.getElementById("start").value = "Your Location";
-            document.getElementById("end").value = suggestion.value;
-          }
-        });
 
-        $("#start").autocomplete({
-          lookup: locations,
-          onSelect: function(suggestion){
-          latlngS = suggestion.data;
-          changeLatLng(latlngS,latlngE);
-          updateNames(suggestion.value, endLocationName);
-          }
-        });
-
-        $("#end").autocomplete({
-          lookup: locations,
-          onSelect: function(suggestion){
-            latlngE = suggestion.data;
-            changeLatLng(latlngS,latlngE);
-            updateNames(startLocationName, suggestion.value);
-          }
-        });
-
-      }); //End of jQuery function
-
-
-      infoWindow.setPosition(currPosition);
-      infoWindow.setContent('Location found.');
-      infoWindow.open(map);
-      map.setCenter(currPosition);
-      // console.log(startLocationName);
-
-      window.setInterval(function(){
-          // console.log("START");
-          // console.log("HI");
-          // intervalID = setInterval(calculateAndDisplayRoute(directionsService, directionsDisplay), 1000);
-          calculateAndDisplayRoute(directionsService, directionsDisplay);
-      }, 1000);
-
-
-
-    } //End of success function
-
-    /*Displays geolocation coordinates and location
+    /*Autocomplete
     -----------------------------------------------------------------------------------*/
-    directionsDisplay.setMap(map); directionsDisplay.setPanel(document.getElementById('direction-panel'));
+    $(".searchbar").autocomplete({
+      lookup: locations,
+      onSelect: function(suggestion){
+        latlngS = currPosition;
+        latlngE = suggestion.data;
+        changeLatLng(latlngS,latlngE);
+        updateNames("Current Location", suggestion.value);
+        switchToDirectionSearch();
+        document.getElementById("start").value = "Your Location";
+        document.getElementById("end").value = suggestion.value;
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+      }
+    });
+
+    $("#start").autocomplete({
+      lookup: locations,
+      onSelect: function(suggestion){
+      let startSearch = document.getElementById("start").value;
+      latlngS = suggestion.data;
+      if(startSearch == 'Current Location'){
+        navigator.geolocation.clearWatch(watchID);
+      }
+      changeLatLng(latlngS,latlngE);
+      updateNames(suggestion.value, endLocationName);
+      calculateAndDisplayRoute(directionsService, directionsDisplay);
+      }
+    });
+
+    $("#end").autocomplete({
+      lookup: locations,
+      onSelect: function(suggestion){
+      latlngE = suggestion.data;
+      changeLatLng(latlngS,latlngE);
+      updateNames(startLocationName, suggestion.value);
+      calculateAndDisplayRoute(directionsService, directionsDisplay);
+      }
+    });
+    calculateAndDisplayRoute(directionsService, directionsDisplay);
+  }); //End of jQuery function
 }
 function changeLatLng(latlngS, latlngE){
   this.latlngS = latlngS;
   this.latlngE = latlngE;
+}
+
+function updatePosition(position){
+  this.currPosition = position;
+  prompt(currPosition);
 }
 
 function updateNames(sName, eName){
@@ -238,15 +273,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       travelMode: 'WALKING'
     }, function(response, status) {
           if (status === 'OK') {
-            if(latlngS === currPosition){
-              directionsDisplay.setOptions({ preserveViewport: true });
-              map.setZoom(18);
-              map.setCenter(currPosition);
-              // directionsDisplay.setDirections(response);
-            }
-            else{
-              directionsDisplay.setOptions({ preserveViewport: false });
-            }
             directionsDisplay.setDirections(response);
           }
         });
@@ -303,4 +329,54 @@ function openKey(evt, keyName) {
     // Show the current tab, and add an "active" class to the link that opened the tab
     document.getElementById(keyName).style.display = "block";
     evt.currentTarget.className += " active";
+}
+
+/* Markers Functionality
+----------------------------------------------------------------------------------------------------------------------*/
+// Toggle switch
+function toggleFoodMarkers(){
+  document.getElementById("toggleFood").classList.toggle("on");
+  document.getElementById("toggleFood").classList.contains("on")? showFoodMarkers() : hideFoodMarkers();
+}
+
+// Shows the food markers
+function showFoodMarkers(){
+  for (var i = 0; i < foodMarkers.length; i++) {
+     foodMarkers[i].setMap(map);
+  }
+}
+
+// Hides the food markers
+function hideFoodMarkers() {
+  for (var i = 0; i < foodMarkers.length; i++) {
+    foodMarkers[i].setMap(null);
+  }
+}
+
+var foodMarkers = []; // Stores the food markers
+// Creates the markers and stores them inside the 'foodMarkers' set
+function setFoodMarkers(){
+  var img_usu = '../BeachWaysWebsite/icons/dining.png';   // Located at the USU
+  var img_outpost = '../BeachWaysWebsite/icons/outpost.png'; //Located near the ECS
+  var img_nugget = '../BeachWaysWebsite/icons/nugget.png'; // Located next to the USU
+  var img_starbucks= '../BeachWaysWebsite/icons/starbucks.png'; // Located at both the Library and the USU
+  var img_cbean = '../BeachWaysWebsite/icons/cbean.png'; // Located at the USU
+  var img_robeks = '../BeachWaysWebsite/icons/robeks.png'; // Located at both the USU and the Rec Center
+
+  // Initializes the food markers; Default display is hidden (map: null)
+  // Note: Current coordinates are incorrect, needs to be changed  */
+  var usuMarker = new google.maps.Marker({ position: {lat: 33.7788641948679, lng: -118.11378166079521}, map: null, icon: img_usu });
+  var outpostMarker = new google.maps.Marker({ position: {lat: 33.7882209, lng: -118.12051209999998}, map: null, icon: img_outpost });
+  var nuggetMarker = new google.maps.Marker({ position: {lat: 33.78368184529387, lng: -118.10850575566292}, map: null, icon: img_nugget });
+  var starbucksMarker = new google.maps.Marker({ position: {lat: 33.778231036025645, lng: -118.12051209999998}, map: null, icon: img_starbucks });
+  var cbeanMarker = new google.maps.Marker({ position: {lat: 33.77840716166642, lng: -118.11270207166672}, map: null, icon: img_cbean });
+  var robeksMarker = new google.maps.Marker({ position: {lat: 33.77784088300014, lng: -118.11266049742699}, map: null, icon: img_robeks });
+
+  // Store into foodMarkers array
+  foodMarkers.push(usuMarker);
+  foodMarkers.push(outpostMarker);
+  foodMarkers.push(nuggetMarker);
+  foodMarkers.push(starbucksMarker);
+  foodMarkers.push(cbeanMarker);
+  foodMarkers.push(robeksMarker);
 }
