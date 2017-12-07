@@ -154,7 +154,7 @@ div.icon-bar a.active {
 /* MAP KEY SUBSECTION
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .icon-mapkey{
-   background-image: url('../icons/mapkey.png');
+   background-image: url('../symbols/mapkey.png');
    display: block;
    width: 50px;
    height: 50px;
@@ -227,85 +227,85 @@ div.keytabs button.active {
 
 /* LEGEND SYMBOLS */
 .building-symbol{
-  background-image: url('../icons/building.png');
+  background-image: url('../symbols/building.png');
 }
 
 .cc-symbol{
-  background-image: url('../icons/cc.png');
+  background-image: url('../symbols/cc.png');
 }
 
 .lbpolice-symbol{
-  background-image: url('../icons/lbpolice.png');
+  background-image: url('../symbols/lbpolice.png');
 }
 
 .pps-symbol{
-  background-image: url('../icons/pp.png');
+  background-image: url('../symbols/pp.png');
 }
 
 .transit-symbol{
-  background-image: url('../icons/transit.png');
+  background-image: url('../symbols/transit.png');
 }
 
 .amazon-symbol{
-  background-image: url('../icons/amazon.png');
+  background-image: url('../symbols/amazon.png');
 }
 
 /* PARKING SYMBOLS */
 .student-symbol{
-  background-image: url('../icons/student.png');
+  background-image: url('../symbols/student.png');
 }
 
 .employee-symbol{
-  background-image: url('../icons/employee.png');
+  background-image: url('../symbols/employee.png');
 }
 
 .shortterm-symbol{
-  background-image: url('../icons/short-term.png');
+  background-image: url('../symbols/short-term.png');
 }
 
 .residential-symbol{
-  background-image: url('../icons/residential.png');
+  background-image: url('../symbols/residential.png');
 }
 
 .officialguest-symbol{
-  background-image: url('../icons/official-guest.png');
+  background-image: url('../symbols/official-guest.png');
 }
 
 .lot10a-symbol{
-  background-image: url('../icons/lot-10a.png');
+  background-image: url('../symbols/lot-10a.png');
 }
 
 /* FOOD SYMBOLS */
-.dining-symbol{
-  background-image: url('../icons/dining.png');
+.usu-symbol{
+  background-image: url('../symbols/usu.png');
 }
 
 .chartroom-symbol{
-  background-image: url('../icons/chartroom.png');
+  background-image: url('../symbols/chartroom.png');
 }
 
 .outpost-symbol{
-  background-image: url('../icons/outpost.png');
+  background-image: url('../symbols/outpost.png');
 }
 
 .nugget-symbol{
-  background-image: url('../icons/nugget.png');
+  background-image: url('../symbols/nugget.png');
 }
 
 .starbucks-symbol{
-  background-image: url('../icons/starbucks.png');
+  background-image: url('../symbols/starbucks.png');
 }
 
 .cbean-symbol{
-  background-image: url('../icons/cbean.png');
+  background-image: url('../symbols/cbean.png');
 }
 
 .robeks-symbol{
-  background-image: url('../icons/robeks.png');
+  background-image: url('../symbols/robeks.png');
 }
 
 .chartroom{
-  background-image: url('../icons/chartroom.png')
+  background-image: url('../symbols/chartroom.png')
 }
 
 

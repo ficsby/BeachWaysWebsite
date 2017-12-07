@@ -356,12 +356,12 @@ function hideFoodMarkers() {
 var foodMarkers = []; // Stores the food markers
 // Creates the markers and stores them inside the 'foodMarkers' set
 function setFoodMarkers(){
-  var img_usu = '../BeachWaysWebsite/icons/dining.png';   // Located at the USU
-  var img_outpost = '../BeachWaysWebsite/icons/outpost.png'; //Located near the ECS
-  var img_nugget = '../BeachWaysWebsite/icons/nugget.png'; // Located next to the USU
-  var img_starbucks= '../BeachWaysWebsite/icons/starbucks.png'; // Located at both the Library and the USU
-  var img_cbean = '../BeachWaysWebsite/icons/cbean.png'; // Located at the USU
-  var img_robeks = '../BeachWaysWebsite/icons/robeks.png'; // Located at both the USU and the Rec Center
+  var img_usu = '../BeachWaysWebsite/symbols/usu.png';   // Located at the USU
+  var img_outpost = '../BeachWaysWebsite/symbols/outpost.png'; //Located near the ECS
+  var img_nugget = '../BeachWaysWebsite/symbols/nugget.png'; // Located next to the USU
+  var img_starbucks= '../BeachWaysWebsite/symbols/starbucks.png'; // Located at both the Library and the USU
+  var img_cbean = '../BeachWaysWebsite/symbols/cbean.png'; // Located at the USU
+  var img_robeks = '../BeachWaysWebsite/symbols/robeks.png'; // Located at both the USU and the Rec Center
 
   // Initializes the food markers; Default display is hidden (map: null)
   // Note: Current coordinates are incorrect, needs to be changed  */
