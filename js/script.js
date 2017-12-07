@@ -5,6 +5,8 @@ var startLocationName, endLocationName;
 var markers = [];
 var intervalID = null;
 var watchID;
+
+
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -380,3 +382,36 @@ function setFoodMarkers(){
   foodMarkers.push(cbeanMarker);
   foodMarkers.push(robeksMarker);
 }
+
+$(document).ready(function(){
+
+    var col1_data,col2_data;
+
+    col1_data = $(".footer-col:nth-child(1)").html();
+    col2_data = $(".footer-col:nth-child(2)").html();
+
+    var w = $(window).width();
+
+    if (w < 768)
+    swap_columns();
+
+    function swap_columns()
+    {
+        var w = $(window).width();
+        if (w < 768)
+        {
+            $(".footer-col:nth-child(2)").html(col1_data);
+            $(".footer-col:nth-child(1)").html(col2_data);
+        }
+        else
+        {
+            $(".footer-col:nth-child(1)").html(col1_data);
+            $(".footer-col:nth-child(2)").html(col2_data);
+        }
+    }
+
+
+    $(window).resize(function() {
+        swap_columns();
+    });
+});
