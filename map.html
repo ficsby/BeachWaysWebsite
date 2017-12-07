@@ -8,9 +8,16 @@
     <link rel="stylesheet" href="styles/map.css">
     <link rel="stylesheet" href="https://file.myfontastic.com/aBNsrxWu6CHZcgsgfvVkPD/icons.css">
     <!--jQuery-->
+    <!-- <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script> -->
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+
     <script src="https://use.fontawesome.com/4d1f967533.js"></script>
-    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+
+
+
+    <!-- <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script> -->
     <title>BeachWays Map</title>
   </head>
 
@@ -29,7 +36,7 @@
 
             <div id="navigation" class="icon-content tab active">
               <div id="mainSearch">
-                <input class= "searchbar" type="text" placeholder="Search...">
+                <input id = "generalSearch" class= "searchbar .ui-autocomplete-input" type="text" placeholder="Search...">
                 <a href="#" class="compass-icon"onclick="switchToDirectionSearch()"><i class="fa fa-compass fa-4x" aria-hidden="true"></i></a>
               </div>
 
@@ -37,6 +44,14 @@
                 <a href="#" class="x-icon" type="button" onclick="switchToMainSearch()"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
                 <p id="from">FROM: <input id="start" class="controls searchbar" type="text" placeholder="Enter an origin location"></p>
                 <p id="to">TO: <input id="end" class="controls searchbar" type="text" placeholder="Enter a destination location"></p>
+
+                <button type="button" id="testButton">Click me!</button>
+                <datalist id="locations">
+                  <option value = "Your Location">
+                  <option value = "Student Recreation | Wellness Center"> <option value = "SRWC">
+                  <option value = "Vivian Engineering Center"> <option value = "VEC">
+                  <option value = "49er Pool"> <option value = "POOL">
+                </datalist>
               </div>
 
               <div id="direction-panel"></div>
@@ -157,11 +172,14 @@
       <div id="map"></div>  <!-- Div container for the google map -->
     </div>
     <footer>Copyright &copy; BeachWaysTeam &amp; Google</footer>
-
+    <script src="js/external/jquery/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAemlR3DsIOjcrtwncedOU6gbR7Gc_3Eis&callback=initMap" type="text/javascript"></script>
-    <script type="text/javascript" src="js/auto.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <!-- <script type="text/javascript" src="js/auto.js"></script> -->
+
+
 
 
   </body>
