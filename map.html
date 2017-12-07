@@ -18,9 +18,9 @@
     <header>
       <a target="_top" href="index.html" ><img src="https://blog.flamingtext.com/blog/2017/11/01/flamingtext_com_1509570576_346846638.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com"></a>
     </header>
-    <div class="container">
       <!--Left Section with icon bar  -->
-      <aside>
+    <div class="container-fluid">
+      <aside class="col-md-3 col-sm-12">
             <div class="icon-bar">
                 <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation'); hideFoodMarkers();"><i class="icon-aim"></i></a>
                 <a href="#" class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-if-map-marker-2639857"></i></a>
@@ -103,7 +103,7 @@
                           <div class="key-container">
                                <a href="#">
                                  <div class="symbol student-symbol"></div>
-                                 <div class="loc">Student Parking Structure / Parking Lot</div>
+                                 <div class="loc">General Parking Structure / Parking Lot</div>
                                </a>
                                <a href="#">
                                  <div class="symbol employee-symbol"></div>
@@ -128,9 +128,13 @@
                        <h3>Food &amp; Drink</h3>
                         <div class="key-container">
                           <a href="#">
-                            <div class="symbol dining-symbol"></div>
+                            <div class="symbol usu-symbol"></div>
                             <div class="loc">University Dining Plaza</div>
-                           <a/>
+                          </a>
+                          <a href="#">
+                            <div class="symbol outpost-symbol"></div>
+                            <div class="loc">Outpost Grill</div>
+                          </a>
                            <a href="#">
                             <div class="symbol chartroom-symbol"></div>
                             <div class="loc">The Chartroom</div>
@@ -151,22 +155,12 @@
                              <div class="symbol robeks-symbol"></div>
                              <div class="loc">Robeks</div>
                            </a>
-                           <a href="#">
-                             <div class="symbol outpost-symbol"></div>
-                             <div class="loc">Outpost Grill</div>
-                           </a>
                         </div>
                    </div>
                 </div>
                 <div id="info-circle" class="icon-content tab">
 
                 </div>
-                <!-- Toggle switch -->
-                <label id="toggleFood" class="switch on" onclick="toggleFoodMarkers()">
-                  <input type="checkbox">
-                  <span class="slider round"></span>
-                </label>
-
       </aside>
 
       <div id="map"></div>  <!-- Div container for the google map -->

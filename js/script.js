@@ -5,6 +5,8 @@ var startLocationName, endLocationName;
 var markers = [];
 var intervalID = null;
 var watchID;
+
+
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -364,12 +366,12 @@ function hideFoodMarkers() {
 var foodMarkers = []; // Stores the food markers
 // Creates the markers and stores them inside the 'foodMarkers' set
 function setFoodMarkers(){
-  var img_usu = '../BeachWaysWebsite/icons/dining.png';   // Located at the USU
-  var img_outpost = '../BeachWaysWebsite/icons/outpost.png'; //Located near the ECS
-  var img_nugget = '../BeachWaysWebsite/icons/nugget.png'; // Located next to the USU
-  var img_starbucks= '../BeachWaysWebsite/icons/starbucks.png'; // Located at both the Library and the USU
-  var img_cbean = '../BeachWaysWebsite/icons/cbean.png'; // Located at the USU
-  var img_robeks = '../BeachWaysWebsite/icons/robeks.png'; // Located at both the USU and the Rec Center
+  var img_usu = '../BeachWaysWebsite/symbols/usu.png';   // Located at the USU
+  var img_outpost = '../BeachWaysWebsite/symbols/outpost.png'; //Located near the ECS
+  var img_nugget = '../BeachWaysWebsite/symbols/nugget.png'; // Located next to the USU
+  var img_starbucks= '../BeachWaysWebsite/symbols/starbucks.png'; // Located at both the Library and the USU
+  var img_cbean = '../BeachWaysWebsite/symbols/cbean.png'; // Located at the USU
+  var img_robeks = '../BeachWaysWebsite/symbols/robeks.png'; // Located at both the USU and the Rec Center
 
   // Initializes the food markers; Default display is hidden (map: null)
   // Note: Current coordinates are incorrect, needs to be changed  */
@@ -388,3 +390,36 @@ function setFoodMarkers(){
   foodMarkers.push(cbeanMarker);
   foodMarkers.push(robeksMarker);
 }
+
+$(document).ready(function(){
+
+    var col1_data,col2_data;
+
+    col1_data = $(".footer-col:nth-child(1)").html();
+    col2_data = $(".footer-col:nth-child(2)").html();
+
+    var w = $(window).width();
+
+    if (w < 768)
+    swap_columns();
+
+    function swap_columns()
+    {
+        var w = $(window).width();
+        if (w < 768)
+        {
+            $(".footer-col:nth-child(2)").html(col1_data);
+            $(".footer-col:nth-child(1)").html(col2_data);
+        }
+        else
+        {
+            $(".footer-col:nth-child(1)").html(col1_data);
+            $(".footer-col:nth-child(2)").html(col2_data);
+        }
+    }
+
+
+    $(window).resize(function() {
+        swap_columns();
+    });
+});
