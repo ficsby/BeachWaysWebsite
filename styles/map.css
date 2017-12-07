@@ -1,11 +1,8 @@
 /* GLOBAL
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-div.container {
-    width: 100%;
-    height: 600px;
-    margin:0px;
-    padding:0px;
-    border: 1px solid gray;
+
+div.container-fluid {
+    padding: 0 !important;
 }
 
 header, footer {
@@ -17,10 +14,16 @@ header, footer {
 
 header{
   text-align: left;
-  min-height:100%;
-  background: url('../images/csulb-pano.png') ;
+  background: url('../images/csulb-pano.png');
   background-position: left;
   background-size:cover;
+  height: 60px;
+}
+
+header img{
+  width: 175px;
+  margin-top: -15px;
+  margin-left: 10px;
 }
 
 footer{
@@ -31,7 +34,7 @@ aside {
     background-color: #3F3736;
     width: 25%;
     height: 1000px;
-    float: left;
+    padding: 0 !important;
 }
 
 
@@ -58,7 +61,7 @@ aside {
     margin: 0;
     text-align: center; /* Center-align text */
     width: 33.33%;
-    padding: 20px;
+    padding: 12px 20px 8px 20px;
     transition: all 0.3s ease; /* Add transition for hover effects */
     color: white;
     font-size: 36px;
@@ -82,53 +85,47 @@ div.icon-bar a.active {
   height: 500px;
 }
 
-#from{
-  float:left;
+#from, #to{
 
 }
 
-#to{
-  clear:left;
-  float:left;
+p.from-to{
+  font-size: 25px;
+
 }
+
 
 .searchbar{
   /*margin-top:1px;*/
-  margin-left:20px;
-  height:50px;
-  width:230px;
-  font-size:25px;
+  margin-left:3px;
+  height:40px;
+  width:260px;
+  font-size:22px;
 }
 
 .compass-icon{
   /*padding-top:1000px;*/
   position:relative;
   left:10px;
-  top:12px;
+  top:10px;
   /*margin-left:10px;*/
 }
 
 .x-icon{
-  position:relative;
-  left:300px;
-  /*top:12px;*/
+  margin-left: 90%;
 }
 #start, #end{
-  border-radius:40px;
   width:300px;
 }
 
 #direction-panel {
     font-family: 'Roboto','sans-serif';
-/*    line-height: 30px;*/
-    padding-left: 10px;
-    /*background-color:white;*/
     background-color:white;
 
 }
 
 #direction-panel select, #direction-panel input {
-    font-size: 1em;
+    font-size: 20px;
 }
 
 #direction-panel select {
@@ -137,24 +134,19 @@ div.icon-bar a.active {
 }
 
 #direction-panel i {
-    font-size: 1em;
+    font-size: 20px;
 }
 
 #direction-panel {
-    margin: 30px 0px 0px 8px;
-    font-size: 1em;
-    /*height: 100%;*/
-    float: left;
-
+    font-size: 20px;
     width:95%;
-
     /*background-color: white;*/
     overflow: hidden;
 }
 /* MAP KEY SUBSECTION
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .icon-mapkey{
-   background-image: url('../icons/mapkey.png');
+   background-image: url('../symbols/mapkey.png');
    display: block;
    width: 50px;
    height: 50px;
@@ -186,7 +178,10 @@ div.keytabs button {
    height: 133px;
    border: none;
    outline: none;
-   text-align: left;
+   text-align: center;
+   font-size: 18px;
+   text-transform: uppercase;
+   /*font-weight: bold;*/
    cursor: pointer;
    transition: 0.3s;
 }
@@ -205,10 +200,11 @@ div.keytabs button.active {
 .key-content {
    float: left;
    padding: 0px 12px;
-   border: 1px solid #ccc;
+   /*border: 1px solid #ccc;*/
    width: 70%;
    border-left: none;
    height: 400px;
+   font-size: 16px;
 }
 
 /* Aligns the text descriptions in the key tab*/
@@ -227,85 +223,85 @@ div.keytabs button.active {
 
 /* LEGEND SYMBOLS */
 .building-symbol{
-  background-image: url('../icons/building.png');
+  background-image: url('../symbols/building.png');
 }
 
 .cc-symbol{
-  background-image: url('../icons/cc.png');
+  background-image: url('../symbols/cc.png');
 }
 
 .lbpolice-symbol{
-  background-image: url('../icons/lbpolice.png');
+  background-image: url('../symbols/lbpolice.png');
 }
 
 .pps-symbol{
-  background-image: url('../icons/pp.png');
+  background-image: url('../symbols/pp.png');
 }
 
 .transit-symbol{
-  background-image: url('../icons/transit.png');
+  background-image: url('../symbols/transit.png');
 }
 
 .amazon-symbol{
-  background-image: url('../icons/amazon.png');
+  background-image: url('../symbols/amazon.png');
 }
 
 /* PARKING SYMBOLS */
 .student-symbol{
-  background-image: url('../icons/student.png');
+  background-image: url('../symbols/student.png');
 }
 
 .employee-symbol{
-  background-image: url('../icons/employee.png');
+  background-image: url('../symbols/employee.png');
 }
 
 .shortterm-symbol{
-  background-image: url('../icons/short-term.png');
+  background-image: url('../symbols/short-term.png');
 }
 
 .residential-symbol{
-  background-image: url('../icons/residential.png');
+  background-image: url('../symbols/residential.png');
 }
 
 .officialguest-symbol{
-  background-image: url('../icons/official-guest.png');
+  background-image: url('../symbols/official-guest.png');
 }
 
 .lot10a-symbol{
-  background-image: url('../icons/lot-10a.png');
+  background-image: url('../symbols/lot-10a.png');
 }
 
 /* FOOD SYMBOLS */
-.dining-symbol{
-  background-image: url('../icons/dining.png');
+.usu-symbol{
+  background-image: url('../symbols/usu.png');
 }
 
 .chartroom-symbol{
-  background-image: url('../icons/chartroom.png');
+  background-image: url('../symbols/chartroom.png');
 }
 
 .outpost-symbol{
-  background-image: url('../icons/outpost.png');
+  background-image: url('../symbols/outpost.png');
 }
 
 .nugget-symbol{
-  background-image: url('../icons/nugget.png');
+  background-image: url('../symbols/nugget.png');
 }
 
 .starbucks-symbol{
-  background-image: url('../icons/starbucks.png');
+  background-image: url('../symbols/starbucks.png');
 }
 
 .cbean-symbol{
-  background-image: url('../icons/cbean.png');
+  background-image: url('../symbols/cbean.png');
 }
 
 .robeks-symbol{
-  background-image: url('../icons/robeks.png');
+  background-image: url('../symbols/robeks.png');
 }
 
 .chartroom{
-  background-image: url('../icons/chartroom.png')
+  background-image: url('../symbols/chartroom.png')
 }
 
 
@@ -1779,6 +1775,16 @@ input:checked + .slider:before {
 /* MEDIUM SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 1024px){
+  div.container-fluid{
+    display: table;
+  }
+  aside{
+    display: table-footer-group;
+    width: 100%;
+  }
+  #map{
+    display: table-header-group;
+  }
 
 }
 
