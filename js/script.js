@@ -19,14 +19,14 @@ function initMap() {
     if (navigator.geolocation) {
       $(document).ready(function(){
         $("input").select(function(){
-          watchID = navigator.geolocation.getCurrentPosition(displayAndWatch, function() {
+          navigator.geolocation.getCurrentPosition(displayAndWatch, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
         });
         navigator.geolocation.clearWatch(watchID);
         $("option").click(function(){
             $("input").trigger("select");
-            navigator.geolocation.clearWatch(watchID);
+            //navigator.geolocation.clearWatch(watchID);
         });
       });
 
@@ -44,6 +44,7 @@ function initMap() {
                             'Error: Your browser doesn\'t support geolocation.');
       infoWindow.open(map);
     }
+
     /*Success function, needed for geolocation service
     -----------------------------------------------------------------------------------*/
     function success(position){
@@ -66,7 +67,6 @@ function initMap() {
       routes(position, directionsService, directionsDisplay);
     } //End of success function
 
-
     function displayAndWatch(position){
       let userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       let startSearch = document.getElementById("start").value;
@@ -78,7 +78,6 @@ function initMap() {
             startSearch = document.getElementById("start").value;
             routes(position, directionsService, directionsDisplay);
             if(startSearch != "Current Location"){
-              prompt("Test me");
               navigator.geolocation.clearWatch(watchID);
             }
           });
@@ -88,14 +87,12 @@ function initMap() {
         routes(position, directionsService, directionsDisplay);
       }
     }
+
     /*Displays geolocation coordinates and location
     -----------------------------------------------------------------------------------*/
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('direction-panel'));
 }
-
-
-
 
 function routes(position, directionsService, directionsDisplay){
   currPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -196,6 +193,7 @@ function routes(position, directionsService, directionsDisplay){
     /*Autocomplete
     -----------------------------------------------------------------------------------*/
     $(".searchbar").autocomplete({
+      autoFocus: true,
       lookup: locations,
       onSelect: function(suggestion){
         latlngS = currPosition;
@@ -203,13 +201,23 @@ function routes(position, directionsService, directionsDisplay){
         changeLatLng(latlngS,latlngE);
         updateNames("Current Location", suggestion.value);
         switchToDirectionSearch();
-        document.getElementById("start").value = "Your Location";
+        document.getElementById("start").value = "Current Location";
         document.getElementById("end").value = suggestion.value;
         calculateAndDisplayRoute(directionsService, directionsDisplay);
       }
     });
 
+    $(".searchbar").keydown(function(event){
+    if(event.keyCode == 13) {
+      if($(".searchbar").val().length==0) {
+          event.preventDefault();
+          return false;
+      }
+    }
+ });
+
     $("#start").autocomplete({
+      autoFocus: true,
       lookup: locations,
       onSelect: function(suggestion){
       let startSearch = document.getElementById("start").value;
@@ -224,6 +232,7 @@ function routes(position, directionsService, directionsDisplay){
     });
 
     $("#end").autocomplete({
+      autoFocus: true,
       lookup: locations,
       onSelect: function(suggestion){
       latlngE = suggestion.data;
@@ -232,7 +241,6 @@ function routes(position, directionsService, directionsDisplay){
       calculateAndDisplayRoute(directionsService, directionsDisplay);
       }
     });
-    calculateAndDisplayRoute(directionsService, directionsDisplay);
   }); //End of jQuery function
 }
 function changeLatLng(latlngS, latlngE){

@@ -110,7 +110,7 @@ div.icon-bar a.active {
 
 .x-icon{
   position:relative;
-  left:300px;
+  /*left:300px;*/
   /*top:12px;*/
 }
 #start, #end{
