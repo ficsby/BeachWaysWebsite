@@ -275,9 +275,9 @@ div.keytabs button.active {
   background-image: url('../icons/lot-10a.png');
 }
 
-* FOOD SYMBOLS */
+/* FOOD SYMBOLS */
 .dining-symbol{
-  background-image: url('../icons/usu.png');
+  background-image: url('../icons/dining.png');
 }
 
 .chartroom-symbol{
@@ -304,59 +304,11 @@ div.keytabs button.active {
   background-image: url('../icons/robeks.png');
 }
 
-/* PARKING SYMBOLS */
-.student-symbol{
-  background-image: url('../icons/student.png');
+.chartroom{
+  background-image: url('../icons/chartroom.png')
 }
 
-.employee-symbol{
-  background-image: url('../icons/employee.png');
-}
 
-.shortterm-symbol{
-  background-image: url('../icons/short-term.png');
-}
-
-.residential-symbol{
-  background-image: url('../icons/residential.png');
-}
-
-.officialguest-symbol{
-  background-image: url('../icons/official-guest.png');
-}
-
-.lot10a-symbol{
-  background-image: url('../icons/lot-10a.png');
-}
-
-* FOOD SYMBOLS */
-.dining-symbol{
-  background-image: url('../icons/food.png');
-}
-
-.chartroom-symbol{
-  background-image: url('../icons/chartrm.png');
-}
-
-.outpost-symbol{
-  background-image: url('../icons/outpost.png');
-}
-
-.nugget-symbol{
-  background-image: url('../icons/nuggrill.png')
-}
-
-.starbucks-symbol{
-  background-image: url('../icons/starbucks.png');
-}
-
-.cbean-symbol{
-  background-image: url('../icons/cbean.png');
-}
-
-.robeks-symbol{
-  background-image: url('../icons/robeks.png');
-}
 
 /* GOOGLE MAPS SECTION
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1761,6 +1713,67 @@ div.container{
       /*background-color: white;*/
       overflow: hidden;
   }
+}
+
+/* MARKERS TOGGLE SWITCH
+-----------------------------------------*/
+/* The switch - the box around the slider */
+.switch{
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 35px;
+  width: 35px;
+  left: 5px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .20s;
+  transition: .20s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 30px;
 }
 
 /* MEDIUM SCREEN SECTION

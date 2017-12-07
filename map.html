@@ -29,9 +29,9 @@
       <!--Left Section with icon bar  -->
       <aside>
             <div class="icon-bar">
-                <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation')"><i class="icon-aim"></i></a>
+                <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation'); hideFoodMarkers();"><i class="icon-aim"></i></a>
                 <a href="#" class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-if-map-marker-2639857"></i></a>
-                <a href="#" class="iconlinks" onclick="openIconTab(event, 'info-circle')"><i class="icon-info-circled"></i></a>
+                <a href="#" class="iconlinks" onclick="openIconTab(event, 'info-circle'); hideFoodMarkers();"><i class="icon-info-circled"></i></a>
               </div>
 
             <div id="navigation" class="icon-content tab active">
@@ -131,42 +131,49 @@
                           </div>
                       </div>
 
-                      <div id="food" class="key-content tab">
+                      <div id="food"class="key-content tab">
                        <h3>Food &amp; Drink</h3>
                         <div class="key-container">
-                             <a href="#">
-                               <div class="symbol dining-symbol"></div>
-                               <div class="loc">University Dining Plaza</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol chartroom-symbol"></div>
-                               <div class="loc">The Chartroom</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol outpost-symbol"></div>
-                               <div class="loc">Outpost Grill</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol nugget-symbol"></div>
-                               <div class="loc">Nugget Grill &amp; Pub</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol starbucks-symbol"></div>
-                               <div class="loc">Starbucks</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol cbean-symbol"></div>
-                               <div class="loc">Coffee Bean</div>
-                             </a>
-                             <a href="#">
-                               <div class="symbol robeks-symbol"></div>
-                               <div class="loc">Robeks</div>
-                             </a>
+                          <a href="#">
+                            <div class="symbol dining-symbol"></div>
+                            <div class="loc">University Dining Plaza</div>
+                           <a/>
+                           <a href="#">
+                            <div class="symbol chartroom-symbol"></div>
+                            <div class="loc">The Chartroom</div>
+                           <a/>
+                           <a href="#">
+                             <div class="symbol nugget-symbol"></div>
+                             <div class="loc">Nugget Grill &amp; Pub</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol starbucks-symbol"></div>
+                             <div class="loc">Starbucks</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol cbean-symbol"></div>
+                             <div class="loc">Coffee Bean</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol robeks-symbol"></div>
+                             <div class="loc">Robeks</div>
+                           </a>
+                           <a href="#">
+                             <div class="symbol outpost-symbol"></div>
+                             <div class="loc">Outpost Grill</div>
+                           </a>
                         </div>
                    </div>
                 </div>
+                <div id="info-circle" class="icon-content tab">
 
-                <div id="info-circle" class="icon-content tab"></div>
+                </div>
+                <!-- Toggle switch -->
+                <label id="toggleFood" class="switch on" onclick="toggleFoodMarkers()">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+
       </aside>
 
       <div id="map"></div>  <!-- Div container for the google map -->
