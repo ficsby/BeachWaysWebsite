@@ -24,15 +24,25 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow;
 
     if (navigator.geolocation) {
-      $(document).ready(function(){
+      watchID = navigator.geolocation.watchPosition(displayAndWatch, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
         $("input").select(function(){
-          watchID = navigator.geolocation.getCurrentPosition(displayAndWatch, function() {
+          // navigator.geolocation.clearWatch(watchID);
+          watchID = navigator.geolocation.watchPosition(displayAndWatch, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
         });
-        $("menu").trigger("select");
-        // navigator.geolocation.clearWatch(watchID);
-      });
+
+        $("#testButton").click(
+          function(){
+            navigator.geolocation.clearWatch(watchID);
+              navigator.geolocation.getCurrentPosition(displayAndWatch, function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+            }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
+          }
+        );
+
 
     } else {
       // Browser doesn't support Geolocation
@@ -54,43 +64,44 @@ function initMap() {
       var userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var startSearch = document.getElementById("start").value;
       var endSearch = document.getElementById("end").value;
-      var watchID;
       var markers = [];
+      var recents = [];
       var marker = new google.maps.Marker({
         position: userPos,
         map: map,
         title: 'Hello World!'
       });
       markers.push(marker);
-      setCurrentPosition(position);
+      console.log("not in watch");
+      userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      marker = new google.maps.Marker({
+        position: userPos,
+        map: map,
+        title: 'Hello World!'
+      });
+
       if(startSearch == "Current Location"){
+        console.log(watchID);
+        userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        marker = new google.maps.Marker({
+          position: userPos,
+          map: map,
+          title: 'Hello World!'
+        });
+        setCurrentPosition(position);
+        console.log("testinggg");
+        marker.setPosition( userPos );
 
-          watchID = navigator.geolocation.watchPosition(
-          function(position){
-            userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            marker = new google.maps.Marker({
-              position: userPos,
-              map: map,
-              title: 'Hello World!'
-            });
-            setCurrentPosition(position);
-            console.log("testinggg");
-            marker.setPosition( userPos );
+        markers.push(marker);
+        if(markers.length == 2){
+          if(markers[0].position != markers[1].position){
+            markers[0].setMap(null);
+            markers[0] = markers.pop();
+          }
+        }
 
-            markers.push(marker);
-            if(markers.length == 2){
-              if(markers[0].position != markers[1].position){
-                markers[0].setMap(null);
-                markers[0] = markers.pop();
-              }
-            }
-
-            startSearch = document.getElementById("start").value;
-            routes(position, directionsService, directionsDisplay);
-            if(startSearch != "Current Location"){
-              // navigator.geolocation.clearWatch(watchID);
-            }
-          });
+        startSearch = document.getElementById("start").value;
+        routes(position, directionsService, directionsDisplay);
       }
       else{
         navigator.geolocation.clearWatch(watchID);
