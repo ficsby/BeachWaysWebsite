@@ -150,7 +150,7 @@ p.from-to{
   /*margin-top:1px;*/
   margin-left:3px;
   height:40px;
-  width:260px;
+  width:40vh;
   font-size:22px;
 }
 
@@ -167,9 +167,9 @@ a.compass-icon{
   /*margin-left: 90%;*/
   font-size:50px !important;
 }
-#start, #end{
+/*#start, #end{
   width:300px;
-}
+}*/
 
 #direction-panel {
     font-family: 'Roboto','sans-serif';

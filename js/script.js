@@ -358,7 +358,7 @@ function openIconTab(evt, iconName){
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /* Set the width of the side navigation to 250px */
 function openNav() {
-    document.getElementById("mySidenav").style.width = "300px";
+    document.getElementById("mySidenav").style.width = "50vh";
 }
 
 /* Set the width of the side navigation to 0 */
