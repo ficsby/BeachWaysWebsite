@@ -104,7 +104,7 @@ function initMap() {
         routes(position, directionsService, directionsDisplay);
       }
       else{
-        navigator.geolocation.clearWatch(watchID);
+        // navigator.geolocation.clearWatch(watchID);
         routes(position, directionsService, directionsDisplay);
       }
     }
