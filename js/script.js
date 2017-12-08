@@ -6,6 +6,11 @@ var markers = [];
 var intervalID = null;
 var watchID;
 
+$(document).ready(function() {
+  $("#generalSearch").val('Search...');
+  $("#start").val('Enter an origin location');
+  $("#end").val('Enter a destination location');
+});
 
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
@@ -74,6 +79,8 @@ function initMap() {
       let startSearch = document.getElementById("start").value;
       let endSearch = document.getElementById("end").value;
       var watchID;
+
+      setCurrentPosition(position);
       if(startSearch == "Current Location"){
           watchID = navigator.geolocation.watchPosition(
           function(position){
@@ -95,9 +102,6 @@ function initMap() {
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('direction-panel'));
 }
-
-
-
 
 function routes(position, directionsService, directionsDisplay){
   currPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -223,7 +227,10 @@ function routes(position, directionsService, directionsDisplay){
       }
       changeLatLng(latlngS,latlngE);
       updateNames(ui.item.value, endLocationName);
-      calculateAndDisplayRoute(directionsService, directionsDisplay);
+      $("#testButton").click(function(){
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+      });
+      }
       }
     });
 
@@ -234,12 +241,28 @@ function routes(position, directionsService, directionsDisplay){
       latlngE = ui.item.data;
       changeLatLng(latlngS,latlngE);
       updateNames(startLocationName, ui.item.value);
-      calculateAndDisplayRoute(directionsService, directionsDisplay);
+      $("#testButton").click(function(){
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+      });
+      }
       }
     });
     //calculateAndDisplayRoute(directionsService, directionsDisplay);
   }); //End of jQuery function
 }
+
+// current position of the user
+function setCurrentPosition(pos) {
+    currentPositionMarker = new google.maps.Marker({
+        map: map,
+        position: new google.maps.LatLng(
+            pos.coords.latitude,
+            pos.coords.longitude
+        ),
+        title: "Current Position"
+    });
+
+
 function changeLatLng(latlngS, latlngE){
   this.latlngS = latlngS;
   this.latlngE = latlngE;
