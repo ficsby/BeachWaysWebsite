@@ -30,10 +30,17 @@ function initMap() {
             handleLocationError(true, infoWindow, map.getCenter());
           }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
         });
-        navigator.geolocation.clearWatch(watchID);
+        $("input").trigger("select");
+        $("#testButton").click(function(){
+          $("input").trigger("select");
+          // calculateAndDisplayRoute(directionsService, directionsDisplay);
+        });
+
+
+        // navigator.geolocation.clearWatch(watchID);
         $("option").click(function(){
-            $("input").trigger("select");
-            navigator.geolocation.clearWatch(watchID);
+
+            // navigator.geolocation.clearWatch(watchID);
         });
       });
 
@@ -105,7 +112,6 @@ function initMap() {
             startSearch = document.getElementById("start").value;
             routes(position, directionsService, directionsDisplay);
             if(startSearch != "Current Location"){
-              prompt("Test me");
               navigator.geolocation.clearWatch(watchID);
             }
           });
@@ -228,7 +234,7 @@ function routes(position, directionsService, directionsDisplay){
         changeLatLng(latlngS,latlngE);
         updateNames("Current Location", ui.item.value);
         switchToDirectionSearch();
-        document.getElementById("start").value = "Your Location";
+        document.getElementById("start").value = "Current Location";
         document.getElementById("end").value = ui.item.value;
         calculateAndDisplayRoute(directionsService, directionsDisplay);
       }
