@@ -79,11 +79,29 @@ function initMap() {
       let startSearch = document.getElementById("start").value;
       let endSearch = document.getElementById("end").value;
       var watchID;
+      var marker = new google.maps.Marker({
+        position: userPos,
+        map: map,
+        title: 'Hello World!'
+      });
 
       setCurrentPosition(position);
       if(startSearch == "Current Location"){
           watchID = navigator.geolocation.watchPosition(
           function(position){
+            marker.setPosition(
+                new google.maps.LatLng(
+                    position.coords.latitude,
+                    position.coords.longitude)
+            );
+
+            markers.push(marker);
+            if(markers.length == 2){
+              if(markers[0].position != markers[1].position){
+                markers[0].setMap(null);
+                markers[0] = markers.pop();
+              }
+            }
             startSearch = document.getElementById("start").value;
             routes(position, directionsService, directionsDisplay);
             if(startSearch != "Current Location"){
@@ -231,7 +249,7 @@ function routes(position, directionsService, directionsDisplay){
         calculateAndDisplayRoute(directionsService, directionsDisplay);
       });
       }
-      }
+
     });
 
     $("#end").autocomplete({
@@ -245,7 +263,7 @@ function routes(position, directionsService, directionsDisplay){
         calculateAndDisplayRoute(directionsService, directionsDisplay);
       });
       }
-      }
+
     });
     //calculateAndDisplayRoute(directionsService, directionsDisplay);
   }); //End of jQuery function
@@ -261,6 +279,7 @@ function setCurrentPosition(pos) {
         ),
         title: "Current Position"
     });
+  }
 
 
 function changeLatLng(latlngS, latlngE){
