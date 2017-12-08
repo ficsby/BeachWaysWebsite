@@ -1,22 +1,21 @@
 /* GLOBAL
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
 div.container-fluid {
     padding: 0 !important;
+    margin: 0 !important;
 }
 
 header, footer {
     padding: .5em;
     color: white;
     background-color: black;
-    clear: left;
 }
 
 header{
   text-align: left;
   background: url('../images/csulb-pano.png');
   background-position: left;
-  background-size:cover;
+  background-size: cover;
   height: 60px;
 }
 
@@ -27,16 +26,68 @@ header img{
 }
 
 footer{
-    text-align: center;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  z-index: 3;
 }
 
-aside {
-    background-color: #3F3736;
-    width: 25%;
-    height: 1000px;
-    padding: 0 !important;
+span.open-nav{
+    background: #3F3736;
+    color: white;
+    padding: 8px;
+    font-size: 20px;
+    position: absolute;
+    height: 100vh;
+    z-index: 2;
 }
 
+/* The side navigation menu */
+nav.sidenav {
+   height: 100vh; /* 100% Full-height */
+   width: 0; /* 0 width - change this with JavaScript */
+   position: absolute; /* Stay in place */
+   z-index: 1; /* Stay on top */
+   background: #111; /* Black*/
+   overflow-x: hidden; /* Disable horizontal scroll */
+   padding: 0px 0px 0px 30px; /* Place content 60px from the top */
+   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+#key a{
+  font-size: 16px;
+}
+/* The navigation menu links */
+nav.sidenav a {
+   padding: 8px 30px 4px 30px;
+   text-decoration: none;
+   font-size: 25px;
+   color: white;
+   display: block;
+   transition: 0.3s;
+}
+
+
+
+/* When you mouse over the navigation links, change their color */
+nav.sidenav a:hover {
+   color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+   position: absolute;
+   top: 0;
+   right: 25px;
+   font-size: 36px;
+   margin-left: 50px;
+}
+
+
+#map{
+    margin-left: 25px;
+    height: 100vh !important;
+}
 
 .tab{
   display: none;
@@ -103,16 +154,18 @@ p.from-to{
   font-size:22px;
 }
 
-.compass-icon{
+a.compass-icon{
   /*padding-top:1000px;*/
   position:relative;
   left:10px;
   top:10px;
+  font-size:50px !important;
   /*margin-left:10px;*/
 }
 
 .x-icon{
-  margin-left: 90%;
+  /*margin-left: 90%;*/
+  font-size:50px !important;
 }
 #start, #end{
   width:300px;
@@ -1668,7 +1721,7 @@ a.ui-button:active,
       height: 700px;
   }
 
-  aside {
+  nav {
       width: 100%;
       /*height:inherit;*/
       height:600px;
@@ -1704,7 +1757,7 @@ div.container{
       /*height: 100%;*/
       float: left;
 
-      width:95%;
+      width:99%;
       height:80%;
       /*background-color: white;*/
       overflow: hidden;
@@ -1772,44 +1825,6 @@ input:checked + .slider:before {
   border-radius: 30px;
 }
 
-/* The side navigation menu */
-.sidenav {
-   height: 100%; /* 100% Full-height */
-   width: 0; /* 0 width - change this with JavaScript */
-   position: fixed; /* Stay in place */
-   z-index: 1; /* Stay on top */
-   top: 0; /* Stay at the top */
-   left: 0;
-   background-color: #111; /* Black*/
-   overflow-x: hidden; /* Disable horizontal scroll */
-   padding-top: 60px; /* Place content 60px from the top */
-   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
-
-/* The navigation menu links */
-.sidenav a {
-   padding: 8px 8px 8px 32px;
-   text-decoration: none;
-   font-size: 25px;
-   color: #818181;
-   display: block;
-   transition: 0.3s;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-   color: #f1f1f1;
-}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-   position: absolute;
-   top: 0;
-   right: 25px;
-   font-size: 36px;
-   margin-left: 50px;
-}
-
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 /*#main {
    transition: margin-left .5s;
@@ -1825,15 +1840,12 @@ input:checked + .slider:before {
 /* MEDIUM SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 1024px){
-  #flex { display: flex; flex-direction: column; }
-  #map { order: 1; }
-  aside { order: 2; }
-  div.container-fluid{
-  }
-  aside{
+  nav{
     width: 100%;
   }
   #map{
+    width: 100%;
+    height: 650px;
   }
 
 }
