@@ -6,11 +6,6 @@ var markers = [];
 var intervalID = null;
 var watchID;
 
-$(document).ready(function() {
-  $("#generalSearch").val('Search...');
-  $("#start").val('Enter an origin location');
-  $("#end").val('Enter a destination location');
-});
 
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
@@ -20,19 +15,21 @@ function initMap() {
       center: {lat: 33.7838, lng: -118.1141}
     });
     map.setOptions({draggable:true});
-
     // Try HTML5 geolocation.
     infoWindow = new google.maps.InfoWindow;
 
     if (navigator.geolocation) {
       $(document).ready(function(){
         $("input").select(function(){
-          navigator.geolocation.getCurrentPosition(displayAndWatch, function() {
+          watchID = navigator.geolocation.getCurrentPosition(displayAndWatch, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
         });
-        //navigator.geolocation.clearWatch(watchID);
-        $("input").trigger("select");
+        navigator.geolocation.clearWatch(watchID);
+        $("option").click(function(){
+            $("input").trigger("select");
+            navigator.geolocation.clearWatch(watchID);
+        });
       });
 
     } else {
@@ -51,39 +48,39 @@ function initMap() {
     }
     /*Success function, needed for geolocation service
     -----------------------------------------------------------------------------------*/
+    function success(position){
+      currPosition = new google.maps.LatLng(position.coords.latitude,
+    						position.coords.longitude);
+      /*Marker for the user, indicating user location
+      ------------------------------------------------------------------*/
+      var marker = new google.maps.Marker({
+        position:currPosition,
+        map:map,
+        icon:"../images/testMarker.png"
+      });
+      markers.push(marker);
+      if(markers.length == 2){
+        if(markers[0].position != markers[1].position){
+          markers[0].setMap(null);
+          markers[0] = markers.pop();
+        }
+      }
+      routes(position, directionsService, directionsDisplay);
+    } //End of success function
+
 
     function displayAndWatch(position){
       let userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       let startSearch = document.getElementById("start").value;
       let endSearch = document.getElementById("end").value;
-      var marker = new google.maps.Marker({
-        position: userPos,
-        map: map,
-        title: 'Hello World!'
-      });
-      // current position of the user
-      setCurrentPosition(position);
+      var watchID;
       if(startSearch == "Current Location"){
           watchID = navigator.geolocation.watchPosition(
           function(position){
-            console.log("test");
-            marker.setPosition(
-                new google.maps.LatLng(
-                    position.coords.latitude,
-                    position.coords.longitude)
-            );
-
-            markers.push(marker);
-            if(markers.length == 2){
-              if(markers[0].position != markers[1].position){
-                markers[0].setMap(null);
-                markers[0] = markers.pop();
-              }
-            }
-
             startSearch = document.getElementById("start").value;
             routes(position, directionsService, directionsDisplay);
             if(startSearch != "Current Location"){
+              prompt("Test me");
               navigator.geolocation.clearWatch(watchID);
             }
           });
@@ -105,7 +102,7 @@ function initMap() {
 function routes(position, directionsService, directionsDisplay){
   currPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-  $(document).ready(function() {
+  $(function() {
     /*CSULB Locations
     -----------------------------------------------------------------------------------*/
     var locations = [
@@ -197,78 +194,52 @@ function routes(position, directionsService, directionsDisplay){
           {value:"Visitor Information Center", data: new google.maps.LatLng(33.7819505,-118.11929709999998) }, {value:"VIC", data: new google.maps.LatLng(33.7819505,-118.11929709999998) }
         ];
 
+
     /*Autocomplete
     -----------------------------------------------------------------------------------*/
     $(".searchbar").autocomplete({
-      autoFocus:true,
+      autoFocus: true,
       source: locations,
       select: function(event, ui){
-        let suggestion = ui.item.data;
         latlngS = currPosition;
-        latlngE = suggestion;
+        latlngE = ui.item.data;
         changeLatLng(latlngS,latlngE);
-        updateNames("Your Location", suggestion.value);
+        updateNames("Current Location", ui.item.value);
         switchToDirectionSearch();
-        document.getElementById("start").value = "Current Location";
+        document.getElementById("start").value = "Your Location";
         document.getElementById("end").value = ui.item.value;
-        console.log("got to directions display");
         calculateAndDisplayRoute(directionsService, directionsDisplay);
       }
     });
 
     $("#start").autocomplete({
-      autoFocus:true,
+      autoFocus: true,
       source: locations,
       select: function(event, ui){
       let startSearch = document.getElementById("start").value;
-      let suggestion = ui.item.data;
-      latlngS = suggestion;
-      if(startSearch != 'Current Location'){
-        console.log("test broken");
+      latlngS = ui.item.data;
+      if(startSearch == 'Current Location'){
         navigator.geolocation.clearWatch(watchID);
       }
       changeLatLng(latlngS,latlngE);
       updateNames(ui.item.value, endLocationName);
-      $("#testButton").click(function(){
-        calculateAndDisplayRoute(directionsService, directionsDisplay);
-      });
+      calculateAndDisplayRoute(directionsService, directionsDisplay);
       }
     });
 
     $("#end").autocomplete({
-      autofocus:true,
+      autoFocus: true,
       source: locations,
       select: function(event, ui){
-      let suggestion = ui.item.data;
-      latlngE = suggestion;
+      latlngE = ui.item.data;
       changeLatLng(latlngS,latlngE);
       updateNames(startLocationName, ui.item.value);
-      $("#testButton").click(function(){
-        calculateAndDisplayRoute(directionsService, directionsDisplay);
-      });
-
+      calculateAndDisplayRoute(directionsService, directionsDisplay);
       }
     });
     //calculateAndDisplayRoute(directionsService, directionsDisplay);
   }); //End of jQuery function
 }
-
-// current position of the user
-function setCurrentPosition(pos) {
-    currentPositionMarker = new google.maps.Marker({
-        map: map,
-        position: new google.maps.LatLng(
-            pos.coords.latitude,
-            pos.coords.longitude
-        ),
-        title: "Current Position"
-    });
-    map.panTo(new google.maps.LatLng(
-            pos.coords.latitude,
-            pos.coords.longitude
-        ));
-}
-
 function changeLatLng(latlngS, latlngE){
   this.latlngS = latlngS;
   this.latlngE = latlngE;
@@ -343,6 +314,15 @@ function openIconTab(evt, iconName){
 
 /*Key Tabs Functionality
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Set the width of the side navigation to 250px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "30%";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
 
 function openKey(evt, keyName) {
     // Declare all variables
