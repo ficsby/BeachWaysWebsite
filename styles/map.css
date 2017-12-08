@@ -1775,15 +1775,15 @@ input:checked + .slider:before {
 /* MEDIUM SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 1024px){
+  #flex { display: flex; flex-direction: column; }
+  #map { order: 1; }
+  aside { order: 2; }
   div.container-fluid{
-    display: table;
   }
   aside{
-    display: table-footer-group;
     width: 100%;
   }
   #map{
-    display: table-header-group;
   }
 
 }
