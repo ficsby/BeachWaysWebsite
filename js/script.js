@@ -2,7 +2,7 @@ var map, infoWindow;
 var currPosition;
 var latlngS, latlngE;
 var startLocationName, endLocationName;
-var markers = [];
+
 var intervalID = null;
 var watchID;
 
@@ -30,18 +30,8 @@ function initMap() {
             handleLocationError(true, infoWindow, map.getCenter());
           }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
         });
-        $("input").trigger("select");
-        $("#testButton").click(function(){
-          $("input").trigger("select");
-          // calculateAndDisplayRoute(directionsService, directionsDisplay);
-        });
-
-
+        $("menu").trigger("select");
         // navigator.geolocation.clearWatch(watchID);
-        $("option").click(function(){
-
-            // navigator.geolocation.clearWatch(watchID);
-        });
       });
 
     } else {
@@ -60,47 +50,32 @@ function initMap() {
     }
     /*Success function, needed for geolocation service
     -----------------------------------------------------------------------------------*/
-    function success(position){
-      currPosition = new google.maps.LatLng(position.coords.latitude,
-    						position.coords.longitude);
-      /*Marker for the user, indicating user location
-      ------------------------------------------------------------------*/
-      var marker = new google.maps.Marker({
-        position:currPosition,
-        map:map,
-        icon:"../images/testMarker.png"
-      });
-      markers.push(marker);
-      if(markers.length == 2){
-        if(markers[0].position != markers[1].position){
-          markers[0].setMap(null);
-          markers[0] = markers.pop();
-        }
-      }
-      routes(position, directionsService, directionsDisplay);
-    } //End of success function
-
-
     function displayAndWatch(position){
-      let userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      let startSearch = document.getElementById("start").value;
-      let endSearch = document.getElementById("end").value;
+      var userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      var startSearch = document.getElementById("start").value;
+      var endSearch = document.getElementById("end").value;
       var watchID;
+      var markers = [];
       var marker = new google.maps.Marker({
         position: userPos,
         map: map,
         title: 'Hello World!'
       });
-
+      markers.push(marker);
       setCurrentPosition(position);
       if(startSearch == "Current Location"){
+
           watchID = navigator.geolocation.watchPosition(
           function(position){
-            marker.setPosition(
-                new google.maps.LatLng(
-                    position.coords.latitude,
-                    position.coords.longitude)
-            );
+            userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            marker = new google.maps.Marker({
+              position: userPos,
+              map: map,
+              title: 'Hello World!'
+            });
+            setCurrentPosition(position);
+            console.log("testinggg");
+            marker.setPosition( userPos );
 
             markers.push(marker);
             if(markers.length == 2){
@@ -109,10 +84,11 @@ function initMap() {
                 markers[0] = markers.pop();
               }
             }
+
             startSearch = document.getElementById("start").value;
             routes(position, directionsService, directionsDisplay);
             if(startSearch != "Current Location"){
-              navigator.geolocation.clearWatch(watchID);
+              // navigator.geolocation.clearWatch(watchID);
             }
           });
       }
@@ -246,7 +222,7 @@ function routes(position, directionsService, directionsDisplay){
       select: function(event, ui){
       let startSearch = document.getElementById("start").value;
       latlngS = ui.item.data;
-      if(startSearch == 'Current Location'){
+      if(startSearch != 'Current Location'){
         navigator.geolocation.clearWatch(watchID);
       }
       changeLatLng(latlngS,latlngE);
@@ -285,6 +261,13 @@ function setCurrentPosition(pos) {
         ),
         title: "Current Position"
     });
+
+
+    map.panTo(new google.maps.LatLng(
+                    pos.coords.latitude,
+                    pos.coords.longitude
+                ));
+    map.setZoom(20);
   }
 
 
