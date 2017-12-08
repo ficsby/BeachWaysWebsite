@@ -8,6 +8,7 @@ var watchID;
 
 
 function initMap() {
+  // SIDEBAR SLIDE-OUT FUNCITONALITY
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     map = new google.maps.Map(document.getElementById('map'), {

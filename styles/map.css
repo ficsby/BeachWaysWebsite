@@ -457,17 +457,12 @@ input:checked + .slider:before {
 /* MEDIUM SCREEN SECTION
 -------------------------------------------------------------------------------------------------------------------------------*/
 @media screen and (max-width: 1024px){
-  div.container-fluid{
-    display: table;
-  }
-  aside{
-    display: table-footer-group;
-    width: 100%;
-  }
+  #flex { display: flex; flex-direction: column; }
   #map{
-    display: table-header-group;
+    order: 1;
+    height: 800px;
   }
-
+  aside{ order: 2; }
 }
 
 /* LARGE SCREEN SECTION
