@@ -2,7 +2,7 @@ var map, infoWindow;
 var currPosition;
 var latlngS, latlngE;
 var startLocationName, endLocationName;
-var markers = [];
+
 var intervalID = null;
 var watchID;
 
@@ -24,25 +24,25 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow;
 
     if (navigator.geolocation) {
-      $(document).ready(function(){
+      watchID = navigator.geolocation.watchPosition(displayAndWatch, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
         $("input").select(function(){
-          watchID = navigator.geolocation.getCurrentPosition(displayAndWatch, function() {
+          // navigator.geolocation.clearWatch(watchID);
+          watchID = navigator.geolocation.watchPosition(displayAndWatch, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
         });
-        $("input").trigger("select");
-        $("#testButton").click(function(){
-          $("input").trigger("select");
-          // calculateAndDisplayRoute(directionsService, directionsDisplay);
-        });
 
+        $("#testButton").click(
+          function(){
+            navigator.geolocation.clearWatch(watchID);
+              navigator.geolocation.getCurrentPosition(displayAndWatch, function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+            }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
+          }
+        );
 
-        // navigator.geolocation.clearWatch(watchID);
-        $("option").click(function(){
-
-            // navigator.geolocation.clearWatch(watchID);
-        });
-      });
 
     } else {
       // Browser doesn't support Geolocation
@@ -60,61 +60,48 @@ function initMap() {
     }
     /*Success function, needed for geolocation service
     -----------------------------------------------------------------------------------*/
-    function success(position){
-      currPosition = new google.maps.LatLng(position.coords.latitude,
-    						position.coords.longitude);
-      /*Marker for the user, indicating user location
-      ------------------------------------------------------------------*/
-      var marker = new google.maps.Marker({
-        position:currPosition,
-        map:map,
-        icon:"../images/testMarker.png"
-      });
-      markers.push(marker);
-      if(markers.length == 2){
-        if(markers[0].position != markers[1].position){
-          markers[0].setMap(null);
-          markers[0] = markers.pop();
-        }
-      }
-      routes(position, directionsService, directionsDisplay);
-    } //End of success function
-
-
     function displayAndWatch(position){
-      let userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      let startSearch = document.getElementById("start").value;
-      let endSearch = document.getElementById("end").value;
-      var watchID;
+      var userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      var startSearch = document.getElementById("start").value;
+      var endSearch = document.getElementById("end").value;
+      var markers = [];
+      var recents = [];
       var marker = new google.maps.Marker({
         position: userPos,
         map: map,
         title: 'Hello World!'
       });
+      markers.push(marker);
+      console.log("not in watch");
+      userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      marker = new google.maps.Marker({
+        position: userPos,
+        map: map,
+        title: 'Hello World!'
+      });
 
-      setCurrentPosition(position);
       if(startSearch == "Current Location"){
-          watchID = navigator.geolocation.watchPosition(
-          function(position){
-            marker.setPosition(
-                new google.maps.LatLng(
-                    position.coords.latitude,
-                    position.coords.longitude)
-            );
+        console.log(watchID);
+        userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        marker = new google.maps.Marker({
+          position: userPos,
+          map: map,
+          title: 'Hello World!'
+        });
+        setCurrentPosition(position);
+        console.log("testinggg");
+        marker.setPosition( userPos );
 
-            markers.push(marker);
-            if(markers.length == 2){
-              if(markers[0].position != markers[1].position){
-                markers[0].setMap(null);
-                markers[0] = markers.pop();
-              }
-            }
-            startSearch = document.getElementById("start").value;
-            routes(position, directionsService, directionsDisplay);
-            if(startSearch != "Current Location"){
-              navigator.geolocation.clearWatch(watchID);
-            }
-          });
+        markers.push(marker);
+        if(markers.length == 2){
+          if(markers[0].position != markers[1].position){
+            markers[0].setMap(null);
+            markers[0] = markers.pop();
+          }
+        }
+
+        startSearch = document.getElementById("start").value;
+        routes(position, directionsService, directionsDisplay);
       }
       else{
         navigator.geolocation.clearWatch(watchID);
@@ -246,7 +233,7 @@ function routes(position, directionsService, directionsDisplay){
       select: function(event, ui){
       let startSearch = document.getElementById("start").value;
       latlngS = ui.item.data;
-      if(startSearch == 'Current Location'){
+      if(startSearch != 'Current Location'){
         navigator.geolocation.clearWatch(watchID);
       }
       changeLatLng(latlngS,latlngE);
@@ -285,6 +272,13 @@ function setCurrentPosition(pos) {
         ),
         title: "Current Position"
     });
+
+
+    map.panTo(new google.maps.LatLng(
+                    pos.coords.latitude,
+                    pos.coords.longitude
+                ));
+    map.setZoom(20);
   }
 
 
