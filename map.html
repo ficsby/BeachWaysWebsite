@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Antic|Carrois+Gothic+SC|Convergence|Fredoka+One|Montserrat|Reem+Kufi|Russo+One|Vollkorn+SC" rel="stylesheet">
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/map.css">
@@ -29,7 +30,6 @@
                 <div id="mainSearch">
                     <input id="generalSearch" class= "searchbar .ui-autocomplete-input" type="text" placeholder="Search...">
                 </div>
-              </div>
               <div id="search-directions" class="tab">
                 <a href="#" class="x-icon" type="button" onclick="switchToMainSearch()"><i class="fa fa-times" aria-hidden="true"></i></a>
                 <p id="from">FROM: <input id="start" class="controls searchbar .ui-autocomplete-input" type="text" placeholder="Enter an origin location"></p>
@@ -44,7 +44,7 @@
                 </datalist>
               </div>
 
-              <div id="direction-panel"></div>
+              <!-- <div id="direction-panel"></div> -->
               <p id="start-lat"></p>
               <p id="end-lat"></p>
             </div>
@@ -60,17 +60,17 @@
 
                 <!--Key tabs  -->
                  <div id="key" class="icon-content tab">
-                    <!-- <div class="keytabs">
-                       <button class="tablinks active" onclick="openKey(event, 'legend')">Legend</button>
-                       <button class="tablinks" onclick="openKey(event, 'parking')">Parking</button>
-                       <button class="tablinks" onclick="openKey(event, 'food')">Food &amp; Drink</button>
-                     </div> -->
+                    <div class="keytabs">
+                       <a class="tablinks active" onclick="openKey(event, 'legend')"><i class="fa fa-superpowers" aria-hidden="true"></i>Legend</a>
+                       <a class="tablinks" onclick="openKey(event, 'parking')"><i class="fa fa-car" aria-hidden="true"></i>Parking</a>
+                       <a class="tablinks" onclick="openKey(event, 'food')"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Food &amp; Drink</a>
+                     </div>
 
                       <div id="legend" class="key-content tab active">
                          <h3>Legend</h3>
                           <div class="key-container">
                                <a href="#">
-                                 <div class="symbol building-symbol"></div>
+                                 <div class="symbol building-symbol col-md-6"></div>
                                  <div class="loc">Building</div>
                                </a>
                                <a href="#">

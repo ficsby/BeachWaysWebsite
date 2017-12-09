@@ -150,7 +150,8 @@ p.from-to{
   margin-top:15px;
   border-radius: 50px;
   height:40px;
-  width:32vh;
+  width:34.5vh;
+  padding: 0px 15px;
   font-size:22px;
 }
 
@@ -180,7 +181,7 @@ a.compass-icon{
 
 #direction-panel {
     font-family: 'Roboto','sans-serif';
-    background-color:white;
+    /*background-color:white;*/
 
 }
 
@@ -200,8 +201,7 @@ a.compass-icon{
 #direction-panel {
     font-size: 20px;
     width:95%;
-    /*background-color: white;*/
-    overflow: hidden;
+    overflow: auto;
 }
 /* MAP KEY SUBSECTION
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -212,58 +212,58 @@ a.compass-icon{
    height: 50px;
    background-repeat: no-repeat;
 }
-#key{
-  color: #ffffff;
-}
-#key a{
-  color: #ffffff;
+
+#key a.tablinks{
+  color: black;
+  font-family: Montserrat;
+  font-weight: bolder;
+  text-transform: uppercase;
   text-decoration: none;
+}
+#key i {
+  margin-right: 10px;
 }
 
 /* Styles the key tab box */
-div.keytabs {
-   float: left;
-   border: 1px solid #ccc;
-   background-color: #f1f1f1;
-   width: 30%;
+/* Styles the buttons inside the tab */
+div.keytabs{
+    font-size: 50px;
 }
 
-/* Styles the buttons inside the tab */
-div.keytabs button {
-   display: block;
-   background-color: inherit;
-   color: black;
-   /*padding: 22px 16px;   */
-   width: 100%;
-   height: 133px;
-   border: none;
-   outline: none;
-   text-align: center;
-   font-size: 18px;
-   text-transform: uppercase;
-   /*font-weight: bold;*/
+div.keytabs a {
+   background-color: #ceadad;
+   color: #2c2c38;
    cursor: pointer;
    transition: 0.3s;
 }
 
-/* Change background color of buttons on hover */
-div.keytabs button:hover {
-   background-color: #ddd;
+h3{
+  color: white;
+  margin: 20px 0px 20px 30px;
 }
-
 /* Create an active/current "tab button" class */
-div.keytabs button.active {
-   background-color: #ccc;
+div.keytabs a.active {
+   background-color: #d18585;
 }
 
-/* Style the tab content */
-.key-content {
-   float: left;
-   padding: 0px 12px;
-   /*border: 1px solid #ccc;*/
-   width: 70%;
-   border-left: none;
-   height: 400px;
+/* Change background color of buttons on hover */
+div.keytabs a:hover {
+   background-color: #c99797;
+}
+
+div.keytabs a.active:hover {
+   background-color: #c17070;
+}
+
+/* Style the key tab content */
+div.key-container{
+  width: 100%;
+}
+div.key-content a{
+   margin-left: 30px;
+   padding: 0;
+}
+div.key-content div{
    font-size: 16px;
 }
 
