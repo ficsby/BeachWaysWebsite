@@ -5,6 +5,7 @@ var latlngE;
 var overlay;
 
 function initMap() {
+
     CampusOverlay.prototype = new google.maps.OverlayView();
 
     /** @constructor */
@@ -89,11 +90,12 @@ function initMap() {
 
     var bounds = new google.maps.LatLngBounds(
        //southwest coordinate, northeast coordinate
-       new google.maps.LatLng(33.774712162958124,-118.12469774857163),
-       new google.maps.LatLng(33.78879644733833,-118.10790535993874));
+       new google.maps.LatLng(33.774712162958124,-118.12471920624375),
+       new google.maps.LatLng(33.78911075911174,-118.10766932554543)
+     );
 
     // The campus map is courtesy of Eric Do.
-    var srcImage = '../BeachWaysWebsite/images/csulb_campus_10k.png';
+    var srcImage = '../BeachWaysWebsite/images/csulb_campus_map.png';
 
     // The custom CampusOverlay object contains the USGS image,
     // the bounds of the image, and a reference to the map.
@@ -248,9 +250,25 @@ function initMap() {
 
     /*Displays geolocation coordinates and location
     -----------------------------------------------------------------------------------*/
-
-
     directionsDisplay.setMap(map); directionsDisplay.setPanel(document.getElementById('direction-panel'));
+
+    // bounds of the desired area
+    var allowedBounds = new google.maps.LatLngBounds(
+         new google.maps.LatLng(33.774712162958124,-118.12471920624375),
+         new google.maps.LatLng(33.78911075911174,-118.10766932554543)
+    );
+    var lastValidCenter = map.getCenter();
+
+    google.maps.event.addListener(map, 'center_changed', function() {
+        if (allowedBounds.contains(map.getCenter())) {
+            // still within valid bounds, so save the last valid position
+            lastValidCenter = map.getCenter();
+            return;
+        }
+
+        // not valid anymore => return to last valid position
+        map.panTo(lastValidCenter);
+    });
 }
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
