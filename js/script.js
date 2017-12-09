@@ -397,12 +397,12 @@ function openKey(evt, keyName) {
     document.getElementById(keyName).style.display = "block";
     evt.currentTarget.className += " active";
     if(keyName == 'food'){
-      var img_usu = '../icons/dining.png';   // Located at the USU
-      var img_outpost = '../icons/outpost.png'; //Located near the ECS
-      var img_nugget = '../icons/nugget.png'; // Located next to the USU
-      var img_starbucks= '../icons/starbucks.png'; // Located at both the Library and the USU
-      var img_cbean = '../icons/cbean.png'; // Located at the USU
-      var img_robeks = '../icons/robeks.png'; // Located at both the USU and the Rec Center
+      var img_usu = '../symbols/dining.png';   // Located at the USU
+      var img_outpost = '../symbols/outpost.png'; //Located near the ECS
+      var img_nugget = '../symbols/nugget.png'; // Located next to the USU
+      var img_starbucks= '../symbols/starbucks.png'; // Located at both the Library and the USU
+      var img_cbean = '../symbols/cbean.png'; // Located at the USU
+      var img_robeks = '../symbols/robeks.png'; // Located at both the USU and the Rec Center
 
       // Note: Current coordinates are incorrect, needs to be changed  */
       var usuMarker = new google.maps.Marker({
