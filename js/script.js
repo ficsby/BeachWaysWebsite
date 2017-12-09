@@ -248,7 +248,7 @@ function routes(position, directionsService, directionsDisplay){
     if(document.getElementById("start").value == "Current Location"){
       calculateAndDisplayRoute(directionsService, directionsDisplay);
     }
-    
+
   }); //End of jQuery function
 }
 
@@ -376,83 +376,133 @@ function openKey(evt, keyName) {
 
 /* Markers Functionality
 ----------------------------------------------------------------------------------------------------------------------*/
-// Toggle switch
-function toggleFoodMarkers(){
-  document.getElementById("toggleFood").classList.toggle("on");
-  document.getElementById("toggleFood").classList.contains("on")? showFoodMarkers() : hideFoodMarkers();
-}
 
-// Shows the food markers
-function showFoodMarkers(){
-  for (var i = 0; i < foodMarkers.length; i++) {
-     foodMarkers[i].setMap(map);
-  }
-}
+function openKey(evt, keyName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
 
-// Hides the food markers
-function hideFoodMarkers() {
-  for (var i = 0; i < foodMarkers.length; i++) {
-    foodMarkers[i].setMap(null);
-  }
-}
-
-var foodMarkers = []; // Stores the food markers
-// Creates the markers and stores them inside the 'foodMarkers' set
-function setFoodMarkers(){
-  var img_usu = '../BeachWaysWebsite/symbols/usu.png';   // Located at the USU
-  var img_outpost = '../BeachWaysWebsite/symbols/outpost.png'; //Located near the ECS
-  var img_nugget = '../BeachWaysWebsite/symbols/nugget.png'; // Located next to the USU
-  var img_starbucks= '../BeachWaysWebsite/symbols/starbucks.png'; // Located at both the Library and the USU
-  var img_cbean = '../BeachWaysWebsite/symbols/cbean.png'; // Located at the USU
-  var img_robeks = '../BeachWaysWebsite/symbols/robeks.png'; // Located at both the USU and the Rec Center
-
-  // Initializes the food markers; Default display is hidden (map: null)
-  // Note: Current coordinates are incorrect, needs to be changed  */
-  var usuMarker = new google.maps.Marker({ position: {lat: 33.7788641948679, lng: -118.11378166079521}, map: null, icon: img_usu });
-  var outpostMarker = new google.maps.Marker({ position: {lat: 33.7882209, lng: -118.12051209999998}, map: null, icon: img_outpost });
-  var nuggetMarker = new google.maps.Marker({ position: {lat: 33.78368184529387, lng: -118.10850575566292}, map: null, icon: img_nugget });
-  var starbucksMarker = new google.maps.Marker({ position: {lat: 33.778231036025645, lng: -118.12051209999998}, map: null, icon: img_starbucks });
-  var cbeanMarker = new google.maps.Marker({ position: {lat: 33.77840716166642, lng: -118.11270207166672}, map: null, icon: img_cbean });
-  var robeksMarker = new google.maps.Marker({ position: {lat: 33.77784088300014, lng: -118.11266049742699}, map: null, icon: img_robeks });
-
-  // Store into foodMarkers array
-  foodMarkers.push(usuMarker);
-  foodMarkers.push(outpostMarker);
-  foodMarkers.push(nuggetMarker);
-  foodMarkers.push(starbucksMarker);
-  foodMarkers.push(cbeanMarker);
-  foodMarkers.push(robeksMarker);
-}
-
-$(document).ready(function(){
-
-    var col1_data,col2_data;
-
-    col1_data = $(".footer-col:nth-child(1)").html();
-    col2_data = $(".footer-col:nth-child(2)").html();
-
-    var w = $(window).width();
-
-    if (w < 768)
-    swap_columns();
-
-    function swap_columns()
-    {
-        var w = $(window).width();
-        if (w < 768)
-        {
-            $(".footer-col:nth-child(2)").html(col1_data);
-            $(".footer-col:nth-child(1)").html(col2_data);
-        }
-        else
-        {
-            $(".footer-col:nth-child(1)").html(col1_data);
-            $(".footer-col:nth-child(2)").html(col2_data);
-        }
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("key-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
     }
 
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
 
-    $(window).resize(function() {
-        swap_columns();
-    });
-});
+    // Show the current tab, and add an "active" class to the link that opened the tab
+    document.getElementById(keyName).style.display = "block";
+    evt.currentTarget.className += " active";
+    if(keyName == 'food'){
+      var img_usu = '../icons/dining.png';   // Located at the USU
+      var img_outpost = '../icons/outpost.png'; //Located near the ECS
+      var img_nugget = '../icons/nugget.png'; // Located next to the USU
+      var img_starbucks= '../icons/starbucks.png'; // Located at both the Library and the USU
+      var img_cbean = '../icons/cbean.png'; // Located at the USU
+      var img_robeks = '../icons/robeks.png'; // Located at both the USU and the Rec Center
+
+      // Note: Current coordinates are incorrect, needs to be changed  */
+      var usuMarker = new google.maps.Marker({
+        position: {lat: 33.7788641948679, lng: -118.11378166079521}, map: map, icon: img_usu
+      });
+      var outpostMarker = new google.maps.Marker({
+        position: {lat: 33.7882209, lng: -118.12051209999998}, map: map, icon: img_outpost
+      });
+      var nuggetMarker = new google.maps.Marker({
+        position: {lat: 33.78368184529387, lng: -118.10850575566292}, map: map, icon: img_nugget
+      });
+      var starbucksMarker = new google.maps.Marker({
+        position: {lat: 33.778231036025645, lng: -118.12051209999998}, map: map, icon: img_starbucks
+      });
+      var cbeanMarker = new google.maps.Marker({
+        position: {lat: 33.77840716166642, lng: -118.11270207166672}, map: map, icon: img_cbean
+      });
+      var robeksMarker = new google.maps.Marker({
+        position: {lat: 33.77784088300014, lng: -118.11266049742699}, map: map, icon: img_robeks
+      });
+    }
+}
+
+// // Toggle switch
+// function toggleFoodMarkers(){
+//   document.getElementById("toggleFood").classList.toggle("on");
+//   document.getElementById("toggleFood").classList.contains("on")? showFoodMarkers() : hideFoodMarkers();
+// }
+//
+// // Shows the food markers
+// function showFoodMarkers(){
+//   for (var i = 0; i < foodMarkers.length; i++) {
+//      foodMarkers[i].setMap(map);
+//   }
+// }
+//
+// // Hides the food markers
+// function hideFoodMarkers() {
+//   for (var i = 0; i < foodMarkers.length; i++) {
+//     foodMarkers[i].setMap(null);
+//   }
+// }
+//
+// var foodMarkers = []; // Stores the food markers
+// // Creates the markers and stores them inside the 'foodMarkers' set
+// function setFoodMarkers(){
+//   var img_usu = '../BeachWaysWebsite/symbols/usu.png';   // Located at the USU
+//   var img_outpost = '../BeachWaysWebsite/symbols/outpost.png'; //Located near the ECS
+//   var img_nugget = '../BeachWaysWebsite/symbols/nugget.png'; // Located next to the USU
+//   var img_starbucks= '../BeachWaysWebsite/symbols/starbucks.png'; // Located at both the Library and the USU
+//   var img_cbean = '../BeachWaysWebsite/symbols/cbean.png'; // Located at the USU
+//   var img_robeks = '../BeachWaysWebsite/symbols/robeks.png'; // Located at both the USU and the Rec Center
+//
+//   // Initializes the food markers; Default display is hidden (map: null)
+//   // Note: Current coordinates are incorrect, needs to be changed  */
+//   var usuMarker = new google.maps.Marker({ position: {lat: 33.7788641948679, lng: -118.11378166079521}, map: null, icon: img_usu });
+//   var outpostMarker = new google.maps.Marker({ position: {lat: 33.7882209, lng: -118.12051209999998}, map: null, icon: img_outpost });
+//   var nuggetMarker = new google.maps.Marker({ position: {lat: 33.78368184529387, lng: -118.10850575566292}, map: null, icon: img_nugget });
+//   var starbucksMarker = new google.maps.Marker({ position: {lat: 33.778231036025645, lng: -118.12051209999998}, map: null, icon: img_starbucks });
+//   var cbeanMarker = new google.maps.Marker({ position: {lat: 33.77840716166642, lng: -118.11270207166672}, map: null, icon: img_cbean });
+//   var robeksMarker = new google.maps.Marker({ position: {lat: 33.77784088300014, lng: -118.11266049742699}, map: null, icon: img_robeks });
+//
+//   // Store into foodMarkers array
+//   foodMarkers.push(usuMarker);
+//   foodMarkers.push(outpostMarker);
+//   foodMarkers.push(nuggetMarker);
+//   foodMarkers.push(starbucksMarker);
+//   foodMarkers.push(cbeanMarker);
+//   foodMarkers.push(robeksMarker);
+// }
+//
+// $(document).ready(function(){
+//
+//     var col1_data,col2_data;
+//
+//     col1_data = $(".footer-col:nth-child(1)").html();
+//     col2_data = $(".footer-col:nth-child(2)").html();
+//
+//     var w = $(window).width();
+//
+//     if (w < 768)
+//     swap_columns();
+//
+//     function swap_columns()
+//     {
+//         var w = $(window).width();
+//         if (w < 768)
+//         {
+//             $(".footer-col:nth-child(2)").html(col1_data);
+//             $(".footer-col:nth-child(1)").html(col2_data);
+//         }
+//         else
+//         {
+//             $(".footer-col:nth-child(1)").html(col1_data);
+//             $(".footer-col:nth-child(2)").html(col2_data);
+//         }
+//     }
+//
+//
+//     $(window).resize(function() {
+//         swap_columns();
+//     });
+// });
