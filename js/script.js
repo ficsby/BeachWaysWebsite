@@ -305,8 +305,9 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       travelMode: 'WALKING'
     }, function(response, status) {
           if (status === 'OK') {
-            if(document.getElementById("start").value == "Current Location");
-            directionsDisplay.setDirections(response);
+            if(document.getElementById("start").value == "Current Location") directionsDisplay.setOptions({ preserveViewport: true });
+            else directionsDisplay.setOptions({ preserveViewport: false });
+              directionsDisplay.setDirections(response);
           }
         });
 }
