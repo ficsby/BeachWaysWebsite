@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Antic|Carrois+Gothic+SC|Convergence|Fredoka+One|Montserrat|Reem+Kufi|Russo+One|Vollkorn+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Antic|Carrois+Gothic+SC|Convergence|Fredoka+One|Montserrat|Reem+Kufi|Russo+One|Vollkorn+SC" rel="stylesheet">
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/map.css">
@@ -32,12 +32,11 @@
                 </div>
               <div id="search-directions" class="tab">
                 <a href="#" class="x-icon" type="button" onclick="switchToMainSearch()"><i class="fa fa-times" aria-hidden="true"></i></a>
-                <p id="from">FROM: <input id="start" class="controls searchbar .ui-autocomplete-input" type="text" placeholder="Enter an origin location"></p>
-                <p id="to">TO: <input id="end" class="controls searchbar .ui-autocomplete-input" type="text" placeholder="Enter a destination location"></p>
+                <p id="from">FROM : <input id="start" class="controls searchbar .ui-autocomplete-input" type="text" placeholder="Enter an origin location"></p>
+                <p id="to">TO : <input id="end" class="controls searchbar .ui-autocomplete-input" type="text" placeholder="Enter a destination location"></p>
 
-                <button type="button" id="testButton">Click me!</button>
-              </div>
-
+                <button type="button" id="goButton"><div class="go-symbol"></div></button>
+              </div>-
               <!-- <div id="direction-panel"></div> -->
               <p id="start-lat"></p>
               <p id="end-lat"></p>
@@ -94,7 +93,7 @@
                           <div class="key-container">
                                <a href="#">
                                  <div class="symbol student-symbol"></div>
-                                 <div class="loc">General Parking Structure / Parking Lot</div>
+                                 <div class="loc">General Parking Structure / Lot</div>
                                </a>
                                <a href="#">
                                  <div class="symbol employee-symbol"></div>
@@ -150,11 +149,112 @@
                    </div>
                 </div>
                 <div id="info-circle" class="icon-content tab">
-
+                    <h1>Welcome to CSULB!</h1>
+                    <p></p>California State University Long Beach is a diverse, student-centered, globally-engaged public university
+                    committed to providing highly-valued undergraduate and graduate educational opportunities.
+                    And with this amazing map, you can explore its beautiful campus. You're welcome. <i class="fa fa-smile-o" aria-hidden="true"></i></p>
+                    <h2>CSULB Services &amp; Resources : </h2>
+                    <a href="http://www.csulb.edu/horn-center">Academic Computing Resources</a>
+                    <a href="http://web.csulb.edu/depts/enrollment/student_academic_records/">Academic Records</a>
+                    <a href="http://web.csulb.edu/divisions/aa/grad_undergrad/senate/">Academic Senate</a>
+                    <a href="http://www.csulb.edu/enrollment-services">Admissions</a>
+                    <a href="http://web.csulb.edu/divisions/students/sld/student_resource_centers/asac/">African Student Association Center</a>
+                    <a href="http://web.csulb.edu/aux/alumni/">Alumni Office</a>
+                    <a href="http://csulb.amazon.com/">Amazon &commat; The Beach</a>
+                    <a href="http://web.csulb.edu/americanindian">American Indian Student Study Center</a>
+                    <a href="http://cota.csulb.edu/">Arts (Performances and Exhibitions)</a>
+                    <a href="http://web.csulb.edu/asianpacific">Asian Pacific Student Resource Center</a>
+                    <a href="http://web.csulb.edu/asi">Associated Students, Inc.</a>
+                    <a href="http://www.longbeachstate.com/">Athletic Events and Tickets</a>
+                    <a href="http://beachboard.csulb.edu/">BeachBoard E-Learning Environment</a>
+                    <a href="http://web.csulb.edu/black">Black Student Cultural Center</a>
+                    <a href="http://www.calstateteach.net/">CalState TEACH</a>
+                    <a href="http://careers.csulb.edu/">Career Development Center</a>
+                    <a href="http://www.carpenterarts.org/">Carpenter Performing Arts Center</a>
+                    <a href="http://web.csulb.edu/divisions/students/uosr/Campus_Tours/">Campus Tours</a>
+                    <a href="http://web.csulb.edu/cce">Center for Community Engagement</a>
+                    <a href="http://web.csulb.edu/cie">Center for International Education</a>
+                    <a href="http://web.csulb.edu/centers/latinohealth/">Center for Latino Community Health</a>
+                    <a href="http://web.csulb.edu/bac">Center for Student-Athlete Services</a>
+                    <a href="http://web.csulb.edu/divisions/students/sld/student_organizations/">Clubs and Organizations</a>
+                    <a href="http://web.csulb.edu/recsports/">Club Sports & Recreation </a>
+                    <a href="http://web.csulb.edu/camp">College Assistance Migrant Program</a>
+                    <a href="http://web.csulb.edu/commencement">Commencement Ceremonies</a>
+                    <a href="http://web.csulb.edu/divisions/aa/academic_technology/horn_center/">Computer Labs</a>
+                    <a href="http://web.csulb.edu/thd">Computing Resources</a>
+                    <a href="http://web.csulb.edu/caps">Counseling and Psychological Services</a>
+                    <a href="http://web.csulb.edu/dss">Disabled Student Services</a>
+                    <a href="http://web.csulb.edu/jgarden">Earl Burns Miller Japanese Garden</a>
+                    <a href="http://web.csulb.edu/ees">Educational Equity Services</a>
+                    <a href="">Educational Opportunity Center</a>
+                    <a href="">Educational Opportunity Program</a>
+                    <a href="">Extension Services</a>
+                    <a href="">Enrollment Services</a>
+                    <a href="">Fees</a>
+                    <a href="">Financial Aid</a>
+                    <a href="">Forty-Niner Shops</a>
+                    <a href="">Foundation Office</a>
+                    <a href="">Fraternities/Sororities</a>
+                    <a href="">Graduation Regulations and Filing </a>
+                    <a href="">Health Resource Center</a>
+                    <a href="">Honors Program</a>
+                    <a href="">Immunization Information</a>
+                    <a href="">Interfaith Center</a>
+                    <a href="">International Student Services<a/>
+                    <a href="">Internet Account, CSULB<a/>
+                    <a href="">Internship Program<a/>
+                    <a href=""> Intramural Sports &amp; Wellness <a/>
+                    <a href=""> Isabel Patterson Child Development Center<a/>
+                    <a href="">Japanese Garden<a/>
+                    <a href="">KKJZ-FM 88 Public Radio</a>
+                    <a href="">Leadership Resource Center</a>
+                    <a href="">Learning Alliance</a>
+                    <a href="">Learning Assistance Center</a>
+                    <a href="">LGBT Resource Center</a>
+                    <a href="">Library</a>
+                    <a href="">Library Archives and Special Collection</a>
+                    <a href="">McNair Scholars Program</a>
+                    <a href="">Medical Insurance</a>
+                    <a href="">Men's Success Inititative</a>
+                    <a href="">MESA (Mathematics, Engineering, &amp; Science Achievement) Center</a>
+                    <a href="">Multicultural Center</a>
+                    <a href="">Science and Mathematics Center<a/>
+                    <a href="">Ombuds Office</a>
+                    <a href="">Off-Campus Housing</a>
+                    <a href="">On-Campus Housing</a>
+                    <a href="">Outreach and School Relations</a>
+                    <a href="">Parents' Orientation Program</a>
+                    <a href="">Parking Office</a>
+                    <a href="">Partners for Success (Faculty Mentoring Students Program)</a>
+                    <a href="">Pre-Baccalaureate Advising and Support Services<a/>
+                    <a href="">President's Scholars Center<a/>
+                    <a href="">Raza Resource Center<a/>
+                    <a href="">Recreational Sports / Club Sports <a/>
+                    <a href="">Recycling Center<a/>
+                    <a href="">Registration<a/>
+                    <a href="">Scholarship Center<a/>
+                    <a href="">Stratagies for Academic Success Program</a>
+                    <a href="">Student Health Services (SHS)</a>
+                    <a href="">Student Life and Development</a>
+                    <a href="">SLD Student Academic Travel</a>
+                    <a href="">Student Support Services Program</a>
+                    <a href="">Student Transition and Retention Services</a>
+                    <a href="">Study Abroad</a>
+                    <a href="">Summer Bridge Program</a>
+                    <a href="">Summer Camps (Youth)</a>
+                    <a href="">Technology Help Desk</a>
+                    <a href="">Testing and Evaluation Services</a>
+                    <a href="">Transcripts</a>
+                    <a href="">Tuition and Fees</a>
+                    <a href="">University Art Museum</a>
+                    <a href="">University Outreach & School Relations</a>
+                    <a href="">University Relations and Development</a>
+                    <a href="">University Center for Undergraduate Advising.</a>
+                    <a> href="">Veterans's Services</a>
                 </div>
       </nav>
     <!-- Use any element to open the sidenav -->
-    <span id="open-nav" value="0" onclick="toggle()"><i class="fa fa-bars" aria-hidden="true"></i></span>
+    <span id="toggleNav" value="0" onclick="toggleNav()"><i class="fa fa-bars" aria-hidden="true"></i></span>
     <div id="map"></div>  <!-- Div container for the google map -->
     <footer>Copyright &copy; BeachWaysTeam &amp; Google</footer>
     <script src="js/external/jquery/jquery.js"></script>

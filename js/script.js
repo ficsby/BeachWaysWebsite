@@ -35,7 +35,7 @@ function initMap() {
           }, {maximumAge:600000, timeout:5000, enableHighAccuracy: true});
         });
 
-        $("#testButton").click(
+        $("#goButton").click(
           function(){
             navigator.geolocation.clearWatch(watchID);
               navigator.geolocation.getCurrentPosition(displayAndWatch, function() {
@@ -226,7 +226,7 @@ function routes(position, directionsService, directionsDisplay){
         navigator.geolocation.clearWatch(watchID);
       }
 
-      $("#testButton").click(function(){
+      $("#goButton").click(function(){
         calculateAndDisplayRoute(directionsService, directionsDisplay);
       });
       }
@@ -238,7 +238,7 @@ function routes(position, directionsService, directionsDisplay){
       source: locations,
       select: function(event, ui){
       latlngE = ui.item.data;
-      $("#testButton").click(function(){
+      $("#goButton").click(function(){
         calculateAndDisplayRoute(directionsService, directionsDisplay);
       });
       }
@@ -344,17 +344,17 @@ function openIconTab(evt, iconName){
 /*Key Tabs Functionality
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /* Set the width of the side navigation to 250px */
-var toggle = 0;
-function toggle(){
-    if(toggle == 0){
-      prompt("hi");
-      toggle = 1;
+function toggleNav(){
+    if(document.getElementById("toggleNav").value == "1"){
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("toggleNav").style.margin = "0";
+      document.getElementById("toggleNav").value = "0"
     }
     else{
-      prompt("bye");
-      toggle = 0;
+      document.getElementById("mySidenav").style.width = "50vh";
+      document.getElementById("toggleNav").style.margin = "0px 0px 0px 50vh";
+      document.getElementById("toggleNav").value = "1"
     }
-    document.getElementById("open-nav").value=(document.getElementById("open-nav").value=="ON")?"OFF":"ON";
   }
 
 

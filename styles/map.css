@@ -32,23 +32,6 @@ footer{
   z-index: 3;
 }
 
-#open-nav{
-    background: #3F3736;
-    color: white;
-    padding: 8px;
-    font-size: 20px;
-    position: absolute;
-    margin: 0;
-    height: 100vh;
-    z-index: 1;
-    transition: 0.5s;
-}
-
-span.close-nav{
-    right: 0;
-    top: 0;
-}
-
 /* The side navigation menu */
 nav.sidenav {
    height: 100vh; /* 100% Full-height */
@@ -58,6 +41,18 @@ nav.sidenav {
    background: #111; /* Black*/
    overflow-x: hidden; /* Disable horizontal scroll */
    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+#toggleNav{
+    background: #3F3736;
+    color: white;
+    padding: 8px;
+    font-size: 20px;
+    position: absolute;
+    margin: 0;
+    height: 100vh;
+    z-index: 1;
+    transition: 0.5s;
 }
 
 #key a{
@@ -81,14 +76,6 @@ nav.sidenav a:hover {
 }
 
 /* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-   position: absolute;
-   top: 0;
-   right: 25px;
-   font-size: 36px;
-   margin-left: 50px;
-}
-
 
 #map{
     margin-left: 25px;
@@ -142,23 +129,13 @@ div.icon-bar a.active {
   height: 500px;
 }
 
-#from, #to{
-
-}
-
-p.from-to{
-  font-size: 25px;
-
-}
-
-
 .searchbar{
   margin-top:15px;
   border-radius: 50px;
   height:40px;
-  width:34.5vh;
+  width:39vh;
   padding: 0px 15px;
-  font-size:22px;
+  font-size:26px;
 }
 
 a.compass-icon{
@@ -172,22 +149,30 @@ a.compass-icon{
 }
 
 .x-icon{
-  /*margin-left: 90%;*/
-  font-size:50px !important;
+  color: #1c60b2 !important;
+  margin-left: 37vh;
+  font-size: 35px !important;
 }
 #from, #to{
-    font-size: 20px;
+    font-size: 24px;
+    font-family: Reem Kufi;
+    font-weight: bold;
+}
+
+#from input, #to input{
+    font-size: 22px;
+    font-family: Antic;
+    margin: 0;
 }
 
 #start, #end{
-  width: 40vh;
+  width: 45vh;
   border-radius: 0px;
   margin-left: 8px;
 }
 
 #direction-panel {
     font-family: 'Roboto','sans-serif';
-    /*background-color:white;*/
 
 }
 
@@ -209,6 +194,7 @@ a.compass-icon{
     width:95%;
     overflow: auto;
 }
+
 /* MAP KEY SUBSECTION
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .icon-mapkey{
@@ -286,6 +272,23 @@ div.key-content div{
   background-repeat: no-repeat;
   float: left;
 }
+
+/* DIRECTION SYMBOL */
+.go-symbol{
+  background-image: url('../symbols/go.png');
+  width: 45px;
+  height: 30px;
+  background-repeat: no-repeat;
+}
+
+#goButton{
+  background: #0e7c68;
+  padding: 7px 8px 7px 13px;
+  margin-top: 5px;
+  margin-left: 35vh;
+  border: none;
+}
+
 
 /* LEGEND SYMBOLS */
 .building-symbol{
@@ -399,6 +402,28 @@ div.key-content div{
 
 p{
   color:white;
+}
+
+/* INFORMATION SECTION
+-----------------------------------------------------------------------------*/
+#info-circle{
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+}
+
+#info-circle h1{
+  font-size: 40px;
+}
+
+#info-circle h2{
+  font-size: 21px;
+}
+
+#info-circle a{
+  text-decoration: underline;
+  padding: 0;
+  font-size: 12px;
 }
 
 /*JQuery UI
