@@ -2,14 +2,14 @@ var map, infoWindow;
 var currPosition;
 var latlngS, latlngE;
 var startLocationName, endLocationName;
-
+var markers = [];
 var intervalID = null;
 var watchID;
 
 $(document).ready(function() {
-  $("#generalSearch").val('Search...');
-  $("#start").val('Enter an origin location');
-  $("#end").val('Enter a destination location');
+  $("#generalSearch").val('');
+  $("#start").val('');
+  $("#end").val('');
 });
 
 function initMap() {
@@ -21,7 +21,7 @@ function initMap() {
     });
     map.setOptions({draggable:true});
     // Try HTML5 geolocation.
-    infoWindow = new google.maps.InfoWindow;
+    // infoWindow = new google.maps.InfoWindow;
 
     if (navigator.geolocation) {
       watchID = navigator.geolocation.watchPosition(displayAndWatch, function() {
@@ -64,7 +64,6 @@ function initMap() {
       var userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var startSearch = document.getElementById("start").value;
       var endSearch = document.getElementById("end").value;
-      var markers = [];
       var recents = [];
       var marker = new google.maps.Marker({
         position: userPos,
@@ -72,33 +71,15 @@ function initMap() {
         title: 'Hello World!'
       });
       markers.push(marker);
-      console.log("not in watch");
-      userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      marker = new google.maps.Marker({
-        position: userPos,
-        map: map,
-        title: 'Hello World!'
-      });
-
-      if(startSearch == "Current Location"){
-        console.log(watchID);
-        userPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        marker = new google.maps.Marker({
-          position: userPos,
-          map: map,
-          title: 'Hello World!'
-        });
-        setCurrentPosition(position);
-        console.log("testinggg");
-        marker.setPosition( userPos );
-
-        markers.push(marker);
-        if(markers.length == 2){
-          if(markers[0].position != markers[1].position){
-            markers[0].setMap(null);
-            markers[0] = markers.pop();
-          }
+      if(markers.length == 2){
+        if(markers[0].position != markers[1].position){
+          markers[0].setMap(null);
+          markers[0] = markers.pop();
         }
+      }
+      if(startSearch == "Current Location"){
+        map.panTo( userPos );
+        map.setZoom(20);
 
         startSearch = document.getElementById("start").value;
         routes(position, directionsService, directionsDisplay);
@@ -258,6 +239,10 @@ function routes(position, directionsService, directionsDisplay){
       }
 
     });
+
+    if(document.getElementById("start").value == "Current Location"){
+      calculateAndDisplayRoute(directionsService, directionsDisplay);
+    }
     //calculateAndDisplayRoute(directionsService, directionsDisplay);
   }); //End of jQuery function
 }
@@ -320,6 +305,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       travelMode: 'WALKING'
     }, function(response, status) {
           if (status === 'OK') {
+            if(document.getElementById("start").value == "Current Location");
             directionsDisplay.setDirections(response);
           }
         });
