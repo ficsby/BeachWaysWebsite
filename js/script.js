@@ -5,6 +5,7 @@ var startLocationName, endLocationName;
 var markers = [];
 var intervalID = null;
 var watchID;
+var overlay;
 var foodMarkers = [];
 $(document).ready(function() {
   $("#generalSearch").val('');
@@ -13,6 +14,79 @@ $(document).ready(function() {
 });
 
 function initMap() {
+    CampusOverlay.prototype = new google.maps.OverlayView();
+
+    /** @constructor */
+    function CampusOverlay(bounds, image, map) {
+
+      // Initialize all properties.
+      this.bounds_ = bounds;
+      this.image_ = image;
+      this.map_ = map;
+
+      // Define a property to hold the image's div. We'll
+      // actually create this div upon receipt of the onAdd()
+      // method so we'll leave it null for now.
+      this.div_ = null;
+
+      // Explicitly call setMap on this overlay.
+      this.setMap(map);
+    }
+
+    /**
+      * onAdd is called when the map's panes are ready and the overlay has been
+      * added to the map.
+      */
+    CampusOverlay.prototype.onAdd = function() {
+
+      var div = document.createElement('div');
+      div.style.borderStyle = 'none';
+      div.style.borderWidth = '0px';
+      div.style.position = 'absolute';
+
+      // Create the img element and attach it to the div.
+      var img = document.createElement('img');
+      img.src = this.image_;
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.position = 'absolute';
+      div.appendChild(img);
+
+      this.div_ = div;
+
+      // Add the element to the "overlayLayer" pane.
+      var panes = this.getPanes();
+      panes.overlayLayer.appendChild(div);
+    };
+
+    CampusOverlay.prototype.draw = function() {
+
+      // We use the south-west and north-east
+      // coordinates of the overlay to peg it to the correct position and size.
+      // To do this, we need to retrieve the projection from the overlay.
+      var overlayProjection = this.getProjection();
+
+      // Retrieve the south-west and north-east coordinates of this overlay
+      // in LatLngs and convert them to pixel coordinates.
+      // We'll use these coordinates to resize the div.
+      var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
+      var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+
+      // Resize the image's div to fit the indicated dimensions.
+      var div = this.div_;
+      div.style.left = sw.x + 'px';
+      div.style.top = ne.y + 'px';
+      div.style.width = (ne.x - sw.x) + 'px';
+      div.style.height = (sw.y - ne.y) + 'px';
+    };
+
+    // The onRemove() method will be called automatically from the API if
+    // we ever set the overlay's map property to 'null'.
+    CampusOverlay.prototype.onRemove = function() {
+      this.div_.parentNode.removeChild(this.div_);
+      this.div_ = null;
+    };
+
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     map = new google.maps.Map(document.getElementById('map'), {
@@ -20,6 +94,21 @@ function initMap() {
       center: {lat: 33.7838, lng: -118.1141}
     });
     map.setOptions({draggable:true});
+
+    //bounds that the overlay will be set on
+    var bounds = new google.maps.LatLngBounds(
+       //southwest coordinate, northeast coordinate
+       new google.maps.LatLng(33.774712162958124,-118.12471920624375),
+       new google.maps.LatLng(33.78911075911174,-118.10766932554543)
+     );
+
+    // The campus map is courtesy of Eric Do.
+    var srcImage = '../BeachWaysWebsite/images/csulb_campus_map.png';
+
+    // The custom CampusOverlay object contains the USGS image,
+    // the bounds of the image, and a reference to the map.
+    overlay = new CampusOverlay(bounds, srcImage, map);
+
     // Try HTML5 geolocation.
     infoWindow = new google.maps.InfoWindow;
 
@@ -250,6 +339,24 @@ function routes(position, directionsService, directionsDisplay){
     }
 
   }); //End of jQuery function
+
+  // bounds of the desired area
+  var allowedBounds = new google.maps.LatLngBounds(
+       new google.maps.LatLng(33.774712162958124,-118.12471920624375),
+       new google.maps.LatLng(33.78911075911174,-118.10766932554543)
+  );
+  var lastValidCenter = map.getCenter();
+
+  google.maps.event.addListener(map, 'center_changed', function() {
+      if (allowedBounds.contains(map.getCenter())) {
+          // still within valid bounds, so save the last valid position
+          lastValidCenter = map.getCenter();
+          return;
+      }
+
+      // not valid anymore => return to last valid position
+      map.panTo(lastValidCenter);
+  });
 }
 
 // current position of the user
@@ -270,13 +377,6 @@ function setCurrentPosition(pos) {
                 ));
     map.setZoom(20);
   }
-
-
-
-
-
-
-
 
 function switchToMainSearch(){
   var searchDirections, mainSearch;
@@ -403,12 +503,12 @@ function openKey(evt, keyName) {
 
     evt.currentTarget.className += " active";
     if(keyName == 'food'){
-      var img_usu = '../symbols/dining.png';   // Located at the USU
-      var img_outpost = '../symbols/outpost.png'; //Located near the ECS
-      var img_nugget = '../symbols/nugget.png'; // Located next to the USU
-      var img_starbucks= '../symbols/starbucks.png'; // Located at both the Library and the USU
-      var img_cbean = '../symbols/cbean.png'; // Located at the USU
-      var img_robeks = '../symbols/robeks.png'; // Located at both the USU and the Rec Center
+      var img_usu = '../BeachWaysWebsite/symbols/usu.png';   // Located at the USU
+      var img_outpost = '../BeachWaysWebsite/symbols/outpost.png'; //Located near the ECS
+      var img_nugget = '../BeachWaysWebsite/symbols/nugget.png'; // Located next to the USU
+      var img_starbucks= '../BeachWaysWebsite/symbols/starbucks.png'; // Located at both the Library and the USU
+      var img_cbean = '../BeachWaysWebsite/symbols/cbean.png'; // Located at the USU
+      var img_robeks = '../BeachWaysWebsite/symbols/robeks.png'; // Located at both the USU and the Rec Center
       // Note: Current coordinates are incorrect, needs to be changed  */
       var usuMarker = new google.maps.Marker({
         position: {lat: 33.7788641948679, lng: -118.11378166079521}, map: map, icon: img_usu
