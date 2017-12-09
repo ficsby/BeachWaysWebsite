@@ -147,29 +147,36 @@ p.from-to{
 
 
 .searchbar{
-  /*margin-top:1px;*/
-  margin-left:3px;
+  margin-top:15px;
+  border-radius: 50px;
   height:40px;
-  width:40vh;
+  width:32vh;
   font-size:22px;
 }
 
 a.compass-icon{
   /*padding-top:1000px;*/
-  position:relative;
-  left:10px;
-  top:10px;
+  color: #1c60b2 !important;
   font-size:50px !important;
-  /*margin-left:10px;*/
+  padding: 0 !important;
+  z-index: 2;
+  position: absolute;
+  right: 10px;
 }
 
 .x-icon{
   /*margin-left: 90%;*/
   font-size:50px !important;
 }
-/*#start, #end{
-  width:300px;
-}*/
+#from, #to{
+    font-size: 20px;
+}
+
+#start, #end{
+  width: 40vh;
+  border-radius: 0px;
+  margin-left: 8px;
+}
 
 #direction-panel {
     font-family: 'Roboto','sans-serif';
