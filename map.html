@@ -25,23 +25,18 @@
             </div>
 
             <div id="navigation" class="icon-content tab active">
-              <a href="#" class="compass-icon"onclick="switchToDirectionSearch()"><i class="fa fa-compass" aria-hidden="true"></i></a>
+
                 <div id="mainSearch">
+                    <a href="#" class="compass-icon" onclick="switchToDirectionSearch()"><i class="fa fa-compass" aria-hidden="true"></i></a>
                     <input id="generalSearch" class= "searchbar .ui-autocomplete-input" type="text" placeholder="Search...">
                 </div>
-              </div>
+
               <div id="search-directions" class="tab">
                 <a href="#" class="x-icon" type="button" onclick="switchToMainSearch()"><i class="fa fa-times" aria-hidden="true"></i></a>
                 <p id="from">FROM: <input id="start" class="controls searchbar .ui-autocomplete-input" type="text" placeholder="Enter an origin location"></p>
                 <p id="to">TO: <input id="end" class="controls searchbar .ui-autocomplete-input" type="text" placeholder="Enter a destination location"></p>
 
                 <button type="button" id="testButton">Click me!</button>
-                <datalist id="locations">
-                  <option value = "Your Location">
-                  <option value = "Student Recreation | Wellness Center"> <option value = "SRWC">
-                  <option value = "Vivian Engineering Center"> <option value = "VEC">
-                  <option value = "49er Pool"> <option value = "POOL">
-                </datalist>
               </div>
 
               <div id="direction-panel"></div>
