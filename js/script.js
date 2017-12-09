@@ -344,14 +344,19 @@ function openIconTab(evt, iconName){
 /*Key Tabs Functionality
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /* Set the width of the side navigation to 250px */
-function openNav() {
-    document.getElementById("mySidenav").style.width = "50vh";
-}
+var toggle = 0;
+function toggle(){
+    if(toggle == 0){
+      prompt("hi");
+      toggle = 1;
+    }
+    else{
+      prompt("bye");
+      toggle = 0;
+    }
+    document.getElementById("open-nav").value=(document.getElementById("open-nav").value=="ON")?"OFF":"ON";
+  }
 
-/* Set the width of the side navigation to 0 */
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
 
 function openKey(evt, keyName) {
     // Declare all variables

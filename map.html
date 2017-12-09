@@ -18,7 +18,6 @@
     </header>
       <!--Left Section with icon bar  -->
       <nav id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <div class="icon-bar">
                 <a href="#" class="iconlinks active" onclick="openIconTab(event, 'navigation');"><i class="icon-aim"></i></a>
                 <a href="#" class="iconlinks" onclick="openIconTab(event, 'key')"><i class="icon-if-map-marker-2639857"></i></a>
@@ -154,8 +153,8 @@
 
                 </div>
       </nav>
-      <!-- Use any element to open the sidenav -->
-    <span class="open-nav" onclick="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></span>
+    <!-- Use any element to open the sidenav -->
+    <span id="open-nav" value="0" onclick="toggle()"><i class="fa fa-bars" aria-hidden="true"></i></span>
     <div id="map"></div>  <!-- Div container for the google map -->
     <footer>Copyright &copy; BeachWaysTeam &amp; Google</footer>
     <script src="js/external/jquery/jquery.js"></script>
