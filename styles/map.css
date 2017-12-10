@@ -44,7 +44,7 @@ nav.sidenav {
 }
 
 #toggleNav{
-    background: #3F3736;
+    background: #423d39;
     color: white;
     padding: 8px;
     font-size: 20px;
@@ -53,6 +53,10 @@ nav.sidenav {
     height: 100vh;
     z-index: 1;
     transition: 0.5s;
+}
+
+#toggleNav:hover{
+  background: #444240;
 }
 
 #key a{
@@ -105,19 +109,20 @@ nav.sidenav a:hover {
     margin: 0;
     text-align: center; /* Center-align text */
     width: 33.33%;
-    padding: 12px 20px 8px 20px;
+    font-size: 38px !important;
+    padding: 14px 20px 9px 20px;
     transition: all 0.3s ease; /* Add transition for hover effects */
     color: white;
-    font-size: 36px;
 }
 
 .icon-bar a:hover {
-    background-color: #000; /* Add a hover color */
+    background-color: #444444; /* Add a hover color */
 }
 
 div.icon-bar a.active {
-   background-color: #52a88b;
+   background-color: #45ad8a;
 }
+
 
 /* NAVIGATION SUBSECTION
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -132,7 +137,7 @@ div.icon-bar a.active {
 .searchbar{
   margin-top:15px;
   border-radius: 50px;
-  height:40px;
+  height:48px;
   width:39vh;
   padding: 0px 15px;
   font-size:26px;
@@ -145,14 +150,22 @@ a.compass-icon{
   padding: 0 !important;
   z-index: 2;
   position: absolute;
-  right: 10px;
+  margin-top: 5px;
+  right: 15px;
 }
 
 .x-icon{
   color: #1c60b2 !important;
-  margin-left: 37vh;
+  position: absolute;
+  margin-left: 38vh;
   font-size: 35px !important;
 }
+
+div.from-to{
+  margin-left: 7px;
+  padding-top: 30px;
+}
+
 #from, #to{
     font-size: 24px;
     font-family: Reem Kufi;
@@ -218,10 +231,6 @@ a.compass-icon{
 
 /* Styles the key tab box */
 /* Styles the buttons inside the tab */
-div.keytabs{
-    font-size: 50px;
-}
-
 div.keytabs a {
    background-color: #ceadad;
    color: #2c2c38;
@@ -252,11 +261,12 @@ div.key-container{
   width: 100%;
 }
 div.key-content a{
-   margin-left: 30px;
+   margin-left: 20px;
    padding: 0;
 }
 div.key-content div{
-   font-size: 16px;
+   font-size: 20px;
+   margin-right: 20px;
 }
 
 /* Aligns the text descriptions in the key tab*/
@@ -282,11 +292,12 @@ div.key-content div{
 }
 
 #goButton{
-  background: #0e7c68;
-  padding: 7px 8px 7px 13px;
+  background: #3d8faf;
+  padding:10px 8px 7px 20px;
   margin-top: 5px;
   margin-left: 35vh;
-  border: none;
+  border-style: double;
+  border-color: #337893;
 }
 
 
