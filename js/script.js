@@ -14,6 +14,9 @@ $(document).ready(function() {
 });
 
 function initMap() {
+    /*Create and place an overlay of Cal State Long Beach
+      using an image of the campus
+    --------------------------------------------------------------------------*/
     CampusOverlay.prototype = new google.maps.OverlayView();
 
     /** @constructor */
@@ -101,13 +104,13 @@ function initMap() {
     var bounds = new google.maps.LatLngBounds(
        //southwest coordinate, northeast coordinate
        new google.maps.LatLng(33.774712162958124,-118.12471920624375),
-       new google.maps.LatLng(33.78911075911174,-118.10766932554543)
+       new google.maps.LatLng(33.78905122202737,-118.1076793000102)
      );
 
-    // The campus map is courtesy of Eric Do.
+    // The campus map is courtesy of our graphic designer, Eric Do.
     var srcImage = '../BeachWaysWebsite/images/csulb_campus_map.png';
 
-    // The custom CampusOverlay object contains the USGS image,
+    // The custom CampusOverlay object contains the image of CSULB,
     // the bounds of the image, and a reference to the map.
     overlay = new CampusOverlay(bounds, srcImage, map);
 
@@ -186,8 +189,8 @@ function routes(position, directionsService, directionsDisplay){
     -----------------------------------------------------------------------------------*/
     var locations = [
           {value:"Current Location", data: currPosition},
-          {value:"Student Recreation | Wellness Center", data: {lat:33.785211130686655, lng:-118.10900330543518} }, {value:"SRWC", data: "33.785211130686655,-118.10900330543518" },
-          {value:"Vivian Engineering Center", data: {lat: 33.782830248878916, lng:-118.11044096946716} }, {value:"VEC", data: "33.782830248878916,-118.11044096946716"},
+          {value:"Student Recreation | Wellness Center", data: {lat:33.785211130686655, lng:-118.10900330543518} }, {value:"SRWC", data: {lat: 33.785211130686655, lng: -118.10900330543518}},
+          {value:"Vivian Engineering Center", data: {lat: 33.782830248878916, lng:-118.11044096946716} }, {value:"VEC", data: {lat: 33.782830248878916, lng: -118.11044096946716}},
           {value:"49er Pool", data: {lat: 33.783919822621115, lng: -118.11224240809679}}, {value:"POOL", data: {lat: 33.783919822621115, lng: -118.11224240809679}},
           {value:"49er Softball Complex", data: {lat: 33.78621429140288, lng: -118.11200335621834}}, {value:"SC", data: {lat: 33.78621429140288, lng: -118.11200335621834}},
           {value:"Academic Services", data: {lat: 33.776778, lng: -118.11374710000001}}, {value:"AS", data: {lat: 33.776778, lng: -118.11374710000001}},
@@ -287,7 +290,7 @@ function routes(position, directionsService, directionsDisplay){
           title: 'Target destination'
         });
         map.panTo( target );
-        map.setZoom(19);
+        map.setZoom(18);
         $(".compass-icon").click(
           function(){
             destMarker.setMap(null);
@@ -377,7 +380,7 @@ function setCurrentPosition(pos) {
                     pos.coords.latitude,
                     pos.coords.longitude
                 ));
-    map.setZoom(20);
+    map.setZoom(18);
   }
 
 function switchToMainSearch(){
@@ -406,7 +409,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
             if(document.getElementById("start").value == "Current Location") {
               directionsDisplay.setOptions({ preserveViewport: true });
               map.panTo( latlngS );
-              map.setZoom(20);
+              map.setZoom(18);
             }
             else directionsDisplay.setOptions({ preserveViewport: false });
               directionsDisplay.setDirections(response);
