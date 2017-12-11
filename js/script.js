@@ -3,6 +3,7 @@ var currPosition;
 var latlngS, latlngE;
 var startLocationName, endLocationName;
 var markers = [];
+var destMarkers = [];
 var intervalID = null;
 var watchID;
 var overlay;
@@ -103,7 +104,7 @@ function initMap() {
     //bounds that the overlay will be set on
     var bounds = new google.maps.LatLngBounds(
        //southwest coordinate, northeast coordinate
-       new google.maps.LatLng(33.774712162958124,-118.12471920624375),
+       new google.maps.LatLng(33.774712162958124,-118.12463253736496),
        new google.maps.LatLng(33.78905122202737,-118.1076793000102)
      );
 
@@ -189,8 +190,6 @@ function routes(position, directionsService, directionsDisplay){
     -----------------------------------------------------------------------------------*/
     var locations = [
           {value:"Current Location", data: currPosition},
-          {value:"Student Recreation | Wellness Center", data: {lat:33.785211130686655, lng:-118.10900330543518} }, {value:"SRWC", data: {lat: 33.785211130686655, lng: -118.10900330543518}},
-          {value:"Vivian Engineering Center", data: {lat: 33.782830248878916, lng:-118.11044096946716} }, {value:"VEC", data: {lat: 33.782830248878916, lng: -118.11044096946716}},
           {value:"49er Pool", data: {lat: 33.783919822621115, lng: -118.11224240809679}}, {value:"POOL", data: {lat: 33.783919822621115, lng: -118.11224240809679}},
           {value:"49er Softball Complex", data: {lat: 33.78621429140288, lng: -118.11200335621834}}, {value:"SC", data: {lat: 33.78621429140288, lng: -118.11200335621834}},
           {value:"Academic Services", data: {lat: 33.776778, lng: -118.11374710000001}}, {value:"AS", data: {lat: 33.776778, lng: -118.11374710000001}},
@@ -226,9 +225,11 @@ function routes(position, directionsService, directionsDisplay){
           {value:"Hall of Science", data: new google.maps.LatLng(33.779887494510525,-118.1128790974617)}, {value:"HSCI", data: new google.maps.LatLng(33.779887494510525,-118.1128790974617)},
           {value:"Health & Human Services 1 Classrooms", data: new google.maps.LatLng(33.782397759499204,-118.11276108026505)}, {value:"HHS1", data: new google.maps.LatLng(33.782397759499204,-118.11276108026505)},
           {value:"Health & Human Services 2 Offices", data: new google.maps.LatLng(33.782379924838715,-118.11226487159729)}, {value:"HHS2", data: new google.maps.LatLng(33.782379924838715,-118.11226487159729)},
+          {value:"Hillside College and Housing", data: new google.maps.LatLng(33.78316018776182,-118.11951220035553)}, {value:"HSC", data: new google.maps.LatLng(33.78316018776182,-118.11951220035553)},
           {value:"Horn Center", data: new google.maps.LatLng(33.7832574,-118.11434220000001)}, {value:"HC", data: new google.maps.LatLng(33.7832574,-118.11434220000001)},
           {value:"Housing & Residential Life", data: new google.maps.LatLng(33.78800211758811,-118.11931103467941)}, {value:"HRL", data: new google.maps.LatLng(33.78800211758811,-118.11931103467941)},
           {value:"Human Services and Design", data: new google.maps.LatLng(33.782803497021895,-118.10969263315201)}, {value:"HSD", data: new google.maps.LatLng(33.782803497021895,-118.10969263315201)},
+          {value:"International House", data: new google.maps.LatLng(33.78179137895924,-118.12099277973175)}, {value:"IH", data: new google.maps.LatLng(33.78179137895924,-118.12099277973175)},
           {value:"Japanese Garden", data: new google.maps.LatLng(33.785211130686655,-118.11946392059326)}, {value:"JG", data: new google.maps.LatLng(33.785211130686655,-118.11946392059326)},
           {value:"Kinesiology", data: new google.maps.LatLng(33.78263852705225,-118.11247676610947)}, {value:"KIN", data: new google.maps.LatLng(33.78263852705225,-118.11247676610947)},
           {value:"KKJZ/FM", data: new google.maps.LatLng(33.7777501,-118.11414239999999)}, {value:"KKJZ", data: new google.maps.LatLng(33.7777501,-118.11414239999999)},
@@ -247,22 +248,21 @@ function routes(position, directionsService, directionsDisplay){
           {value:"Molecular & Life Sciences Center", data: new google.maps.LatLng(33.7801163790774,-118.11222011223435)}, {value:"MLSC", data: new google.maps.LatLng(33.7801163790774,-118.11222011223435)},
           {value:"Multi-Media Center", data: new google.maps.LatLng(33.77676925356907,-118.11454650945961)}, {value:"MMC", data: new google.maps.LatLng(33.77676925356907,-118.11454650945961)},
           {value:"Nursing", data: new google.maps.LatLng(33.78170666368906,-118.1173825263977)}, {value:"NUR", data: new google.maps.LatLng(33.78170666368906,-118.1173825263977)},
-          //{value:"Outdoor Beach Course", data: new google.maps.LatLng(,)}, {value:"OUTBACK", data: new google.maps.LatLng(,)},
+          //{value:"Outdoor Beach Course", data: new google.maps.LatLng(,)}, {value:"OUTBAC", data: new google.maps.LatLng(,)},
           {value:"Outpost Food Service", data: new google.maps.LatLng(33.7823191,-118.1104403)}, {value:"OP", data: new google.maps.LatLng(33.7823191,-118.1104403)},
           {value:"Parking and Transportation Svc", data: new google.maps.LatLng(33.785283953164765,-118.11625415459275)}, {value:"PTS", data: new google.maps.LatLng(33.785283953164765,-118.11625415459275)},
+          {value:"Parkside College and Housing", data: new google.maps.LatLng(33.786891975546816,-118.12000304460526)}, {value:"PSC", data: new google.maps.LatLng(33.786891975546816,-118.12000304460526)},
           {value:"Peterson Hall 1", data: new google.maps.LatLng(33.7788812,-118.11255030000001)}, {value:"LIB", data: new google.maps.LatLng(33.7788812,-118.11255030000001)},
           {value:"Peterson Hall 2", data: new google.maps.LatLng(33.7792966,-118.11250669999998)}, {value:"PH2", data: new google.maps.LatLng(33.7792966,-118.11250669999998)},
           {value:"Psychology", data: new google.maps.LatLng(33.7794761,-118.11437920000003)}, {value:"PSY", data: new google.maps.LatLng(33.7794761,-118.11437920000003)},
           {value:"Receiving", data: new google.maps.LatLng(33.78340169629622,-118.10934838838875)}, {value:"REC", data: new google.maps.LatLng(33.78340169629622,-118.10934838838875)},
           {value:"Recycling Center", data: new google.maps.LatLng(33.78815370213155,-118.11839640140533)}, {value:"RC", data: new google.maps.LatLng(33.78815370213155,-118.11839640140533)},
-          {value:"International House", data: new google.maps.LatLng(33.78179137895924,-118.12099277973175)}, {value:"IH", data: new google.maps.LatLng(33.78179137895924,-118.12099277973175)},
           {value:"Los Alamitos Hall", data: new google.maps.LatLng(33.7833166,-118.118743)}, {value:"LAH", data: new google.maps.LatLng(33.7833166,-118.118743)},
           {value:"Los Cerritos Hall", data: new google.maps.LatLng(33.782478015425426,-118.1190937757492)}, {value:"LCH", data: new google.maps.LatLng(33.782478015425426,-118.1190937757492)},
-          //{value:"Residence Commons and Housing", data: new google.maps.LatLng(,)}, {value:"RH", data: new google.maps.LatLng(,)},
-          //{value:"Parkside Commons and Housing", data: new google.maps.LatLng(,)}, {value:"PCH", data: new google.maps.LatLng(,)},
           {value:"Social Sciences/Public Administration", data: new google.maps.LatLng(33.782005396110634,-118.11057776212692)}, {value:"SS/PA", data: new google.maps.LatLng(33.782005396110634,-118.11057776212692)},
           {value:"Soroptimist House", data: new google.maps.LatLng(33.78176314056783,-118.11682906933129)}, {value:"SOR", data: new google.maps.LatLng(33.78176314056783,-118.11682906933129)},
           {value:"Student Health Services", data: new google.maps.LatLng(33.7823276,-118.11786059999997)}, {value:"SHS", data: new google.maps.LatLng(33.7823276,-118.11786059999997)},
+          {value:"Student Recreation | Wellness Center", data: {lat:33.785211130686655, lng:-118.10900330543518} }, {value:"SRWC", data: {lat: 33.785211130686655, lng: -118.10900330543518}},
           {value:"Tennis Courts", data: new google.maps.LatLng(33.7845244,-118.11062190000001)},
           {value:"Theater Arts", data: new google.maps.LatLng(33.776459,-118.11263689999998)}, {value:"TA", data: new google.maps.LatLng(33.776459,-118.11263689999998)},
           {value:"University Art Museum", data: new google.maps.LatLng(33.783516,-118.114711)}, {value:"UAM", data: new google.maps.LatLng(33.783516,-118.114711)},
@@ -273,7 +273,8 @@ function routes(position, directionsService, directionsDisplay){
           {value:"University Print Shop", data: new google.maps.LatLng(33.78527549999999,-118.11981550000002)}, {value:"UPS", data: new google.maps.LatLng(33.78527549999999,-118.11981550000002)},
           {value:"University Student Union", data: new google.maps.LatLng(33.78137671920652,-118.11346650123596)}, {value:"USU", data: new google.maps.LatLng(33.78137671920652,-118.11346650123596)},
           {value:"University Telecommunications", data: new google.maps.LatLng(33.7766669,-118.11158339999997)}, {value:"UTC", data: new google.maps.LatLng(33.7766669,-118.11158339999997)},
-          {value:"Visitor Information Center", data: new google.maps.LatLng(33.7819505,-118.11929709999998) }, {value:"VIC", data: new google.maps.LatLng(33.7819505,-118.11929709999998) }
+          {value:"Visitor Information Center", data: new google.maps.LatLng(33.7819505,-118.11929709999998) }, {value:"VIC", data: new google.maps.LatLng(33.7819505,-118.11929709999998)},
+          {value:"Vivian Engineering Center", data: {lat: 33.782830248878916, lng:-118.11044096946716} }, {value:"VEC", data: {lat: 33.782830248878916, lng: -118.11044096946716}}
         ];
 
 
@@ -283,21 +284,28 @@ function routes(position, directionsService, directionsDisplay){
       autoFocus: true,
       source: locations,
       select: function(event, ui){
+        if (destMarkers.length == 1) {
+          destMarkers[0].setMap(null);
+          destMarkers[0] = destMarkers.pop();
+          destMarkers = [];
+        }
         let target = ui.item.data;
         var destMarker = new google.maps.Marker({
           position: target,
           map: map,
           title: 'Target destination'
         });
+        destMarkers.push(destMarker);
         map.panTo( target );
         map.setZoom(18);
         $(".compass-icon").click(
           function(){
-            destMarker.setMap(null);
+            directionsDisplay.setMap(map);
             map.panTo( currPosition );
 
             latlngS = currPosition;
-            latlngE = ui.item.data;
+            latlngE = destMarkers[0].position;
+            destMarker.setMap(null);
 
             switchToDirectionSearch();
             document.getElementById("start").value = "Current Location";
@@ -306,6 +314,12 @@ function routes(position, directionsService, directionsDisplay){
           }
         );
 
+        $(".x-icon").click(
+          function(){
+            switchToMainSearch();
+            directionsDisplay.setMap(null);
+          }
+        );
       }
     });
 
@@ -331,10 +345,10 @@ function routes(position, directionsService, directionsDisplay){
       autoFocus: true,
       source: locations,
       select: function(event, ui){
-      latlngE = ui.item.data;
-      $("#goButton").click(function(){
-        calculateAndDisplayRoute(directionsService, directionsDisplay);
-      });
+        latlngE = ui.item.data;
+        $("#goButton").click(function(){
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        });
       }
 
     });
