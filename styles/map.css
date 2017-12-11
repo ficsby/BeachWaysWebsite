@@ -173,7 +173,7 @@ a.compass-icon{
 
 #direction-panel {
     font-family: 'Roboto','sans-serif';
-
+    background-color:white;
 }
 
 #direction-panel select, #direction-panel input {
@@ -1797,7 +1797,7 @@ div.container{
 
       width:99%;
       height:80%;
-      /*background-color: white;*/
+      background: white !important;
       overflow: hidden;
   }
 }

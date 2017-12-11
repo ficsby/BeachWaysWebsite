@@ -108,7 +108,7 @@ function initMap() {
      );
 
     // The campus map is courtesy of our graphic designer, Eric Do.
-    var srcImage = '../BeachWaysWebsite/images/csulb_campus_map.png';
+    var srcImage = '../images/csulb_campus_map.png';
 
     // The custom CampusOverlay object contains the image of CSULB,
     // the bounds of the image, and a reference to the map.
@@ -508,12 +508,12 @@ function openKey(evt, keyName) {
 
     evt.currentTarget.className += " active";
     if(keyName == 'food'){
-      var img_usu = '../BeachWaysWebsite/symbols/usu.png';   // Located at the USU
-      var img_outpost = '../BeachWaysWebsite/symbols/outpost.png'; //Located near the ECS
-      var img_nugget = '../BeachWaysWebsite/symbols/nugget.png'; // Located next to the USU
-      var img_starbucks= '../BeachWaysWebsite/symbols/starbucks.png'; // Located at both the Library and the USU
-      var img_cbean = '../BeachWaysWebsite/symbols/cbean.png'; // Located at the USU
-      var img_robeks = '../BeachWaysWebsite/symbols/robeks.png'; // Located at both the USU and the Rec Center
+      var img_usu = '../symbols/usu.png';   // Located at the USU
+      var img_outpost = '../symbols/outpost.png'; //Located near the ECS
+      var img_nugget = '../symbols/nugget.png'; // Located next to the USU
+      var img_starbucks= '../symbols/starbucks.png'; // Located at both the Library and the USU
+      var img_cbean = '../symbols/cbean.png'; // Located at the USU
+      var img_robeks = '../symbols/robeks.png'; // Located at both the USU and the Rec Center
       // Note: Current coordinates are incorrect, needs to be changed  */
       var usuMarker = new google.maps.Marker({
         position: {lat: 33.7788641948679, lng: -118.11378166079521}, map: map, icon: img_usu
