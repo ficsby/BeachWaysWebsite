@@ -33,16 +33,26 @@
                 </div>
               <div id="search-directions" class="tab">
                 <a href="#" class="x-icon" type="button" onclick="switchToMainSearch()"><i class="fa fa-times" aria-hidden="true"></i></a>
-                <p id="from">FROM : <input id="start" class="controls searchbar .ui-autocomplete-input" type="text" placeholder="Enter an origin location"></p>
-                <p id="to">TO : <input id="end" class="controls searchbar .ui-autocomplete-input" type="text" placeholder="Enter a destination location"></p>
-
+                <div class="from-to">
+                  <p id="from">FROM : <input id="start" class="controls searchbar .ui-autocomplete-input" type="text" placeholder="Enter an origin location"></p>
+                  <p id="to">TO : <input id="end" class="controls searchbar .ui-autocomplete-input" type="text" placeholder="Enter a destination location"></p>
+                </div>
                 <button type="button" id="goButton"><div class="go-symbol"></div></button>
               </div>-
               <div id="direction-panel"></div>
               <p id="start-lat"></p>
               <p id="end-lat"></p>
             </div>
-            
+                  <!-- <div id="navigation" class="icon-content tab initial-active">
+                    <input id="mainSearch" type="text" placeholder="Search...">
+                    <button type="button" onclick="switchSearch()">smd</button>
+                    <p id="from">FROM: <input id="start" class="controls directions" type="text" placeholder="Enter an origin location"></p>
+                    <p id="to">TO: <input id="end" class="controls directions" type="text" placeholder="Enter a destination location"></p>
+                    <div id="direction-panel"></div>
+                    <p id="start-lat"></p>
+                    <p id="end-lat"></p>
+                 </div> -->
+
                 <!--Key tabs  -->
                  <div id="key" class="icon-content tab">
                     <div class="keytabs">
@@ -178,71 +188,74 @@
                     <a href="http://web.csulb.edu/dss">Disabled Student Services</a>
                     <a href="http://web.csulb.edu/jgarden">Earl Burns Miller Japanese Garden</a>
                     <a href="http://web.csulb.edu/ees">Educational Equity Services</a>
-                    <a href="">Educational Opportunity Center</a>
-                    <a href="">Educational Opportunity Program</a>
-                    <a href="">Extension Services</a>
-                    <a href="">Enrollment Services</a>
-                    <a href="">Fees</a>
-                    <a href="">Financial Aid</a>
-                    <a href="">Forty-Niner Shops</a>
-                    <a href="">Foundation Office</a>
-                    <a href="">Fraternities/Sororities</a>
-                    <a href="">Graduation Regulations and Filing </a>
-                    <a href="">Health Resource Center</a>
-                    <a href="">Honors Program</a>
-                    <a href="">Immunization Information</a>
-                    <a href="">Interfaith Center</a>
-                    <a href="">International Student Services<a/>
-                    <a href="">Internet Account, CSULB<a/>
-                    <a href="">Internship Program<a/>
-                    <a href=""> Intramural Sports &amp; Wellness <a/>
-                    <a href=""> Isabel Patterson Child Development Center<a/>
-                    <a href="">Japanese Garden<a/>
-                    <a href="">KKJZ-FM 88 Public Radio</a>
-                    <a href="">Leadership Resource Center</a>
-                    <a href="">Learning Alliance</a>
-                    <a href="">Learning Assistance Center</a>
-                    <a href="">LGBT Resource Center</a>
-                    <a href="">Library</a>
-                    <a href="">Library Archives and Special Collection</a>
-                    <a href="">McNair Scholars Program</a>
-                    <a href="">Medical Insurance</a>
-                    <a href="">Men's Success Inititative</a>
-                    <a href="">MESA (Mathematics, Engineering, &amp; Science Achievement) Center</a>
-                    <a href="">Multicultural Center</a>
-                    <a href="">Science and Mathematics Center<a/>
-                    <a href="">Ombuds Office</a>
-                    <a href="">Off-Campus Housing</a>
-                    <a href="">On-Campus Housing</a>
-                    <a href="">Outreach and School Relations</a>
-                    <a href="">Parents' Orientation Program</a>
-                    <a href="">Parking Office</a>
-                    <a href="">Partners for Success (Faculty Mentoring Students Program)</a>
-                    <a href="">Pre-Baccalaureate Advising and Support Services<a/>
-                    <a href="">President's Scholars Center<a/>
-                    <a href="">Raza Resource Center<a/>
-                    <a href="">Recreational Sports / Club Sports <a/>
-                    <a href="">Recycling Center<a/>
-                    <a href="">Registration<a/>
-                    <a href="">Scholarship Center<a/>
-                    <a href="">Stratagies for Academic Success Program</a>
-                    <a href="">Student Health Services (SHS)</a>
-                    <a href="">Student Life and Development</a>
-                    <a href="">SLD Student Academic Travel</a>
-                    <a href="">Student Support Services Program</a>
-                    <a href="">Student Transition and Retention Services</a>
-                    <a href="">Study Abroad</a>
-                    <a href="">Summer Bridge Program</a>
-                    <a href="">Summer Camps (Youth)</a>
-                    <a href="">Technology Help Desk</a>
-                    <a href="">Testing and Evaluation Services</a>
-                    <a href="">Transcripts</a>
-                    <a href="">Tuition and Fees</a>
-                    <a href="">University Art Museum</a>
-                    <a href="">University Outreach & School Relations</a>
-                    <a href="">University Relations and Development</a>
-                    <a href="">University Center for Undergraduate Advising.</a>
-                    <a> href="">Veterans's Services</a>
+                    <a href="http://web.csulb.edu/eoc">Educational Opportunity Center</a>
+                    <a href="http://web.csulb.edu/eop">Educational Opportunity Program</a>
+                    <a href="http://www.uces.csulb.edu/">Extension Services</a>
+                    <a href="http://web.csulb.edu/enrollment">Enrollment Services</a>
+                    <a href="http://www.csulb.edu/registration-and-records/tuition-and-fees">Fees</a>
+                    <a href="http://web.csulb.edu/financial-aid">Financial Aid</a>
+                    <a href="http://web.csulb.edu/49ershops">Forty-Niner Shops</a>
+                    <a href="http://www.foundation.csulb.edu/">Foundation Office</a>
+                    <a href="http://web.csulb.edu/greek">Fraternities/Sororities</a>
+                    <a href="http://web.csulb.edu/depts/enrollment/graduation/">Graduation Regulations and Filing </a>
+                    <a href="http://web.csulb.edu/hrc">Health Resource Center</a>
+                    <a href="http://web.csulb.edu/uhp">Honors Program</a>
+                    <a href="http://web.csulb.edu/shc">Immunization Information</a>
+                    <a href="http://web.csulb.edu/divisions/students/interfaith/">Interfaith Center</a>
+                    <a href="http://web.csulb.edu/cie">International Student Services<a/>
+                    <a href="http://web.csulb.edu/divisions/aa/academic_technology/thd/account/">Internet Account, CSULB<a/>
+                    <a href="http://careers.csulb.edu/">Internship Program<a/>
+                    <a href="http://www.asirecreation.org/intramurals"> Intramural Sports &amp; Wellness <a/>
+                    <a href="https://www.asicsulb.org/corporate/discover/child-development-center"> Isabel Patterson Child Development Center<a/>
+                    <a href="http://web.csulb.edu/jgarden">Japanese Garden<a/>
+                    <a href="http://www.kkjz.org/">KKJZ-FM 88 Public Radio</a>
+                    <a href="http://web.csulb.edu/divisions/students/sld/leadership_center/">Leadership Resource Center</a>
+                    <a href="http://web.csulb.edu/learning-alliance">Learning Alliance</a>
+                    <a href="http://web.csulb.edu/lac">Learning Assistance Center</a>
+                    <a href="http://web.csulb.edu/lgbt">LGBT Resource Center</a>
+                    <a href="http://web.csulb.edu/library">Library</a>
+                    <a href="http://web.csulb.edu/library/guide/serv/special.html">Library Archives and Special Collection</a>
+                    <a href="http://web.csulb.edu/mcnair">McNair Scholars Program</a>
+                    <a href="https://www.uhcsr.com/csulb">Medical Insurance</a>
+                    <a href="http://web.csulb.edu/divisions/students/sld/services_and_resources/msi/index.html">Men's Success Inititative</a>
+                    <a href="https://www.csulb.edu/college-of-engineering/mesa-schools-program">MESA (Mathematics, Engineering, &amp; Science Achievement) Center</a>
+                    <a href="http://web.csulb.edu/mcc">Multicultural Center</a>
+                    <a href="http://web.csulb.edu/ombuds">Ombuds Office</a>
+                    <a href="http://www.housing.csulb.edu/offcampus">Off-Campus Housing</a>
+                    <a href="http://web.csulb.edu/divisions/students/housing/campus_housing/">On-Campus Housing</a>
+                    <a href="http://www.outreach.csulb.edu/">Outreach and School Relations</a>
+                    <a href="http://web.csulb.edu/pop">Parents' Orientation Program</a>
+                    <a href="http://web.csulb.edu/parking">Parking Office</a>
+                    <a href="http://web.csulb.edu/partners">Partners for Success (Faculty Mentoring Students Program)</a>
+                    <a href="http://web.csulb.edu/divisions/aa/grad_undergrad/pass/">Pre-Baccalaureate Advising and Support Services<a/>
+                    <a href="https://web.csulb.edu/divisions/aa/catalog/current/fees/president_scholars.html">President's Scholars Center<a/>
+                    <a href="http://web.csulb.edu/presidents-scholars">President's Scholars Program</a>
+                    <a href="http://web.csulb.edu/raza">Raza Resource Center<a/>
+                    <a href="http://web.csulb.edu/recsports/">Recreational Sports / Club Sports <a/>
+                    <a href="http://daf.csulb.edu/offices/ppfm/facilitiesmanagement/recycling/">Recycling Center<a/>
+                    <a href="http://web.csulb.edu/enrollment">Registration<a/>
+                    <a href="http://web.csulb.edu/scholarships">Scholarship Center<a/>
+                    <a href="http://web.csulb.edu/divisions/aa/grad_undergrad/aac/current/probation/">Stratagies for Academic Success Program</a>
+                    <a href="http://web.csulb.edu/shs">Student Health Services</a>
+                    <a href="http://web.csulb.edu/sld">Student Life and Development</a>
+                    <a href="http://web.csulb.edu/divisions/students/sld/services_and_resources/atf/">SLD Student Academic Travel</a>
+                    <a href="http://web.csulb.edu/sssp">Student Support Services Program</a>
+                    <a href="http://web.csulb.edu/soar">Student Transition and Retention Services</a>
+                    <a href="http://www.ccpe.csulb.edu/international/students.aspx">Study Abroad</a>
+                    <a href="http://web.csulb.edu/summerbridge">Summer Bridge Program</a>
+                    <a href="http://web.csulb.edu/summer-camps">Summer Camps (Youth)</a>
+                    <a href="http://helpdesk.csulb.edu/">Technology Help Desk</a>
+                    <a href="http://web.csulb.edu/testing">Testing and Evaluation Services</a>
+                    <a href="http://web.csulb.edu/depts/enrollment/student_academic_records/access.html">Transcripts</a>
+                    <a href="http://www.csulb.edu/registration-and-records/tuition-and-fees">Tuition and Fees</a>
+                    <a href="http://web.csulb.edu/uam">University Art Museum</a>
+                    <a href="http://web.csulb.edu/outreach">University Outreach & School Relations</a>
+                    <a href="http://web.csulb.edu/divisions/urad/">University Relations and Development</a>
+                    <a href="http://web.csulb.edu/advising">University Center for Undergraduate Advising.</a>
+                    <a href="http://web.csulb.edu/divisions/students/veterans_university/">Veterans's Services</a>
+                    <a href="http://web.csulb.edu/veterans">Veterans University</a>
+                    <a href="http://web.csulb.edu/wrc">Women's Resource Center</a>
+                    <a href="http://web.csulb.edu/wrl">Writer's Resource Lab</a>
                 </div>
       </nav>
     <!-- Use any element to open the sidenav -->
